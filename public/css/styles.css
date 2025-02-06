@@ -1,0 +1,1172 @@
+/* Variabile de culoare */
+
+
+/* 🔹 Definirea variabilelor CSS la nivelul `body` */
+/* 📌 CSS permite utilizarea variabilelor prin `--nume-variabilă`, ceea ce oferă:
+   - O **gestionare mai ușoară** a stilurilor
+   - **Coerență** în întregul site
+   - **Flexibilitate** la modificări rapide ale designului */
+
+   body {
+    /* 🎨 1️⃣ Definirea paletei de culori pentru pagină */
+    
+    /* 🔹 `--color-primary` -> Culoarea principală a site-ului (roșu intens) */
+    --color-primary:    #B22222; 
+
+    /* 🔹 `--color-secondary` -> Culoarea secundară (auriu) */
+    --color-secondary:  #FFD700;
+
+    /* 🔹 `--color-text` -> Culoarea textului (gri închis) */
+    --color-text:       #333333;
+
+    /* 🔹 `--color-background` -> Culoarea de fundal a paginii (un bej deschis) */
+    --color-background: #FAF3E0;
+
+    /* 🔹 `--color-border` -> Culoarea utilizată pentru borduri (maro deschis) */
+    --color-border:     #C0A080;
+
+    /* 🔹 `--color-card` -> Culoarea fundalului pentru carduri sau secțiuni importante (alb) */
+    --color-card:       #FFFFFF;
+
+    /* 📌 2️⃣ Definirea spațierilor pentru conținut */
+    
+    /* 🔹 `--page-padding-large` -> Margini mari stânga-dreapta (40px) */
+    --page-padding-large: 40px;
+
+    /* 🔹 `--page-padding-medium` -> Margini medii (20px) */
+    --page-padding-medium: 20px;
+
+    /* 🔹 `--page-padding-small` -> Margini mici (10px) */
+    --page-padding-small: 10px;
+
+    /* 📌 3️⃣ Definirea spațierii între elementele unui grid */
+    
+    /* 🔹 `--grid-gap-large` -> Distanță mare între elemente (20px) */
+    --grid-gap-large: 20px;
+
+    /* 🔹 `--grid-gap-medium` -> Distanță medie (15px) */
+    --grid-gap-medium: 15px;
+
+    /* 🔹 `--grid-gap-small` -> Distanță mică (10px) */
+    --grid-gap-small: 10px;
+
+    /* 📌 4️⃣ Padding pentru secțiuni cu text */
+    
+    /* 🔹 `--section-padding` -> Spațiere uniformă pentru secțiuni text (20px) */
+    --section-padding: 20px; 
+
+    /* ✅ Aplicarea variabilelor CSS în stilurile paginii */
+    
+    /* 🔹 Setează culoarea de fundal a paginii folosind variabila definită */
+    background-color: var(--color-background);
+
+    /* 🔹 Setează culoarea textului folosind variabila `--color-text` */
+    color: var(--color-text);
+
+    /* 🔹 Setează dimensiunea fontului implicit (1rem = 16px) */
+    font-size: 1rem;
+
+    /* 🔹 Aplică padding lateral mare pentru pagină (folosind variabila `--page-padding-large`) */
+    padding: 0 var(--page-padding-large);
+
+    /* 🔹 Setează fontul principal al paginii */
+    font-family: 'Roboto', sans-serif;
+}
+
+
+/* 🔹 Stilizare pentru linkurile care încep cu "http" */
+/* 📌 Ce face acest cod?
+   - Adaugă automat un simbol (⮳) înaintea oricărui link extern.
+   - Simbolul este mai mare decât textul linkului și are un spațiu între el și text.
+   - La hover, simbolul își schimbă culoarea. */
+
+   a[href^="http"]::before {
+    content: "⮳";  /* 🔹 Adaugă simbolul "⮳" înaintea linkului pentru a indica un link extern */
+    
+    font-size: 1.5em;      /* 🔹 Simbolul este de 1.5 ori mai mare decât textul normal */
+    
+    margin-right: 0.25em;  /* 🔹 Adaugă un mic spațiu între simbol și textul linkului */
+    
+    transition: color 0.3s ease; /* 🔹 Creează o tranziție lină pentru schimbarea culorii la hover */
+  }
+  
+  /* 🔹 Efect la hover pentru linkurile externe */
+  /* 📌 Ce face?
+     - Când utilizatorul trece cursorul peste un link extern, simbolul își schimbă culoarea.
+     - Culoarea este definită de variabila CSS `--color-text`, care trebuie să fie stabilită anterior. */
+  
+  a[href^="http"]:hover::before {
+    color: var(--color-text); /* 🔹 Schimbă culoarea simbolului la hover */
+  }
+  
+
+/* 🔹 Stilizare pentru linkurile din interiorul <main> */
+/* 📌 Ce face acest cod?
+   - Linkurile din <main> au un efect vizual animat la hover.
+   - Culoarea linkului se schimbă treptat la hover.
+   - Un efect de "highlight" radial apare în fundal. */
+
+   main a {
+    position: relative;  /* 🔹 Poziționează elementul relativ pentru a permite efecte animate */
+  
+    text-decoration: none; /* 🔹 Elimină sublinierea implicită a linkurilor */
+    
+    color: var(--color-text); /* 🔹 Setează culoarea textului linkului folosind variabila definită în `body` */
+    
+    transition: color 0.3s ease-in-out; /* 🔹 Creează o tranziție lină de 0.3 secunde pentru schimbarea culorii */
+  
+    /* 🔹 Fundal animat */
+    background-image: radial-gradient(
+      circle, /* 🔹 Efect radial (circular) */
+      var(--color-secondary) 0%, /* 🔹 În centrul gradientului avem culoarea secundară */
+      var(--color-secondary) 40%, /* 🔹 Aceeași culoare se extinde până la 40% */
+      transparent 80% /* 🔹 Gradientul devine transparent spre margini */
+    );
+  
+    background-repeat: no-repeat; /* 🔹 Asigură că efectul nu se repetă */
+    
+    background-position: center; /* 🔹 Centrat pe link */
+    
+    background-size: 0; /* 🔹 Inițial, fundalul nu este vizibil (mărime zero) */
+    
+    transition: background-size 0.5s ease-in-out; /* 🔹 Creează o animație lină de 0.5 secunde pentru efectul de hover */
+  }
+  
+
+
+/* 🔹 Stilizare pentru efectul hover al linkurilor din <main> */
+/* 📌 Ce face acest cod?
+   - Când utilizatorul trece mouse-ul peste un link, fundalul animat devine vizibil.
+   - Culoarea textului se schimbă în negru pentru contrast mai bun. */
+
+   main a:hover {
+    background-size: 150% 150%; /* 🔹 Mărește fundalul animat la 150% din dimensiunea inițială */
+    color: #000; /* 🔹 Schimbă culoarea textului la negru */
+  }
+  
+  /* 🔹 Stilizare pentru titluri <h1>, <h2>, <h3> */
+  /* 📌 Ce face acest cod?
+     - Setează fontul utilizat pentru toate titlurile.
+     - Elimină spațiul de sus (margin-top) folosind `!important`. */
+  
+  h1, h2, h3 {
+    margin-top: 0px !important; /* 🔹 Elimină orice spațiu de deasupra titlurilor */
+    
+    font-family: 'Roboto', sans-serif; /* 🔹 Folosește fontul Roboto pentru un aspect modern și clar */
+  }
+  
+
+
+/* 🔹 Setare font-size globală și utilizare rem/em */
+
+/* 📌 Ce face acest cod?
+   - Definește dimensiunea de bază a fontului pentru întregul document.
+   - Folosește unități flexibile (`rem` și `em`) pentru a face textul mai adaptabil.
+   - Adaugă o tranziție pentru a permite ajustarea fluidă a dimensiunii fontului. */
+
+html {
+  font-size: 16px; /* 🔹 Setează dimensiunea de bază la 16px */
+  transition: font-size 0.3s ease-in-out; /* 🔹 Creează o tranziție lină la schimbarea dimensiunii fontului */
+}
+
+/* 🔹 Stilizare titluri */
+
+/* 📌 Ce face fiecare regulă?  
+   - Definește dimensiuni relative (`rem`) pentru a face textul scalabil.  
+   - `rem` este o unitate relativă bazată pe `font-size` din `html`.  
+   - Exemplu: Dacă `html { font-size: 16px }`, atunci:
+     - `2rem` = **32px**  
+     - `1.75rem` = **28px**  
+     - `1.5rem` = **24px**  
+     - `1rem` = **16px**  */
+
+h1 {
+  font-size: 2rem;  /* 🔹 Echivalent cu 32px (2 * 16px) */
+}
+
+h2 {
+  font-size: 1.75rem;  /* 🔹 Echivalent cu 28px (1.75 * 16px) */
+}
+
+h3 {
+  font-size: 1.5rem;  /* 🔹 Echivalent cu 24px (1.5 * 16px) */
+}
+
+/* 🔹 Stilizare pentru textul principal (paragrafe, liste, linkuri) */
+
+p, li, a {
+  font-size: 1rem; /* 🔹 Echivalent cu 16px (1 * 16px) */
+}
+
+
+/* 🔹 Stilizare pentru link-uri și meniul de navigare */
+
+/* 📌 Ce face acest cod?
+   - Stilizează link-urile din meniul de navigare (`<nav>`).
+   - Definește dimensiunea fontului și culoarea textului.
+   - Adaugă un efect de tranziție pentru o schimbare mai lină a dimensiunii fontului.
+   - Schimbă culoarea textului când utilizatorul trece cu mouse-ul peste link. */
+
+   nav ul li a {
+    color: var(--color-highlight); /* 🔹 Culoarea implicită a linkurilor (folosește o variabilă CSS definită anterior) */
+    font-size: 1rem; /* 🔹 Dimensiunea fontului de bază (16px, echivalent cu 1rem) */
+    transition: font-size 0.3s ease-in-out; /* 🔹 Creează o tranziție lină la schimbarea dimensiunii fontului */
+  }
+  
+  /* 🔹 Stilizare la hover (când utilizatorul trece mouse-ul peste link) */
+  nav ul li a:hover {
+    color: var(--color-secondary); /* 🔹 Schimbă culoarea textului la o culoare secundară definită în variabilele CSS */
+  }
+  
+
+/* 🔹 Stilizare antet (header) */
+
+/* 📌 Ce face acest cod?
+   - Stilizează elementul `<header>` (antetul paginii).
+   - Setează culoarea de fundal și textului folosind variabile CSS.
+   - Adaugă o linie de jos (border-bottom) pentru a evidenția separarea de conținutul paginii. */
+
+   header {
+    background-color: var(--color-primary); /* 🔹 Setează fundalul header-ului folosind variabila `--color-primary` */
+    color: var(--color-background); /* 🔹 Culoarea textului este `--color-background` pentru contrast bun */
+    
+    border-bottom: 3px solid var(--color-border); /* 🔹 Adaugă o linie de jos de 3px pentru separare vizuală */
+}
+
+
+/* 🔹 Stilizare pentru elementul `<main>` - Layout bazat pe CSS Grid */
+
+/* 📌 Ce face acest cod?
+   - Transformă `<main>` într-un container de tip Grid.
+   - Definește structura de layout folosind Grid Template Columns și Rows.
+   - Asigură un spațiu între secțiuni prin `gap: var(--grid-gap-large)`.
+*/
+
+main {
+  display: grid; /* 🔹 Setează elementul `<main>` ca un container de tip Grid */
+  
+  /* 🔹 Definirea coloanelor din grid
+     - Setăm 3 coloane de dimensiuni diferite:
+     - Prima și ultima coloană au `3.5fr`, iar coloana din mijloc `5fr`.
+     - `fr` reprezintă "fracțiuni" din spațiul disponibil, similar cu procente. */
+  grid-template-columns: 3.5fr 5fr 3.5fr; 
+
+  /* 🔹 Definirea rândurilor
+     - `auto` înseamnă că fiecare rând se adaptează automat înălțimii conținutului.
+     - Avem 4 rânduri pentru organizarea conținutului. */
+  grid-template-rows: auto auto auto auto; 
+ 
+  /* 🔹 Organizarea layout-ului pe grid prin `grid-template-areas`
+     - Definim zonele folosind denumiri intuitive.
+     - Fiecare rând dintre ghilimele `""` reprezintă un rând din grid.
+  */
+  grid-template-areas:
+      /* Rând 1 -> Imaginea #despreNoiImg ocupă toate cele 3 coloane */
+      "despreNoiImg  despreNoiImg   despreNoiImg"
+  
+      /* Rând 2 -> Produse în prima coloană, Despre Noi în a doua, Promoții în a treia */
+      "produse       despreNoi      promotii"
+  
+      /* Rând 3 -> Întrebări frecvente în prima coloană,
+                   Oferte speciale în a doua,
+                   Promoții tabel în a treia */
+      "intrebariFre  oferteSpecial  promotiiTabel"
+  
+      /* Rând 4 -> Videoclipuri ocupă toate cele 3 coloane */
+      "videoclipuri  videoclipuri   videoclipuri";
+  
+  /* 🔹 Spațiu între secțiunile gridului */
+  gap: var(--grid-gap-large);
+
+  /* 🔹 Setăm lățimea pe 100% pentru a ocupa întreaga pagină */
+  width: 100%;
+}
+
+  
+  
+
+/* 🔹 Stilizare pentru secțiunea #despre-noi-imagine */
+
+/* 📌 1️⃣ Ce face acest cod?  
+   - Definește o secțiune (`#despre-noi-imagine`) care conține o imagine cu o descriere.
+   - Folosește CSS Grid pentru poziționare și Flexbox pentru organizarea conținutului.
+*/
+
+/* 🔹 Setează această secțiune ca parte a Gridului definit anterior */
+#despre-noi-imagine {
+  grid-area: despreNoiImg; /* 🔹 Asociază secțiunea cu zona `despreNoiImg` definită în `grid-template-areas` */
+
+}
+
+/* 🔹 Stilizare pentru containerul `<figure>` care conține imaginea și descrierea */
+#despre-noi-imagine figure {
+    display: flex; /* 🔹 Activează Flexbox pentru a organiza conținutul vertical */
+    flex-direction: column; /* 🔹 Elemente afișate în coloană (imaginea deasupra descrierii) */
+    justify-content: flex-start; /* 🔹 Așează conținutul începând de sus */
+    align-items: center; /* 🔹 Centrează imaginea și descrierea pe orizontală */
+    gap: 10px; /* 🔹 Adaugă un spațiu de 10px între imagine și figcaption */
+    height: 100%; /* 🔹 Ocupă întreaga înălțime a secțiunii */
+    margin: 0; /* 🔹 Elimină marginile implicite ale elementului `<figure>` */
+}
+
+
+/* 🔹 Asigură scalarea corectă a imaginilor și videoclipurilor */
+/* 📌 1️⃣ Ce face acest cod?
+   - Permite imaginilor și videoclipurilor să se redimensioneze corect pe ecrane de diferite dimensiuni.
+   - Evită ca imaginile să fie prea mari sau prea mici folosind `max-width` și `min-width`.
+   - Păstrează proporțiile originale folosind `height: auto;`.
+*/
+
+img, video {
+  width: 100%; /* 🔹 Face ca imaginile și videoclipurile să ocupe întreaga lățime a containerului părinte */
+  max-width: 1200px; /* 🔹 Evită ca imaginile să fie mai mari de 1200px, limitând dimensiunea maximă */
+  min-width: 200px; /* 🔹 Evită ca imaginile să fie mai mici de 200px, pentru a preveni distorsiuni */
+  height: auto; /* 🔹 Menține proporțiile originale ale imaginii, fără deformare */
+}
+
+/* 🔹 Scalarea specifică a imaginii #imagine-despre-noi */
+/* 📌 2️⃣ Ce face acest cod?
+   - Controlează dimensiunea minimă și maximă a imaginii din secțiunea "Despre Noi".
+   - Se asigură că imaginea nu depășește o lățime de 600px și nu este mai mică de 250px.
+   - Se adaptează la ecrane mici și mari fără a distorsiona imaginea.
+*/
+
+#imagine-despre-noi {
+  width: 100%; /* 🔹 Face ca imaginea să ocupe întreaga lățime a containerului */
+  max-width: 600px; /* 🔹 Limitează imaginea la o lățime maximă de 600px */
+  min-width: 250px; /* 🔹 Evită ca imaginea să fie mai mică de 250px */
+  height: auto; /* 🔹 Păstrează proporțiile corecte, fără deformare */
+}
+
+
+/* 🔹 Stilizare secțiunea #produse */
+/* 📌 1️⃣ Ce face acest cod?
+   - Definește cum trebuie să arate secțiunea cu produsele disponibile pe site.
+   - Asociază secțiunea cu un grid-area specific pentru layout-ul CSS Grid.
+   - Aplică un fundal de culoare, o margine și o structură clară.
+*/
+
+#produse {
+  grid-area: produse; /* 🔹 Atribuie secțiunii `#produse` o poziție definită în grid (vezi `grid-template-areas`). */
+  background: var(--color-card); /* 🔹 Setează fundalul secțiunii folosind variabila CSS pentru culoarea cardurilor. */
+  border: 1px solid var(--color-border); /* 🔹 Adaugă o margine de 1px cu culoarea definită în variabila `--color-border`. */
+}
+
+/* 🔹 Stilizare secțiunea #despre-noi */
+/* 📌 2️⃣ Ce face acest cod?
+   - Definește stilizarea pentru secțiunea "Despre Noi".
+   - Are aceleași proprietăți vizuale ca și `#produse`, pentru a păstra un aspect unitar.
+   - Se integrează în layout-ul paginii folosind grid-area.
+*/
+
+#despre-noi {
+  grid-area: despreNoi; /* 🔹 Atribuie secțiunii `#despre-noi` o poziție definită în grid (vezi `grid-template-areas`). */
+  background: var(--color-card); /* 🔹 Setează fundalul secțiunii folosind variabila CSS `--color-card`. */
+  border: 1px solid var(--color-border); /* 🔹 Adaugă o margine subțire pentru a separa vizual secțiunea. */
+}
+
+
+
+
+/* 🔹 Stilizare secțiunea #promotii */
+/* 📌 1️⃣ Ce face acest cod?
+   - Definește aspectul secțiunii pentru promoții.
+   - Se asigură că este poziționată corect în grila CSS Grid.
+   - Aplică un fundal și o margine pentru a fi vizual separată de alte secțiuni.
+*/
+
+#promotii {
+  grid-area: promotii; /* 🔹 Plasează această secțiune în zona "promotii" a gridului. */
+  background: var(--color-card); /* 🔹 Setează un fundal alb sau personalizat conform variabilei `--color-card`. */
+  border: 1px solid var(--color-border); /* 🔹 Adaugă o margine subțire pentru delimitare vizuală. */
+}
+
+/* 🔹 Stilizare secțiunea #videoclipuri */
+/* 📌 2️⃣ Ce face acest cod?
+   - Stilizează secțiunea unde sunt afișate videoclipuri.
+   - Aplică aceleași stiluri de bază ca și celelalte secțiuni.
+   - Se poziționează corect în layout-ul paginii.
+*/
+
+#videoclipuri {
+  grid-area: videoclipuri; /* 🔹 Plasează această secțiune în zona "videoclipuri" a gridului. */
+  background: var(--color-card); /* 🔹 Fundal alb sau personalizat definit prin variabilă. */
+  border: 1px solid var(--color-border); /* 🔹 Adaugă o margine subțire pentru separare vizuală. */
+}
+
+/* 🔹 Stilizare secțiunea #intrebari-frecvente */
+/* 📌 3️⃣ Ce face acest cod?
+   - Stilizează secțiunea unde sunt afișate întrebările frecvente.
+   - Aplică aceleași reguli de fundal și margini ca și celelalte secțiuni.
+   - Se asigură că este plasată în grid în locul corect.
+*/
+
+#intrebari-frecvente {
+  grid-area: intrebariFre; /* 🔹 Plasează această secțiune în zona "intrebariFre" a gridului. */
+  background: var(--color-card); /* 🔹 Fundal alb sau personalizat prin variabilă CSS. */
+  border: 1px solid var(--color-border); /* 🔹 Margine subțire pentru delimitare vizuală. */
+}
+
+
+/* 🔹 Stilizare secțiunea #oferte-speciale */
+/* 📌 1️⃣ Ce face acest cod?
+   - Definește aspectul secțiunii "Oferte speciale".
+   - Se asigură că secțiunea este poziționată corect în grid-ul paginii.
+   - Aplică un fundal și o margine pentru a o face vizual distinctă.
+*/
+
+#oferte-speciale {
+  grid-area: oferteSpecial; /* 🔹 Plasează această secțiune în zona "oferteSpecial" a gridului. */
+  background: var(--color-card); /* 🔹 Setează un fundal alb sau personalizat conform variabilei `--color-card`. */
+  border: 1px solid var(--color-border); /* 🔹 Adaugă o margine subțire pentru delimitare vizuală. */
+}
+
+/* 🔹 Stilizare secțiunea #promotii-tabel */
+/* 📌 2️⃣ Ce face acest cod?
+   - Stilizează tabelul cu promoții active.
+   - Aplică aceleași reguli de fundal și margini ca și celelalte secțiuni.
+   - Se poziționează corect în layout-ul paginii.
+*/
+
+#promotii-tabel {
+  grid-area: promotiiTabel; /* 🔹 Plasează această secțiune în zona "promotiiTabel" a gridului. */
+  background: var(--color-card); /* 🔹 Fundal alb sau personalizat definit prin variabilă. */
+  border: 1px solid var(--color-border); /* 🔹 Margine subțire pentru delimitare vizuală. */
+}
+
+
+
+
+
+/* 🔹 Stilizare pentru secțiuni și figuri (imagini, diagrame etc.) */
+/* 📌 1️⃣ Ce face acest cod?
+   - Aplică un fundal și o margine pentru toate secțiunile `<section>` și figurile `<figure>`.
+   - Acest stil asigură un aspect uniform pentru elementele importante din pagină.
+*/
+
+section, figure {
+  background-color: var(--color-card); /* 🔹 Setează culoarea de fundal definită în variabile (ex: alb). */
+  border: 1px solid var(--color-border); /* 🔹 Adaugă o margine subțire pentru delimitare vizuală. */
+}
+
+/* 🔹 Stilizare pentru elementele `<address>` (secțiuni de contact) */
+/* 📌 2️⃣ Ce face acest cod?
+ - Adaugă o linie de separare deasupra fiecărei secțiuni `<address>`, pentru a delimita clar datele de contact.
+*/
+
+address {
+  border-top: 1px solid var(--color-border); /* 🔹 Linie subțire între conținut și informațiile de contact. */
+}
+
+/* 🔹 Stilizare pentru header și footer */
+/* 📌 3️⃣ Ce face acest cod?
+ - Adaugă un aspect plăcut și distinct pentru header (antet) și footer.
+ - Colțuri rotunjite, efect de umbră și culori personalizate pentru un design modern.
+*/
+
+header, footer {
+/* 🔹 (c1) Colțuri rotunjite */
+border-radius: 8px; /* 🔹 Face header-ul și footer-ul să aibă colțuri mai puțin rigide. */
+
+/* 🔹 (c2) Efect de umbră pentru un design tridimensional */
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); 
+/* 🔹 Creează o umbră ușoară pentru un efect de elevare. */
+
+/* 🔹 (c3) Setează un fundal colorat pentru header și footer */
+background-color: var(--color-primary); /* 🔹 Folosește culoarea principală definită în variabile. */
+color: var(--color-background); /* 🔹 Asigură contrast bun între text și fundal. */
+}
+
+
+/* 🔹 Stilizare generală pentru toate secțiunile `<section>` */
+/* 📌 1️⃣ Ce face acest cod?
+   - Aplică un design uniform pentru toate secțiunile din pagină.
+   - Adaugă colțuri rotunjite, efect de umbră și padding pentru un aspect modern și aerisit.
+*/
+
+section {
+  /* 🔹 Colțuri rotunjite */
+  border-radius: 8px; /* 🔹 Face colțurile mai puțin ascuțite, pentru un design mai prietenos. */
+
+  /* 🔹 Efect de umbră subtil pentru separarea vizuală */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05); 
+  /* 🔹 Creează o umbră discretă în jurul secțiunilor, oferindu-le un aspect tridimensional. */
+
+  /* 🔹 Spațiere interioară */
+  padding: var(--section-padding); /* 🔹 Folosește o variabilă CSS pentru padding uniform în toate secțiunile. */
+}
+
+
+
+
+/* ========================================== 
+     ============ MEDIA QUERY MEDIU ===========
+     Exemplu: sub 992px, să avem alt layout 
+     ========================================== */
+/* 🔹 Stiluri pentru dispozitive cu lățimi de ecran de maximum 992px */
+/* 📌 1️⃣ Ce face acest cod?
+   - Se aplică pe dispozitive cu ecrane mai mici (tablete sau ecrane de laptop mai mici).
+   - Ajustează layout-ul și stilurile pentru a oferi o experiență mai bună pe dispozitive cu ecran mai mic.
+*/
+
+@media (max-width: 992px) {
+
+  /* 🔹 Stiluri pentru link-uri video */
+  .video-links a {
+    /* 📌 2️⃣ Setează lățimea maximă a link-urilor video */
+    max-width: 100px; /* Lățimea link-urilor video va fi restricționată la 100px pe dispozitive mai mici. */
+
+    /* 📌 3️⃣ Împinge link-urile la stânga */
+    left: 0px; /* Aliniază link-urile video la marginea stângă a containerului. */
+  }
+
+  /* 🔹 Stiluri pentru layout-ul principal */
+  main {
+    /* 📌 4️⃣ Setează un grid cu 2 coloane */
+    grid-template-columns: repeat(2, 1fr); /* Definim un layout cu 2 coloane egale. */
+    
+    /* 📌 5️⃣ Spațiere între coloane și rânduri */
+    gap: var(--grid-gap-medium); /* Folosim variabila `--grid-gap-medium` pentru a defini spațiul între coloane și rânduri (15px). */
+    
+    /* 📌 6️⃣ Definirea rândurilor în grid */
+    grid-template-rows: auto auto auto auto auto; /* Definim 5 rânduri care se vor ajusta automat la conținut. */
+    
+    /* 📌 7️⃣ Definirea zonelor grid-ului (layout-ul conținutului) */
+    grid-template-areas:
+      "despreNoiImg despreNoiImg"  /* #despre-noi-imagine va ocupa ambele coloane pe primul rând */
+      "produse      despreNoi"     /* #produse va fi pe coloana 1, iar #despre-noi pe coloana 2 pe al doilea rând */
+      "promotii     intrebariFre"  /* #promotii va fi pe coloana 1, iar #intrebari-frecvente pe coloana 2 pe al treilea rând */
+      "oferteSpecial promotiiTabel" /* #oferte-speciale pe coloana 1, iar #promotiiTabel pe coloana 2 pe al patrulea rând */
+      "videoclipuri  videoclipuri"; /* #videoclipuri va ocupa ambele coloane pe rândul 5 */
+
+  }
+
+  /* 🔹 Ajustare dimensiune imagine Despre Noi */
+  #imagine-despre-noi {
+    /* 📌 8️⃣ Setează înălțimea maximă a imaginii Despre Noi */
+    max-height: 250px; /* Limitează înălțimea imaginii la 250px pe dispozitive mai mici. */
+  }
+
+  /* 🔹 Modificare font-size pe dispozitive mai mici */
+  html {
+    font-size: 15px; /* Scade dimensiunea fontului pentru o vizualizare mai bună pe dispozitive mai mici (fontul de bază va fi de 15px). */
+  }
+
+  /* 🔹 Ajustare dimensiune font pentru corpul paginii */
+  body {
+    font-size: 0.95rem; /* Redu font-ul pentru textul general la 0.95rem, ceea ce face textul puțin mai mic. */
+    
+    /* 📌 9️⃣ Ajustare padding pe pagină */
+    padding: 0 var(--page-padding-medium); /* Ajustează padding-ul stânga-dreapta folosind variabila pentru padding mediu. */
+  }
+
+}
+
+    
+/* ========================================== 
+     ============ MEDIA QUERY MEDIU ===========
+     Exemplu: sub 576px, să avem alt layout 
+     ========================================== */
+/* =========================================== */
+/* 🔹 Stiluri adaptate pentru dispozitive cu ecrane foarte mici (max-width: 576px) */
+/* =========================================== */
+
+@media (max-width: 576px) {
+  /* 🔹 Modificări pentru link-urile video */
+  .video-links a {
+    max-width: 100px; /* Reducem lățimea maximă a link-urilor video la 100px pe ecrane mici. */
+    
+    /* 📌 1️⃣ Fie scoți complet offset-ul negativ */
+    left: 0px; /* Fie renunți la un offset negativ pentru a poziționa corect link-ul pe ecrane mici. Acesta pune link-ul direct la stânga. */
+
+    /* 📌 2️⃣ Fie reduci lățimea fixă la ceva mai prietenos sau o faci auto */
+    /* Permitem link-urilor să se redimensioneze în mod mai flexibil pe dispozitivele mici. */
+  }
+
+  /* 🔹 Ajustare dimensiune font pentru dispozitive mici */
+  html {
+    font-size: 13px; /* Scade dimensiunea fontului de bază pentru ecranele mici, pentru a se potrivi mai bine. 13px este mai mic decât dimensiunea standard de 16px. */
+  }
+
+  /* 🔹 Ajustare dimensiune font pentru corpul paginii */
+  body {
+    font-size: 0.85rem; /* Redu font-ul pentru textul general la 0.85rem, ceea ce face textul mai mic și mai ușor de citit pe ecranele foarte mici. */
+    
+    /* 📌 Ajustează padding-ul stânga-dreapta */
+    padding: 0 var(--page-padding-small); /* Ajustează padding-ul stânga-dreapta folosind variabila definită pentru padding mic, pentru a economisi spațiu pe dispozitivele mici. */
+  }
+
+  /* 🔹 Ajustare layout grid pentru dispozitive mici */
+  main {
+    gap: var(--grid-gap-small); /* Spațiere mică între elementele grid-ului (ex: 10px). */
+    
+    /* 📌 1️⃣ 1 coloană */
+    grid-template-columns: 1fr; /* Pentru ecrane mici, setăm grid-ul să aibă o singură coloană, toate secțiunile fiind afișate una sub alta. */
+    
+    /* 📌 2️⃣ Enumerăm rândurile pentru a organiza fiecare secțiune vertical */
+    grid-template-rows: auto auto auto auto auto auto auto auto; /* Fiecare rând va avea o dimensiune automată, bazată pe conținutul secțiunii. */
+    
+    /* 📌 3️⃣ Setăm fiecare secțiune să fie pe rânduri diferite */
+    grid-template-areas:
+      "despreNoiImg"
+      "produse"
+      "despreNoi"
+      "promotii"
+      "intrebariFre"
+      "oferteSpecial"
+      "promotiiTabel"
+      "videoclipuri";
+    
+    /* 📌 4️⃣ Renunțăm la layout-ul grid pentru un design simplificat */
+    display: block; /* Folosim un layout pe bază de blocuri pentru a pune secțiunile una sub alta, economisind spațiu și oferind o navigare mai ușoară pe dispozitive mici. */
+  }
+
+  /* 🔹 Stiluri pentru fiecare secțiune (se vor afișa pe întreaga lățime) */
+  #despre-noi-imagine,
+  #produse,
+  #despre-noi,
+  #promotii,
+  #videoclipuri,
+  #intrebari-frecvente,
+  #oferte-speciale,
+  #promotii-tabel {
+    width: 100%; /* Asigură că fiecare secțiune ocupă toată lățimea disponibilă a ecranului. */
+    margin-bottom: 1rem; /* Adăugăm un spațiu între secțiuni pentru a le separa și a îmbunătăți lizibilitatea. */
+  }
+}
+
+     
+/*  ------- STILIZARE VIDEO CU LINKURI --------  */
+
+/* Wrapper pentru videoclip și linkuri */
+.video-wrapper {
+  display: flex; /* Folosește Flexbox pentru a organiza elementele într-un container flexibil. */
+  flex-direction: row; /* Plasează elementele (video și linkuri) pe orizontală (orizontală). */
+  align-items: flex-start; /* Aliniază elementele pe axa verticală la începutul containerului (sus). */
+  
+  max-width: 1100px; /* Setează lățimea maximă a containerului la 1100px, asigurându-se că nu depășește acestă lățime pe ecrane mari. */
+  padding: 10px; /* Adaugă un spațiu de 10px pe toate laturile containerului pentru a împiedica elementele să fie lipite de margini. */
+
+  background-color: white; /* Setează culoarea de fundal a containerului la alb. */
+  margin: 0 auto 20px auto; /* Lărgește containerul pe orizontală pentru a fi centrat, cu un spațiu de 20px sub el. */
+  position: relative; /* Permite poziționarea absolută a elementelor interne față de containerul acestuia. */
+}
+
+
+/* Container care forțează un raport 16:9 pentru iframe */
+.video-container {
+  width: 100%; /* Setează lățimea containerului la 100% din lățimea părintelui său. */
+  max-width: 900px; /* Limitează dimensiunea maximă a containerului la 900px. */
+  min-width: 300px; /* Previne dimensiuni prea mici, asigurându-se că containerul nu devine mai mic de 300px pe lățime. */
+  
+  border: 10px solid #8B5A78; /* Adaugă o margine de 10px de culoare #8B5A78 (un violet închis) la exteriorul containerului. */
+
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2); /* Adaugă o umbră subtilă (de 3px pe orizontală și verticală și cu un blur de 10px) pentru a crea efectul de adâncire. */
+  
+  position: relative; /* Permite plasarea absolută a elementelor interne față de acest container. */
+  
+  padding-bottom: 56.25%; /* Folosește padding-ul inferior pentru a forța un raport de aspect 16:9. Este un truc CSS pentru a obține acest raport. (56.25% provine din 9/16 = 0.5625 sau 56.25%) */
+  
+  overflow: hidden; /* Ascunde orice parte a elementelor interne care depășesc limitele containerului, cum ar fi un iframe care s-ar putea extinde dincolo de dimensiunile stabilite. */
+  
+  flex: 1; /* Permite containerului să ocupe tot spațiul disponibil pe axa principală într-un container flexbox. */
+  
+  z-index: 1; /* Asigură că acest container se află în fața altor elemente (pentru a evita suprapunerea cu alte elemente). */
+}
+
+
+/* Stilizare iframe */
+.video-container iframe {
+  position: absolute; /* Plasează iframe-ul în mod absolut față de containerul său (adică față de .video-container). Astfel, iframe-ul va ocupa întregul spațiu al containerului. */
+  top: 0; /* Plasează iframe-ul la marginea de sus a containerului. */
+  left: 0; /* Plasează iframe-ul la marginea din stânga a containerului. */
+  width: 100%; /* Setează lățimea iframe-ului la 100% din lățimea containerului său. Aceasta face ca iframe-ul să ocupe întregul spațiu disponibil. */
+  height: 100%; /* Setează înălțimea iframe-ului la 100% din înălțimea containerului său, asigurându-se că iframe-ul se va întinde pe întreaga înălțime a containerului. */
+  border: none; /* Elimină orice bordură implicită care ar putea apărea în jurul iframe-ului. */
+  border-radius: 0px; /* Asigură că iframe-ul nu are colțuri rotunjite (rămâne cu colțuri drepte). */
+}
+
+
+/* Container pentru linkurile către videoclipuri */
+/* Container pentru linkuri */
+.video-links {
+  display: flex; /* Folosește modelul Flexbox pentru a aranja elementele interne (linkurile) într-o linie sau coloană. Flexbox ajută la distribuirea uniformă a elementelor și le face responsive. */
+  flex-direction: column; /* Așează linkurile într-o coloană, adică unul sub altul, în loc de aliniere pe orizontală. */
+  position: relative; /* Poziționează elementul relativ față de poziția sa normală, permițând altor elemente să se alinieze în raport cu acest container, fără a-l muta de la poziția sa originală. */
+  margin-top: 10px; /* Adaugă un spațiu de 10px deasupra containerului, pentru a crea un mic decalaj între video și linkuri. */
+  z-index: 0; /* Setează ordinea de suprapunere a acestui container, permițând altor elemente cu un z-index mai mare să se suprapună deasupra acestuia, dacă este necesar. */
+}
+
+
+/* Linkuri stilizate ca butoane */
+.video-links a {
+  display: block; /* Transformă linkul într-un bloc de tip block-level, ceea ce înseamnă că va ocupa întreaga lățime disponibilă și va permite controlul asupra dimensiunii și marginii acestuia. */
+  
+  background-color: #F4A7C1; /* Setează culoarea de fundal a linkului, oferindu-i un ton de roz deschis (#F4A7C1). */
+  
+  border: 3px solid #8B5A78; /* Adaugă o margine de 3px în jurul linkului, cu o culoare roz-maro (nuanță de lila închis). */
+  
+  color: #6B3A4C; /* Setează culoarea textului din link, un ton închis de roșu-lila (#6B3A4C). */
+  
+  text-decoration: none; /* Elimină sublinierea implicită a linkurilor, făcându-le să arate ca butoane. */
+  
+  font-size: 1rem; /* Setează dimensiunea textului la 1rem, echivalentul a 16px, pentru o lizibilitate standard. */
+  
+  padding: 10px; /* Adaugă 10px de spațiu în interiorul butonului, pentru a face textul să fie confortabil plasat în mijlocul linkului. */
+  
+  border-radius: 10px; /* Rotunjește colțurile butonului, oferindu-i un aspect mai prietenos și modern cu colțuri de 10px. */
+  
+  text-align: center; /* Aliniază textul în mijlocul butonului, pentru a-l face estetic plăcut. */
+  
+  width: 180px; /* Setează lățimea butonului la 180px, făcându-l consistent pe toată lungimea. */
+  
+  transition: transform 0.3s ease-in-out; /* Aplică o tranziție lină de 0.3 secunde pentru transformarea elementului, ce va permite un efect de animație mai plăcut atunci când butonul este activat (la hover). */
+  
+  transform-origin: left; /* Setează punctul de origine al transformării pe partea stângă a butonului, astfel încât efectele de mărire vor începe din partea stângă. */
+  
+  position: relative; /* Permite modificarea poziției linkului față de poziția sa inițială (adică va putea fi mutat pe orizontală sau verticală). */
+  
+  left: -20px; /* Mută butonul cu 20px la stânga față de poziția sa inițială, pentru a-l poziționa în afacerea paginii sau pentru a-l face mai vizibil (poate fi util pentru alinierea în pagină). */
+}
+
+
+/* Efect hover - linkul se lungește doar spre dreapta */
+.video-links a:hover {
+  background-color: #FCD9E5; /* Când utilizatorul pune cursorul deasupra linkului, fundalul acestuia devine roz deschis (#FCD9E5). */
+  
+  transform: scaleX(1.1); /* Crește lățimea linkului doar pe axa X (orizontală), făcându-l să se lungească spre dreapta. Transformarea este aplicată numai pe orizontală, fără să modifice înălțimea sau alte dimensiuni ale linkului. */
+}
+
+/* Stil pentru o linie de separare cu gradient (folosită ca un separator vizual) */
+.gradient-hr {
+  border: none; /* Elimină bordura implicită a elementului <hr> (care este o linie orizontală standard). */
+  
+  height: 5px; /* Setează înălțimea liniei de separare la 5px, adică grosimea liniei. */
+  
+  /* Definirea unui gradient de culoare pe linia orizontală */
+  background: linear-gradient(90deg, 
+      transparent 0%, /* Partea stângă este transparentă (inclusiv începutul liniei). */
+      #3b5998 10%, #3b5998 35%, /* O bandă de culoare #3b5998 (un albastru închis) ocupă 25% din lungimea liniei. */
+      transparent 40%, transparent 60%, /* O zonă transparentă între 35% și 60%. */
+      #3b5998 65%, #3b5998 90%, /* O altă bandă de culoare albastră între 60% și 90% din lungimea liniei. */
+      transparent 100%); /* Finalul liniei devine transparent (sfârșitul liniei). */
+  
+  margin: 40px 0; /* Adaugă un spațiu de 40px sus și jos față de alte elemente. */
+  
+  width: 80%; /* Setează lățimea liniei la 80% din lățimea părintelui (de exemplu, paginii sau secțiunii). */
+  
+  display: block; /* Asigură că linia este un element de tip block-level, ceea ce înseamnă că va ocupa întreaga lățime disponibilă și va fi pe o linie separată. */
+}
+
+
+/*  ------- TABEL --------  */
+
+/***************************/
+/* Container pentru scroll */
+/***************************/
+.table-container {
+  /* Scroll orizontal doar în container, nu pe întreaga pagină */
+  overflow-x: auto; 
+  /* Permite scroll-ul orizontal (pe lățime) în interiorul containerului, în cazul în care conținutul tabelului depășește lățimea containerului. */
+  
+  max-width: 100%; 
+  /* Lățimea maximă a containerului va fi 100% din lățimea disponibilă a părintelui său, adică containerul va ocupa toată lățimea spațiului disponibil. */
+  
+  /* Bordură + colțuri rotunjite */
+  border: 2px solid #999; 
+  /* Aplică o bordură de 2px pe toate laturile containerului, de culoare gri deschis (#999). */
+  
+  border-radius: 15px; 
+  /* Colțurile containerului vor fi rotunjite cu un radius de 15px, adăugând un efect estetic plăcut. */
+  
+  /* Ascundem marginile tabelului care ar depăși containerul rotunjit */
+  overflow: hidden; 
+  /* Ascunde orice conținut care depășește limitele containerului. În cazul nostru, acest lucru previne afișarea colțurilor sau marginilor tabelului care ies în afară de colțurile rotunjite ale containerului. */
+}
+
+
+/**********************************/
+/* Stilizare generală pentru tabel */
+/**********************************/
+table {
+  width: 100%; 
+  /* Tabelul va ocupa 100% din lățimea disponibilă a containerului său. Aceasta înseamnă că tabelul va fi lărgit pentru a se potrivi complet în spațiul disponibil. */
+
+  border-collapse: collapse; 
+  /* Setează modul în care colțurile și marginile celulelor se vor comporta. 'collapse' face ca marginile celulelor să se adune într-o singură linie, eliminând spațiile dintre ele. */
+
+  text-align: center; 
+  /* Aliniază toate textul din celulele tabelului la centru (pentru titluri, date etc.). Aceasta ajută la un aspect uniform și clar al tabelului. */
+
+  background-color: #fff; 
+  /* Setează culoarea de fundal a tabelului la alb (#fff), astfel încât tabelul să aibă un fundal curat, ușor de citit, și să se potrivească cu majoritatea design-urilor de pagină. */
+}
+
+/* Caption sub tabel */
+caption {
+  caption-side: bottom; 
+  /* Plasează titlul tabelului (caption) la partea de jos a tabelului. Aceasta este opțiunea implicită pentru 'caption', dar o specificăm pentru claritate. */
+
+  font-style: italic; 
+  /* Aplică un stil italic titlului tabelului, făcându-l să iasă în evidență, dar într-un mod subtil. */
+
+  padding: 8px; 
+  /* Adaugă un spațiu de 8px în jurul textului din caption pentru a-l face mai lizibil și a-i oferi un aspect mai aerisit. */
+
+  font-size: 0.9rem; 
+  /* Setează dimensiunea fontului pentru caption la 0.9rem, care este o valoare relativă, mai mică decât textul principal. Aceasta ajută la evidențierea textului, fără a-l face prea dominant. */
+
+  color: #333; 
+  /* Culoarea textului pentru caption este un gri închis (#333), care este ușor mai deschis decât negru, făcând textul ușor de citit, dar mai puțin intens decât un negru complet. */
+}
+
+
+/**********************************/
+/* Antet tabel (thead)            */
+/**********************************/
+thead {
+  background-color: #b30000; /* Roșu închis */
+  /* Aceasta setează fundalul antetului tabelului (thead) la o nuanță de roșu închis (#b30000), oferind un contrast puternic cu restul tabelului. */
+
+  color: #fff; 
+  /* Culoarea textului din antet este setată la alb (#fff), asigurând un contrast bun cu fundalul roșu și îmbunătățind lizibilitatea. */
+}
+
+/*******************************************/
+/* Alternare culori pe coloane cu <colgroup> */
+/*******************************************/
+table col:nth-child(odd) {
+  background-color: #f4f4f4; /* Culoare deschisă */
+  /* Aceasta setează fundalul coloanelor impare la o culoare deschisă (#f4f4f4), creând un efect de alternare a culorilor între coloane. */
+}
+
+table col:nth-child(even) {
+  background-color: #ffffff; /* Alb */
+  /* Aceasta setează fundalul coloanelor pare la alb (#ffffff), completând alternarea culorilor și făcând tabelul mai ușor de citit. */
+}
+
+/**********************************/
+/* Celule (th, td)                */
+/**********************************/
+th, td {
+  padding: 12px; 
+  /* Adaugă 12px de padding în jurul textului din celulele tabelului, oferind un spațiu mai mare și îmbunătățind lizibilitatea. */
+
+  border: 1px solid #ccc; 
+  /* Setează o bordură subțire de 1px de culoare gri deschis (#ccc) pentru celulele tabelului, creând o separare clară între fiecare celulă. */
+
+  transition: background 0.4s ease-in-out, color 0.3s ease-in-out; 
+  /* Definește o tranziție animată pentru schimbarea culorii de fundal și a textului când se aplică un efect de hover. Acesta va fi un efect suav care se va derula pe parcursul a 0.4s pentru fundal și 0.3s pentru text. */
+}
+
+
+/***********************************************/
+/* Hover pe rând (schimbă fundalul întregului) */
+/***********************************************/
+tbody tr:hover td {
+  /* Când utilizatorul trece cu mouse-ul pe un rând din tabel, se aplică acest stil pentru toate celulele (td) din acel rând. */
+
+  background: rgba(179, 0, 0, 0.1); /* roșu foarte deschis */
+  /* Setează fundalul celulelor din rândul pe care utilizatorul face hover la o culoare roșie foarte deschisă (rgba(179, 0, 0, 0.1)). 
+     Aici, rgba reprezintă un model de culoare cu opacitate, iar valoarea "0.1" indică o transparență mare, făcând culoarea subtilă și ușor vizibilă. */
+
+  transition: background 0.4s ease-in-out;
+  /* Definirea unei tranziții pentru schimbarea culorii de fundal:
+     - `0.4s` reprezintă durata tranziției (400ms),
+     - `ease-in-out` definește tipul de tranziție, făcând-o să înceapă și să se termine mai lent, creând un efect mai plăcut vizual. */
+}
+
+
+/*************************************************/
+/* Hover pe celula curentă (culoare mai intensă) */
+/*************************************************/
+tbody td:hover {
+  /* Când utilizatorul trece cu mouse-ul peste o celulă din tabel, se aplică aceste stiluri. */
+
+  background-color: #b30000 !important; /* roșu închis */
+  /* Setează fundalul celulei la o culoare roșu închis (#b30000). */
+  /* `!important` face ca această proprietate să aibă prioritate față de orice altă setare de stil pentru fundal. */
+
+  color: #fff;
+  /* Schimbă culoarea textului în alb (#fff), pentru a crea un contrast puternic cu fundalul roșu. */
+
+  transition: background 0.2s ease-in-out, color 0.2s ease-in-out;
+  /* Definirea unei tranziții pentru schimbările de culoare și fundal:
+     - `0.2s` reprezintă durata tranziției (200ms),
+     - `ease-in-out` face tranziția mai lină, începând și terminând mai lent pentru un efect vizual plăcut. */
+}
+
+
+/* =============================== */
+/* Buton fix "Înapoi la începutul paginii" */
+/* =============================== */
+.btn-top {
+  position: fixed;       /* fix în pagină, mereu vizibil */
+  /* Poziționează butonul astfel încât să rămână fix în pagină, chiar și atunci când utilizatorul derulează pagina. */
+
+  right: 40px;           /* marginea din dreapta */
+  /* Poziționează butonul la 40px distanță față de marginea din dreapta a ferestrei de vizualizare. */
+
+  bottom: 20px;          /* marginea de jos */
+  /* Poziționează butonul la 20px distanță față de marginea de jos a ferestrei de vizualizare. */
+
+  display: block;
+  /* Se asigură că butonul este tratat ca un element bloc (care ocupă întreaga lățime disponibilă, dar este folosit pentru un buton mic). */
+  
+  width: 50px;           /* dimensiuni - ajustează după preferințe */
+  /* Setează lățimea butonului la 50px. */
+
+  height: 50px;
+  /* Setează înălțimea butonului la 50px. */
+
+  border-radius: 50%;    /* formă rotundă */
+  /* Face butonul rotund prin setarea unui border-radius de 50%, care face ca lățimea și înălțimea să fie proporționale (50px x 50px). */
+
+  background-color: #555; 
+  /* Setează culoarea de fundal a butonului la un gri închis (#555). */
+
+  color: #fff;
+  /* Setează culoarea textului (sau iconiței din buton) la alb (#fff). */
+
+  text-align: center;
+  /* Centrează textul sau conținutul (ex: o iconiță) pe axa orizontală. */
+
+  text-decoration: none;
+  /* Elimină orice decorare a textului, cum ar fi sublinierea, pentru a păstra aspectul butonului simplu. */
+
+  opacity: 0.6;          /* semitransparent */
+  /* Setează transparența butonului la 60% (semi-transparent), pentru a-l face mai subtil. */
+
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  /* Adaugă o umbră ușoară (întunecată, cu opacitate de 0.3) în jurul butonului pentru a-l face să iasă în evidență. */
+
+  transition: background-color 0.4s, opacity 0.4s;
+  /* Setează o tranziție lină de 0.4 secunde pentru schimbările de culoare ale fundalului și opacitate. */
+  
+  cursor: pointer;
+  /* Modifică cursorul într-un pointer atunci când utilizatorul se află deasupra butonului, indicând că este un element clicabil. */
+}
+
+.btn-top:hover {
+  background-color: #333;  /* se închide la culoare la hover */
+  /* Când utilizatorul trece cu mouse-ul peste buton, culoarea de fundal devine un gri închis (#333), indicând că butonul este activ. */
+
+  opacity: 1;              /* devine opac la hover */
+  /* Când utilizatorul trece cu mouse-ul, opacitatea butonului devine 100% (opac complet). */
+}
+
+/* Caracterul triunghi centrat vertical (line-height egal cu înălțimea) */
+.btn-top .triunghi {
+  line-height: 50px;
+  /* Aliniază vertical triunghiul (sau orice iconiță) în centrul butonului folosind `line-height` egal cu înălțimea butonului (50px). */
+
+  font-size: 24px; /* mărime a triunghiului, modifică după gust */
+  /* Setează dimensiunea iconiței triunghiului la 24px. Acest lucru poate fi ajustat pentru a schimba dimensiunea simbolului. */
+
+  pointer-events: none; 
+  /* Dezactivează interacțiunile cu iconița din buton (pentru a evita conflictele cu hover-ul butonului). */
+}
+
+
+/* =============================== */
+/* Tooltip simplu la hover */
+/* =============================== */
+.btn-top:hover::after {
+  /* Adăugăm conținutul tooltip-ului atunci când butonul este hoverat */
+  content: attr(data-tooltip);  /* textul din data-tooltip */
+  /* Folosim atributul `data-tooltip` definit pe buton pentru a prelua textul ce va apărea în tooltip. */
+
+  position: absolute;
+  /* Folosim `position: absolute` pentru a poziționa tooltip-ul relativ la butonul cu clasa .btn-top. */
+
+  bottom: 60px;   
+  /* Poziționăm tooltip-ul la 60px deasupra butonului (împreună cu un spațiu pentru a nu se suprapune). */
+
+  left: 50%;      
+  /* Poziționăm tooltip-ul la mijlocul butonului pe axa orizontală, astfel încât să fie centrat. */
+
+  transform: translateX(-50%);
+  /* Folosim `translateX(-50%)` pentru a corecta alinierea, astfel încât să fie perfect centrat de la 50% din lățimea butonului. */
+
+  background-color: rgba(0, 0, 0, 0.8);
+  /* Setăm culoarea de fundal a tooltip-ului la un negru semitransparent. */
+
+  color: #fff;
+  /* Textul din tooltip va avea culoare albă pentru a fi lizibil pe fundalul închis al tooltip-ului. */
+
+  padding: 5px 8px;
+  /* Adăugăm un pic de padding (spațiu interior) pentru a face textul din tooltip mai aerisit și ușor de citit. */
+
+  border-radius: 4px;
+  /* Colțurile tooltip-ului vor fi rotunjite cu un radius de 4px pentru un efect mai plăcut vizual. */
+
+  white-space: nowrap;
+  /* Impiedicăm textul să fie împărțit pe mai multe linii, astfel încât tooltip-ul să rămână pe o singură linie. */
+
+  font-size: 0.8rem;
+  /* Setăm dimensiunea fontului tooltip-ului la 0.8rem (un pic mai mic decât dimensiunea textului principal). */
+}
+
+
+
+@media print {
+  /* 1) Bannerul (p#banner) - mutat sus pe prima pagină */
+  #banner {
+    display: block; 
+    width: 80%;
+    margin: 0 auto 1em auto;
+    border: 2px dotted black;
+    padding: 0.5em;
+    text-align: center;
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    margin-top: 2cm; 
+    z-index: 9999;
+  }
+
+  /* 2) Ascundem imaginile, videoclipurile, iframe-urile, figure, figcaption 
+        și butonul "Înapoi la începutul paginii" */
+  img, video, iframe, figure, figcaption {
+    display: none !important;
+  }
+  a.btn-top {
+    display: none !important;
+  }
+
+  /* 3) Gridul afisat ca block (pentru a evita "tăierea" celulelor la print) */
+  .table-container, table {
+    display: block !important;
+  }
+
+  /* 4) Toate link-urile apar ca text normal (fără culoare/subliniere) */
+  a:link, a:visited, a:hover, a:active {
+    text-decoration: none !important;
+    color: black !important;
+  }
+
+  /* Meniul ascuns la print */
+  header nav {
+    display: none !important;
+  }
+
+  /* 5) H1 pe prima pagină, centrat vertical/orizontal, subliniat, 
+        2.5em, page-break după, iar footerul cu page-break înainte */
+  header h1 {
+    text-align: center;
+    text-decoration: underline;
+    font-size: 2.5em;      /* 2.5x față de html { font-size:16px } = 40px */
+    margin-top: 6cm;       /* spațiu suplimentar, simulând centrare verticală */
+    page-break-after: always;
+    
+  }
+
+
+  footer {
+    page-break-before: always;
+  }
+
+  /* 6) Watermark (div#watermark) vizibil pe fiecare pagină */
+  #watermark {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 100px;
+    height: 2cm;
+    border: 3px double black;
+    opacity: 0.65;
+    text-align: center;
+    transform: translate(-50%, -50%) rotate(-25deg);
+    z-index: 1000;
+    pointer-events: none;
+    line-height: 2cm;
+    font-weight: bold;
+  }
+
+  /* 7) Margini alternative la tipărire: paginile din stânga/dreapta */
+  @page :left {
+    margin-left: 2.5cm;
+    margin-right: 0.5cm;
+  }
+  @page :right {
+    margin-left: 0.5cm;
+    margin-right: 2.5cm;
+  }
+}
+
+#contact-info{
+  width: 100%;
+}
+
+/* Schimbarea afișării implicite a textului selectat */
+
+  /* Schimbare stil selecție text */
+  ::selection {
+    background-color: var(--primary-color);
+    color: var(--color-secondary);
+    text-shadow: 0 1px 1px rgba(0,0,0,0.1);
+  }
+  
+  /* Pentru compatibilitate cu browsere vechi */
+  ::-moz-selection {
+    background-color: var(--primary-color);
+    color: var(--color-secondary);
+    text-shadow: 0 1px 1px rgba(0,0,0,0.1);
+  }
+
+/* text care se plimba orizontal sau verticalprintr-o animație  */
+  /* Animatie text mobil */
+.scrolling-container {
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100%;
+  margin: 0rem 0;
+  background-color: var(--color-card);
+  padding: 5px 0;
+  border-width: 0px;
+  border-radius: 0px;
+
+}
+
+.scrolling-text {
+  display: inline-block;
+  padding-left: 100%;
+  animation: scrollText 20s linear infinite;
+  color: var(--color-text);
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+@keyframes scrollText {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* Adaptare pentru mobile */
+@media (max-width: 768px) {
+  img, video {
+    max-width: 90%;
+    min-width: 150px;
+  }
+  .scrolling-text {
+    font-size: 1rem;
+    animation-duration: 15s;
+  }
+}
+
+@media (max-width: 480px) {
+  img, video {
+    max-width: 100%;
+    min-width: 100px;
+  }
+  .scrolling-container {
+    margin: 1rem 0;
+  }
+  .scrolling-text {
+    font-size: 0.9rem;
+    animation-duration: 12s;
+  }
+}

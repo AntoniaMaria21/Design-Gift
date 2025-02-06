@@ -1,0 +1,20 @@
+<!-- ================================================================= -->
+<!-- 🔹 403.ejs - Pagina pentru eroarea "Acces interzis" -->
+<!-- ================================================================= -->
+
+<!-- 📌 1️⃣ Ce face acest fișier? -->
+<!-- - Acest fișier este responsabil pentru afișarea erorii 403 ("Acces interzis"). -->
+<!-- - În loc să conțină propriul cod HTML, el include `eroare.ejs`. -->
+<!-- - `eroare.ejs` este un șablon reutilizabil care afișează mesajul și imaginea erorii. -->
+
+<% include("eroare.ejs") %>
+
+<!-- 📌 2️⃣ Cum se leagă `403.ejs` de `index.js`? -->
+<!-- - În `index.js`, avem o rută care gestionează această eroare: -->
+<!--
+app.get('/403', (req, res) => {
+    res.render('pagini/403', { title: 'Acces interzis' });
+});
+-->
+<!-- - Atunci când un utilizator accesează `/403`, serverul trimite acest fișier ca răspuns. -->
+<!-- - Variabila `title: 'Acces interzis'` este transmisă și utilizată în `eroare.ejs`. -->

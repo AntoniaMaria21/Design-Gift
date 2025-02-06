@@ -1,0 +1,234 @@
+#video-vtt {
+    width: 90%; /* Face ca videoclipul să ocupe 90% din lățimea containerului */
+    max-width: 800px; /* Videoclipul nu va depăși 800px pe ecrane mari */
+    min-width: 300px; /* Se asigură că videoclipul nu devine prea mic pe ecrane înguste */
+    display: block;
+    margin: 20px auto; /* Centrează videoclipul pe pagină */
+    border-radius: 8px; /* Colțuri ușor rotunjite pentru un aspect modern */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Adaugă o umbră subtilă */
+  }
+  
+  .duotone-image {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    height: 400px;
+    background-image: url('../imagini/posterVideo.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    transition: filter 0.5s ease-in-out;
+}
+
+.duotone-image::before,
+.duotone-image::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    mix-blend-mode: multiply;
+    transition: opacity 0.5s ease-in-out;
+    pointer-events: none;
+    opacity: 1;
+}
+
+.duotone-image::before {
+    background: rgba(255, 0, 150, 0.5); /* C1 */
+}
+
+.duotone-image::after {
+    background: rgba(0, 150, 255, 0.5); /* C2 */
+}
+
+/* Efect la hover */
+.duotone-image:hover {
+    filter: grayscale(100%);
+}
+
+
+.reflexie-text {
+    display: inline-block;
+    position: relative;
+    font-family: Arial, sans-serif;
+}
+
+.reflexie-text h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #ff5733; /* Culoarea de bază */
+    margin: 0;
+    transition: color 0.3s ease-in-out;
+}
+
+/* Reflexia în dreapta */
+.reflexie-text .reflexie {
+    position: absolute;
+    top: 0;
+    left: 100%; /* Mutăm reflexia în dreapta */
+    transform: scaleX(-1); /* Oglindim pe axa OY */
+    color: rgba(255, 87, 51, 0.5); /* Culoare mai transparentă */
+    transition: color 0.3s ease-in-out;
+}
+
+/* Efect de hover pentru ambele texte */
+.reflexie-text:hover h1,
+.reflexie-text:hover .reflexie {
+    color: #3399ff; /* Schimbă culoarea la hover */
+}
+
+
+/* Layout DOAR pentru această pagină */
+#promo-page {
+    display: flex !important;
+    flex-direction: column !important; /* Afișează secțiunile una sub alta */
+    align-items: center !important; /* Centrează conținutul */
+    gap: 20px !important; /* Spațiu între secțiuni */
+    max-width: 900px !important;
+    margin: 0 auto !important;
+    padding: 20px !important;
+}
+
+/* Stilizare pentru secțiuni */
+#promo-page section {
+    width: 100% !important;
+    background-color: #f9f9f9 !important;
+    padding: 20px !important;
+    border-radius: 8px !important;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1) !important;
+    display: flex !important;
+    flex-direction: column !important; /* Asigură afișarea corectă */
+    align-items: center !important; /* Centrează conținutul */
+    justify-content: center !important;
+    text-align: center !important;
+}
+
+/* Stilizare reflexie */
+#promo-page .reflexie-text {
+    text-align: center !important;
+    position: relative !important;
+    right: 10%;
+    perspective: 800px !important; /* Creăm efectul 3D */
+}
+
+#promo-page .reflexie-text h1 {
+    font-size: 2.5rem !important;
+    font-weight: bold !important;
+    color: #ff5733 !important;
+    margin: 0 !important;
+    transition: color 0.3s ease-in-out !important;
+    transform: translateX(-20%) rotateX(20deg) rotateY(0deg) rotateZ(-10deg);
+}
+
+/* Reflexia sub text */
+#promo-page .reflexie-text .reflexie {
+    display: block !important;
+    position: absolute;
+    top: 100%;
+    left: 160%;
+    transform-origin: top center;
+    transform: translateX(-60%) rotateX(160deg) rotateY(0deg) rotateZ(-10deg);
+    color: rgba(255, 87, 51, 0.5) !important;
+    transition: color 0.3s ease-in-out !important;
+}
+
+/* Efect hover */
+#promo-page .reflexie-text:hover h1,
+#promo-page .reflexie-text:hover .reflexie {
+    color: #3399ff !important;
+}
+
+
+/* Stilizare video */
+#promo-page #video-vtt {
+    width: 100% !important;
+    max-width: 800px !important;
+    display: block !important;
+    margin: 0 auto !important;
+    border-radius: 8px !important;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Stilizare imagine duotone */
+#promo-page .duotone-image {
+    width: 100% !important;
+    max-width: 600px !important;
+    height: 400px !important;
+    background-image: url('../imagini/posterVideo.jpg') !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    margin: 20px auto !important;
+    border-radius: 8px !important;
+}
+ 
+.promo-header{
+    height: 100px;
+}
+
+
+:root {
+    --bg-promo-1: url('../imagini/posterVideo.jpg');
+    --bg-promo-2: url('../imagini/posterCadouri.jpg');
+  }
+  
+  .promo-header {
+    position: relative;
+    height: 40vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .promo-header::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    animation: promoBgChange 10s infinite;
+    z-index: -1;
+  }
+  
+  @keyframes promoBgChange {
+    0%, 49.9% {
+      background-image: var(--bg-promo-1);
+      opacity: 1;
+    }
+    50%, 100% {
+      background-image: var(--bg-promo-2);
+      opacity: 1;
+    }
+  }
+  
+  .reflexie-text {
+    position: relative;
+    z-index: 1;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+  }
+  
+  /* Adaptare mobile */
+  @media (max-width: 768px) {
+    .promo-header {
+      height: 40vh;
+      background-attachment: scroll;
+    }
+    
+    .promo-header::before {
+      background-attachment: scroll;
+      animation: promoBgChangeMobile 10s infinite;
+    }
+  }
+  
+  @keyframes promoBgChangeMobile {
+    0%, 49.9% {
+      background-image: var(--bg-promo-2);
+    }
+    50%, 100% {
+      background-image: var(--bg-promo-1);
+    }
+  }

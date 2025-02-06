@@ -1,0 +1,212 @@
+
+<header> 
+  <!-- <header>: Reprezintă antetul paginii web. 
+       Aceasta este secțiunea de sus a paginii, unde se afișează promoții, titlul site-ului și meniul de navigare. -->
+
+  <div class="scrolling-container">
+      <!-- <div>: Creează un container pentru textul care se derulează automat.
+           class="scrolling-container": Permite aplicarea unui stil CSS pentru efectul de scroll. -->
+
+      <div class="scrolling-text">
+          <!-- <div>: Conține mesajul promoțional. 
+               class="scrolling-text": Permite stilizarea și efectul de derulare automată a textului. -->
+
+          🎁 Oferim promoții speciale pentru comenzile online! Contactați-ne acum pentru un cadou personalizat! 🎉
+          <!-- Textul mesajului promoțional, care va fi afișat ca un banner derulant. -->
+      </div>
+  </div>
+
+  <div class="title-container">
+      <!-- <div>: Creează un container pentru titlul site-ului. 
+           class="title-container": Permite aplicarea unui stil CSS pentru alinierea și aspectul titlului. -->
+
+      <h1>
+          <!-- <h1>: Titlul principal al site-ului, important pentru SEO și claritate. -->
+
+          <i class="fa-solid fa-gift"></i>
+          <!-- <i>: Reprezintă o pictogramă (icon) din Font Awesome.
+               class="fa-solid fa-gift": Afișează un simbol de cadou. -->
+
+          Design & Gift - Cadouri personalizate
+
+          <i class="fa-solid fa-gear fa-spin" style="color:#666;"></i>
+          <!-- <i>: Un alt icon Font Awesome.
+               class="fa-solid fa-gear fa-spin": Afișează un simbol de rotiță care se rotește automat pentru un efect vizual dinamic. -->
+      </h1>
+  </div>
+
+  <!-- Buton hamburger care apare doar pe mobil -->
+  <button class="menu-toggle" aria-label="Meniu">
+      <!-- <button>: Creează un buton pentru deschiderea meniului pe mobil. 
+           class="menu-toggle": Permite aplicarea unui stil CSS specific. 
+           aria-label="Meniu": Oferă o descriere pentru cititoarele de ecran, îmbunătățind accesibilitatea. -->
+
+      <i class="fa-solid fa-bars"></i>
+      <!-- <i>: Afișează un icon de meniu (hamburger) din Font Awesome. -->
+  </button>
+
+  <nav class="nav-menu">
+      <!-- <nav>: Creează meniul de navigare principal. 
+           class="nav-menu": Permite aplicarea unui stil CSS pentru a face meniul responsiv și vizibil pe toate dispozitivele. -->
+
+      <ul class="menu">
+          <!-- <ul>: Creează o listă neordonată (fără numerotare) pentru elementele meniului.
+               class="menu": Permite stilizarea meniului prin CSS. -->
+
+          <li>
+              <!-- <li>: Element de listă (meniul principal). -->
+
+              <a href="/" class="home-link">
+                  <!-- <a>: Link către pagina principală (Acasă). 
+                       href="/": Redirecționează utilizatorul către pagina principală. 
+                       class="home-link": Permite stilizarea acestui link specific. -->
+
+                  <i class="fa-solid fa-house"></i>
+                  <!-- <i>: Afișează un icon de casă (Acasă) folosind Font Awesome. -->
+
+                  <span>Acasă</span>
+                  <!-- <span>: Conține textul „Acasă”.
+                       Pe mobil, acest text poate fi ascuns prin CSS pentru a lăsa doar pictograma vizibilă. -->
+              </a>
+
+              <ul>
+                  <!-- Sub-meniu (listă imbricată) pentru secțiuni suplimentare. -->
+
+                  <li><a href="/">Acasă</a></li>
+                  <li><a href="/#despre-noi">Despre noi</a></li>
+                  <li><a href="/#produse">Produse</a></li>
+                  <li><a href="/#promotii">Promoții</a></li>
+              </ul>
+              <!-- Închidere listă sub-meniu. -->
+          </li>
+
+          <li><a href="/produse">Produse</a></li>
+          <li><a href="/promotii">Promoții</a></li>
+          <li><a href="/contact">Contact</a></li>
+          <!-- Elemente principale ale meniului, fiecare conținând un link către pagini specifice. -->
+
+          <li>
+              <a href="#">Alte pagini</a>
+              <!-- Element de meniu cu opțiuni suplimentare, fără un link direct. -->
+
+              <ul>
+                  <!-- Sub-meniu pentru "Alte pagini". -->
+                  <li><a href="/">Acasă</a></li>
+                  <li><a href="/produse">Produse</a></li>
+                  <li><a href="/promotii">Promoții</a></li>
+                  <li><a href="/contact">Contact</a></li>
+              </ul>
+          </li>
+      </ul>
+  </nav>
+</header>
+<!-- Închidere secțiune <header>, care conține meniul și informațiile principale ale paginii. -->
+
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // Când pagina s-a încărcat complet, se execută codul din această funcție.
+      // "DOMContentLoaded" înseamnă că structura HTML a fost complet încărcată și procesată.
+    
+      const menuToggle = document.querySelector(".menu-toggle");
+      // Selectează elementul HTML cu clasa "menu-toggle" (butonul pentru deschiderea meniului pe mobil).
+    
+      const navMenu = document.querySelector("nav");
+      // Selectează elementul <nav>, care conține meniul principal al paginii.
+    
+      const icon = menuToggle.querySelector("i");
+      // Selectează iconița (<i>) din interiorul butonului "menu-toggle".
+      // Aceasta va fi schimbată între "fa-bars" (meniul este închis) și "fa-xmark" (meniul este deschis).
+    
+      const dropdownParents = document.querySelectorAll("nav ul > li > a");
+      // Selectează toate linkurile <a> care se află în interiorul unui <li> din meniul de navigație.
+      // Acestea sunt linkurile care au submeniuri.
+    
+      // Gestionează deschiderea/închiderea meniului principal pe mobil
+      menuToggle.addEventListener("click", function () {
+        // Ascultă evenimentul "click" pe butonul de meniu (menuToggle).
+        
+        navMenu.classList.toggle("menu-open");
+        // Adaugă sau elimină clasa "menu-open" pe elementul <nav>.
+        // Dacă "menu-open" este adăugat, meniul devine vizibil. Dacă este eliminat, meniul se închide.
+    
+        if (navMenu.classList.contains("menu-open")) {
+          // Verifică dacă meniul este deschis.
+    
+          icon.classList.remove("fa-bars");
+          // Elimină clasa "fa-bars" (iconița cu trei linii orizontale - meniul închis).
+    
+          icon.classList.add("fa-xmark");
+          // Adaugă clasa "fa-xmark" (iconița cu un X - meniul deschis).
+        } else {
+          // Dacă meniul este închis:
+    
+          icon.classList.remove("fa-xmark");
+          // Elimină clasa "fa-xmark" (iconița cu X).
+    
+          icon.classList.add("fa-bars");
+          // Adaugă clasa "fa-bars" pentru a arăta iconița meniului închis.
+        }
+      });
+    
+      // Corectează problema cu link-ul "Acasă"
+      const homeLink = document.querySelector('.menu a[href="/"]');
+      // Selectează linkul "Acasă" care are atributul href="/".
+      
+      if (homeLink) {
+        // Dacă linkul "Acasă" există în pagină:
+    
+        homeLink.addEventListener("click", function (e) {
+          // Adaugă un eveniment de click pe linkul "Acasă".
+    
+          if (window.location.pathname === "/") {
+            // Verifică dacă utilizatorul este deja pe pagina principală "/".
+    
+            e.preventDefault();
+            // Anulează acțiunea implicită a linkului (împiedică reîncărcarea paginii).
+    
+            window.scrollTo({ top: 0, behavior: "smooth" });
+            // Derulează pagina în sus (top: 0) cu un efect de tranziție lină ("smooth").
+          }
+        });
+      }
+    
+      // Gestionează submeniurile tip acordeon
+      dropdownParents.forEach(parent => {
+        // Parcurge fiecare element <a> din meniul de navigație.
+    
+        parent.addEventListener("click", function (e) {
+          // Adaugă un eveniment de click pe fiecare link din meniu.
+    
+          const submenu = this.nextElementSibling;
+          // Găsește elementul următor în structură după link-ul curent (ar trebui să fie un <ul>, adică submeniul).
+    
+          if (submenu && submenu.tagName === "UL") {
+            // Verifică dacă există un submeniu și dacă acesta este un <ul>.
+    
+            e.preventDefault();
+            // Anulează acțiunea implicită a linkului, astfel încât să nu încarce o pagină nouă.
+    
+            if (submenu.classList.contains("submenu-open")) {
+              // Verifică dacă submeniul este deja deschis.
+    
+              submenu.classList.remove("submenu-open");
+              // Dacă submeniul este deschis, îl închide eliminând clasa "submenu-open".
+            } else {
+              // Dacă submeniul nu este deschis:
+    
+              document.querySelectorAll(".submenu-open").forEach(openMenu => {
+                openMenu.classList.remove("submenu-open");
+                // Închide toate celelalte submeniuri deschise din meniu.
+              });
+    
+              submenu.classList.add("submenu-open");
+              // Adaugă clasa "submenu-open" pentru a deschide doar submeniul pe care s-a făcut click.
+            }
+          }
+        });
+      });
+    
+    });
+    </script>
+    

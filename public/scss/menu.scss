@@ -1,0 +1,280 @@
+// ---------------------------
+// VARIABILE SASS
+// ---------------------------
+$menu-bg: #f3f3f3;
+$menu-color: #333;
+$hover-bg: #ffd480;
+$box-shadow-color: rgba(0, 0, 0, 0.3);
+$transition-time: 0.3s;
+$submenu-width: 180px;
+
+// Tema cromatică
+body {
+  --primary-color: #ff6633;
+  --secondary-color: #0099cc;
+  --hover-color: #ffee33;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+// ---------------------------
+// MIXINS
+// ---------------------------
+@mixin inner-shadow($color, $blur) {
+  box-shadow: inset 0 0 $blur $color;
+}
+
+@mixin smooth-transition($property, $time) {
+  transition: #{$property} #{$time} ease;
+}
+
+// ---------------------------
+// STILIZARE MENIU
+// ---------------------------
+nav {
+  background-color: $menu-bg;
+
+  
+
+  ul {
+    display: flex;
+    justify-content: flex-start;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+        position: relative;
+        margin: 0;
+        padding: 0;
+
+        a {
+            display: block;
+            padding: 10px 20px;
+            color: $menu-color;
+            text-decoration: none;
+            @include smooth-transition(background-color, $transition-time);
+            @include smooth-transition(box-shadow, $transition-time);
+        }
+
+        &.home-icon {
+            display: none;
+        }
+
+        &:hover {
+            a {
+                background-color: $hover-bg;
+                color: #000;
+                @include inner-shadow($box-shadow-color, 8px);
+            }
+        }
+
+        // Stiluri pentru submeniuri (dropdown)
+        ul {
+            position: absolute;
+            left: 0;
+            top: 100%;
+            background-color: $menu-bg;
+            width: $submenu-width;
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+            display: none;
+            transform-origin: top;
+            transform: scaleY(0);
+            @include smooth-transition(transform, $transition-time);
+
+            li {
+                width: 100%;
+
+                a {
+                    position: relative;
+
+                    &::before {
+                        content: '';
+                        position: absolute;
+                        left: -15px;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        border: 5px solid transparent;
+                        border-right-color: var(--primary-color);
+                        opacity: 0;
+                        @include smooth-transition(left, $transition-time);
+                        @include smooth-transition(opacity, $transition-time);
+                    }
+                }
+
+                &:hover a::before {
+                    left: 10px;
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}
+
+// **Animarea submeniului (dropdown)**
+ul ul {
+    display: none; // Inițial ascuns
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transform: scaleY(0);
+    transition: max-height 0.4s ease, opacity 0.3s ease, transform 0.3s ease;
+}
+
+// **Când este activ, se deschide lin**
+ul.submenu-open {
+    display: block;
+    max-height: 500px; // Ajustează în funcție de conținut
+    opacity: 1;
+    transform: scaleY(1);
+}
+
+}
+
+// ---------------------------
+// RESPONSIVE DESIGN
+// ---------------------------
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  color: $menu-color;
+  cursor: pointer;
+  position: absolute;
+  left: 10px;  // Îl menținem în partea stângă
+  top: 5px;
+  z-index: 9999;
+  transition: transform 0.3s ease-in-out;
+}
+
+// Când meniul este deschis, butonul hamburger devine X
+.menu-open .menu-toggle i {
+  content: "\f00d"; // FontAwesome "X"
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+}
+
+
+// Media query pentru ecrane medii (schimbă dimensiuni + înlocuiește textul "Acasă" cu icon)
+@media (max-width: 1024px) {
+  nav ul {
+    font-size: 0.9rem;
+  }
+
+  .home-icon {
+    display: block;
+  }
+}
+
+.home-link {
+  display: flex;
+  align-items: center;
+
+  i {
+    margin-right: 8px; // Spațiere între icon și text
+  }
+
+  // Pe ecrane mici, ascunde textul "Acasă"
+  @media (max-width: 768px) {
+    span {
+      display: none !important; // Asigură-te că textul este ascuns
+    }
+
+    i {
+      margin-right: 0; // Elimină spațiul gol
+    }
+  }
+}
+
+
+// Media query pentru ecrane mici (activare meniul hamburger)
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+    position: relative;
+    z-index: 9999;
+    left:-45%;
+    margin: 10px auto;
+  }
+
+  nav {
+    position: absolute;
+    top: 120px;
+    left: 0;
+    width: 0;
+    height: 0; // Începe cu dimensiuni foarte mici
+    background-color: $menu-bg;
+    display: none;
+    text-align: center;
+    overflow: hidden;
+    transform-origin: left top;
+    transition: transform 0.6s ease-out, opacity 0.5s ease-in-out;
+    z-index: 9998;
+  }
+  
+  
+  
+  
+  .menu {
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+
+    li {
+      display: block;
+      width: 100%;
+
+      a {
+        display: block;
+        padding: 15px;
+      }
+
+      ul {
+        position: relative;
+        width: 100%;
+        transform: none;
+      }
+    }
+  }
+
+  // Meniu deschis
+  .menu-open {
+    display: block;
+    width: 100%;
+    height: auto;
+    opacity: 1;
+    animation: expandMenu 0.6s ease-out forwards;
+    z-index: 9998;
+  }
+  
+  
+  
+
+  @keyframes scaleIn {
+    from {
+      transform: scaleY(0);
+    }
+    to {
+      transform: scaleY(1);
+    }
+  }
+}
+
+@keyframes expandMenu {
+  from {
+    width: 0;
+    height: 0;
+    transform: scale(0.6) rotate(-5deg) translateX(-20%) translateY(-20%);
+    opacity: 0;
+  }
+  to {
+    width: 100%;
+    height: auto;
+    transform: scale(1) rotate(0deg) translateX(0) translateY(0);
+    opacity: 1;
+  }
+}

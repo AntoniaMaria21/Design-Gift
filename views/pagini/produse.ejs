@@ -1,0 +1,78 @@
+<!DOCTYPE html> 
+<!-- <!DOCTYPE html>: Aceasta este o declarație specială care spune browserului că acest document este un fișier HTML5.
+     Este necesară pentru a asigura compatibilitatea cu standardele moderne ale web-ului. -->
+
+<html lang="ro">
+<!-- <html>: Deschide structura paginii HTML.
+     lang="ro": Indică faptul că pagina este scrisă în limba română, ceea ce ajută motoarele de căutare și tehnologiile asistive (cititoare de ecran) să interpreteze corect conținutul. -->
+
+<head>
+    <!-- <head>: Secțiunea care conține metadatele și resursele necesare pentru pagină, cum ar fi stilurile CSS și scripturile JavaScript. -->
+
+    <%- include("../fragmente/head") %>
+    <!-- Această linie folosește sintaxa EJS (Embedded JavaScript Templates) pentru a include conținutul unui fișier extern.
+         "../fragmente/head" indică faptul că fișierul "head.ejs" se află într-un folder denumit "fragmente", situat cu un nivel mai sus în structura fișierelor.
+         Acest fișier probabil conține metadate, fonturi, favicon și alte elemente globale necesare în <head>. -->
+
+    <link rel="stylesheet" href="styles.css">
+    <!-- <link>: Leagă un fișier CSS extern la pagină pentru a defini aspectul și stilizarea.
+         rel="stylesheet": Indică faptul că fișierul este un stil CSS.
+         href="styles.css": Specifică locația fișierului CSS. -->
+
+    <script src="script.js"></script>
+    <!-- <script>: Leagă un fișier JavaScript extern pentru a adăuga funcționalități interactive în pagină.
+         src="script.js": Specifică locația fișierului JavaScript. -->
+</head>
+
+<body>
+    <!-- <body>: Reprezintă conținutul vizibil al paginii, tot ce utilizatorul poate vedea și interacționa. -->
+
+    <%- include("../fragmente/header") %>
+    <!-- Include fișierul "header.ejs" din folderul "fragmente".
+         Acest fișier conține, cel mai probabil, meniul de navigare și sigla site-ului. -->
+
+    <main>
+        <!-- <main>: Secțiunea principală a conținutului paginii. 
+             Ajută la organizarea semantică a paginii, îmbunătățind accesibilitatea și SEO. -->
+
+        <section id="titlu">
+            <!-- <section>: Creează o secțiune distinctă pentru titlul paginii.
+                 id="titlu": Identificator unic pentru stilizare CSS sau manipulare cu JavaScript. -->
+
+            <h2>Produsele noastre</h2>
+            <!-- <h2>: Titlu de nivel 2, utilizat pentru organizarea conținutului în pagină. -->
+        </section>
+
+        <section id="descriere">
+            <!-- <section>: Creează o secțiune pentru descrierea produselor.
+                 id="descriere": Permite aplicarea unor stiluri CSS specifice sau referirea prin JavaScript. -->
+
+            <p>Descoperă gama noastră de produse personalizate:</p>
+            <!-- <p>: Paragraf care oferă o introducere despre produsele disponibile. -->
+        </section>
+
+        <section id="lista-produse">
+            <!-- <section>: Creează o secțiune pentru lista de produse.
+                 id="lista-produse": Identificator unic pentru stilizare sau manipulare JavaScript. -->
+
+            <ul>
+                <!-- <ul>: Creează o listă neordonată (bullet points) pentru produsele disponibile. -->
+
+                <li>Globuri de Crăciun</li>
+                <li>Tablouri personalizate</li>
+                <li>Căni personalizate</li>
+                <li>Tricouri personalizate</li>
+                <li>Ursuleți de pluș</li>
+                <!-- <li>: Element de listă individual, care afișează un produs. -->
+            </ul>
+        </section>
+    </main>
+
+    <%- include("../fragmente/footer") %>
+    <!-- Include fișierul "footer.ejs", care probabil conține informații despre drepturile de autor, linkuri utile și date de contact. -->
+
+</body>
+<!-- Închidere secțiune <body>. -->
+
+</html>
+<!-- Închidere document HTML. -->

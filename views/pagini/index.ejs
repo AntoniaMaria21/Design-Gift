@@ -1,0 +1,537 @@
+
+
+<!DOCTYPE html> 
+
+
+<html lang="ro"> 
+
+
+  <%- include("../fragmente/head") %> 
+  <!-- Include un fișier extern „head.ejs”  (Acest lucru ajută la reutilizarea aceleași secțiuni) folosind motorul de template EJS, pentru a încărca metadatele și resursele necesare (CSS, favicon etc.).
+   
+  -->
+</html>
+
+
+<body>
+
+  
+
+
+  <%- include("../fragmente/header") %> 
+  <!-- Include fișierul „header.ejs” folosind EJS, care conține de obicei bara de navigare sau partea de sus a paginii, fără a rescrie codul. -->
+  
+<!-- Watermark fix, apare la print pe fiecare pagină -->
+<div id="watermark">Petcu Maria</div>
+
+
+
+  
+
+    <!-- Continut Pagina -->
+    <main id="acasa">
+      
+      
+        <section id="despre-noi-imagine">
+          <!-- Creează o secțiune a paginii identificată prin id="despre-noi-imagine"-->
+          
+          
+             
+
+        <!-- Imagine pentru ecran mare, tabletă și mobile -->
+<figure>
+  <picture>
+      <!-- Alege imaginea potrivită în funcție de dimensiunea ecranului -->
+      <source srcset="imagini/despre-noi-large.jpeg" media="(min-width: 1024px)">
+      <!-- Dacă ecranul are o lățime de cel puțin 1024px, se afișează această imagine. -->
+
+      <source srcset="imagini/despre-noi-medium.jpeg" media="(min-width: 768px)">
+      <!-- Dacă ecranul are o lățime de cel puțin 768px, dar mai mică de 1024px, se afișează această imagine. -->
+
+      <img id="imagine-despre-noi" src="/imagini/despre-noi-small.jpeg" alt="Cadouri personalizate pentru Crăciun">
+      <!-- Imagine implicită pentru ecranele mai mici (sub 768px). -->
+          
+  </picture>
+
+  <figcaption>
+      <b>Cadouri personalizate</b> pentru Crăciun, aniversări și alte ocazii speciale.
+  </figcaption>
+ 
+</figure>
+
+          
+        </section>
+
+
+
+
+        <section id="produse">
+          
+      
+          <h2><b>Produsele noastre</b></h2>
+          
+      
+          <p>Descoperă gama noastră de <b>produse personalizate</b>, create special pentru tine:</p>
+         
+      
+          <ul>
+              
+      
+              <li><b>Globuri de Crăciun:</b> <i>Cadouri perfecte pentru sărbători</i>.</li>
+              
+      
+              <li><b>Tablouri personalizate:</b> <i>Cadouri ideale pentru <b>aniversări</b> sau evenimente </i>.</li>
+      
+      
+              <li><b>Căni personalizate:</b> Oferă un strop de bucurie în fiecare zi.</li>
+          
+      
+              <li><b>Tricouri personalizate:</b> Mesaje unice și cadouri creative.</li>
+              <li><b>Ursuleți de pluș:</b> Un <b>cadou special</b> pentru cei dragi.</li>
+          </ul>
+          
+      
+          <section>
+              <!-- <section>: Secțiune nouă în interiorul celei anterioare, utilizată pentru promoții. -->
+      
+              <h3><b>Promoții la produse</b></h3>
+             
+      
+              <p><b>Beneficiază</b> de reduceri la <b>globuri de Crăciun</b>, <b>tablouri personalizate</b> și alte <b>cadouri creative</b>. 
+                  Nu rata ofertele noastre exclusive!</p>
+              
+      
+              
+              <ol>
+                  <!-- <ol>: Elementele numerotate. -->
+      
+                  <li><b>Globuri de Crăciun la preț redus</b></li>
+                  
+      
+                  <li><b>Tablouri personalizate cu <s>10% reducere</s> <ins>20% reducere</ins></b></li>
+                  
+      
+                  <li><b>Ursuleți de pluș în oferta specială</b></li>
+                 
+              </ol>
+             
+          </section>
+         
+      </section>
+      
+      
+        
+      <section id="despre-noi"> 
+        
+        <h2><b>Despre noi</b></h2>
+        
+    
+        <p>La <b>Design & Gift</b>, creăm <b>cadouri personalizate</b> care aduc bucurie și emoție. De la <b>cadouri speciale</b> pentru Crăciun la <b>produse personalizate pentru aniversări</b>, ne asigurăm că fiecare detaliu contează.</p>
+       
+    
+        <section>
+            
+    
+            <h3><b>Valorile noastre</b></h3>
+           
+    
+            <ul>
+                
+    
+                <li><b>Creativitate:</b> Creăm <b>cadouri unice</b> și inovatoare.</li>
+                
+    
+                <li><b>Calitate:</b> Folosim cele mai bune materiale pentru fiecare <b>produs personalizat</b>.</li>
+                
+    
+                <li><b>Profesionalism:</b> Livrăm <b>cadouri personalizate</b> la timp, de fiecare dată.</li>
+             
+            </ul>
+       
+    
+            <blockquote>
+                
+    
+                <i>„Cadourile personalizate spun povești unice și creează amintiri speciale.”</i>
+            
+            </blockquote>
+            
+        </section>
+       
+    
+    </section>
+ 
+    
+
+
+    <section id="promotii"> 
+      <!-- secțiune distinctă pe pagină -->
+  
+      <h2><b>Promoții</b></h2>
+     
+  
+      <p><strong>Nu rata promoțiile pentru sărbători!</strong> Reduceri speciale la <b>globuri de Crăciun</b>, 
+         <b>tablouri personalizate</b> și alte <b>cadouri creative</b>. Găsește <b>idei de cadouri unice</b> la prețuri speciale!</p>
+      
+  
+      <dl>
+          <!-- (Description List) -->
+  
+          <dt><b>Globuri de Crăciun</b></dt>
+         
+  
+          <dd><i>Decoruri perfecte pentru sărbători</i></dd>
+         
+  
+          <dt><b>Tablouri personalizate</b></dt>
+          <dd><i>Cadouri ideale pentru evenimente speciale</i></dd>
+         
+      </dl>
+     
+  
+      <p>Vizitați și partenerul nostru pentru mai multe 
+         <a href="https://autenticgift.ro/cadouri/tablou-personalizat/digital/" target="_blank"><b>idei de cadouri creative</b></a>.</p>
+      <!-- target="_blank": Deschide linkul într-o fereastră nouă. -->
+          
+  
+      <h2><b>Calculul costurilor produselor personalizate</b></h2>
+      <!-- <h2>: Titlu de nivel 2 pentru a introduce secțiunea de calcul al costurilor. 
+           <b>: Îngroașează titlul pentru evidențiere. -->
+  
+      <p>Pentru a calcula prețul unui produs personalizat, folosim următoarea formulă:</p>
+      <!-- <p>: Introduce explicația despre cum se calculează prețul unui produs personalizat. -->
+  
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <!-- <math>: Etichetă specifică MathML (Mathematical Markup Language) pentru a afișa formule matematice într-un mod corect. 
+               xmlns="http://www.w3.org/1998/Math/MathML": Definirea namespace-ului pentru MathML. -->
+  
+          <mrow>
+              <!-- <mrow>: Grupați mai mulți termeni matematici într-un singur rând. -->
+  
+              <mi>Cost</mi>
+              <!-- <mi>: "Math Identifier", afișează un simbol matematic (în acest caz, "Cost"). -->
+  
+              <mo>=</mo>
+              <!-- <mo>: "Math Operator", afișează operatorul matematic "=". -->
+  
+              <mfrac>
+                  <!-- <mfrac>: Creează o fracție matematică. -->
+  
+                  <mrow>
+                      <!-- Grupați termenii din fracție. -->
+                      <mi>Preț&nbsp;bază</mi>
+                      <mo>+</mo>
+                      <mi>Cost&nbsp;personalizare</mi>
+                      <mo>&#x00D7;</mo>
+                      <mi>Număr&nbsp;produse</mi>
+                  </mrow>
+              </mfrac>
+          </mrow>
+      </math>
+      <!-- Închidere structură MathML pentru afișarea formulei matematice. -->
+  
+      <p>Acest calcul ne ajută să oferim un preț corect pentru fiecare comandă. Dacă ai nevoie de detalii suplimentare, nu ezita să ne contactezi!</p>
+      <!-- <p>: Explicație finală a secțiunii, încurajând utilizatorii să ceară detalii suplimentare. -->
+  
+  </section>
+  <!-- Închidere secțiune "Promoții". -->
+  
+
+       
+        
+  <section id="intrebari-frecvente">
+    <!-- <section>: Creează o secțiune distinctă pentru întrebările frecvente (FAQ).
+         id="intrebari-frecvente": Identifică secțiunea pentru stilizare CSS sau manipulare cu JavaScript. -->
+
+    <h2><b>Întrebări frecvente</b></h2>
+    <!-- <h2>: Titlu principal de nivel 2 care definește titlul secțiunii.
+         <b>: Îngroașează textul "Întrebări frecvente" pentru evidențiere vizuală. -->
+
+    <details>
+        <!-- <details>: Creează un element interactiv care permite utilizatorului să expandeze sau să restrângă conținutul.
+             Inițial, conținutul este ascuns și se afișează doar dacă utilizatorul dă click pe el. -->
+
+        <summary><b>Care sunt opțiunile de personalizare disponibile?</b></summary>
+        <!-- <summary>: Definiția titlului întrebării. Face parte din <details> și este clickabil.
+             <b>: Îngroașează întrebarea pentru vizibilitate. -->
+
+        <p>Oferim o gamă variată de opțiuni de personalizare, inclusiv gravură, imprimare de imagini și text, precum și culori la alegere.</p>
+        <!-- <p>: Răspunsul la întrebare, care va fi vizibil doar când utilizatorul deschide <details>. -->
+    </details>
+    <!-- Închidere bloc <details> pentru prima întrebare. -->
+
+    <details>
+        <summary><b>Care este termenul de livrare pentru cadourile personalizate?</b></summary>
+        <!-- <summary>: Titlul întrebării, care poate fi expandat. -->
+        
+        <p>Termenul de livrare variază între 3 și 7 zile lucrătoare, în funcție de complexitatea personalizării și volumul comenzilor.</p>
+        <!-- <p>: Explicația pentru termenul de livrare. -->
+    </details>
+    <!-- Închidere bloc <details> pentru a doua întrebare. -->
+
+    <details>
+        <summary><b>Pot returna un produs personalizat?</b></summary>
+        <!-- <summary>: Întrebare despre politica de retur. -->
+        
+        <p>Din păcate, produsele personalizate nu pot fi returnate decât în cazul unor defecte de fabricație. Ne asigurăm că fiecare cadou este de cea mai bună calitate înainte de livrare.</p>
+        <!-- <p>: Explică politica de returnare. -->
+    </details>
+    <!-- Închidere bloc <details> pentru a treia întrebare. -->
+
+</section>
+<!-- Închidere secțiune "Întrebări frecvente". -->
+
+
+<section id="oferte-speciale">
+  <!-- <section>: Creează o secțiune dedicată ofertelor speciale.
+       id="oferte-speciale": Permite identificarea secțiunii pentru stilizare CSS sau interacțiune JavaScript. -->
+
+  <h2><b>Oferte speciale</b></h2>
+  <!-- <h2>: Titlu de nivel 2 pentru organizarea conținutului și îmbunătățirea SEO.
+       <b>: Îngroașează textul pentru a-l face mai vizibil. -->
+
+  <details>
+      <!-- <details>: Creează un element interactiv care permite utilizatorului să afișeze sau să ascundă conținutul. -->
+
+      <summary><b>Reducere 20% la globuri de Crăciun</b></summary>
+      <!-- <summary>: Definiția întrebării/titlului, care este clickabil.
+           <b>: Evidențiază titlul promoției. -->
+
+      <p>Profită acum de o reducere de 20% la toate globurile de Crăciun personalizate! Oferta este valabilă până la sfârșitul lunii decembrie.</p>
+      <!-- <p>: Paragraf care conține detaliile ofertei. -->
+  </details>
+  <!-- Închidere bloc <details> pentru prima ofertă. -->
+
+  <details>
+      <summary><b>Promoție la tablouri personalizate</b></summary>
+      <!-- <summary>: Titlul promoției, care poate fi expandat pentru a vedea detaliile. -->
+
+      <p>Cumpără acum un tablou personalizat și beneficiezi de un cadou surpriză! Oferta este valabilă în limita stocului disponibil.</p>
+      <!-- <p>: Explicație pentru promoția la tablouri personalizate. -->
+  </details>
+  <!-- Închidere bloc <details> pentru a doua ofertă. -->
+
+  <p>Descărcați catalogul nostru de produse 
+      <a href="catalog.pdf" download><b>aici</b></a>.
+  </p>
+  <!-- <p>: Paragraf cu text de informare.
+       <a>: Creează un link către un fișier PDF.
+       href="catalog.pdf": Specifică locația fișierului.
+       download: Instruiește browserul să descarce fișierul în loc să-l deschidă.
+       <b>: Îngroașează textul "aici" pentru vizibilitate. -->
+
+  <hr class="gradient-hr">
+  <!-- <hr>: Creează o linie orizontală pentru separarea conținutului.
+       class="gradient-hr": Atribuie o clasă CSS pentru stilizare personalizată. -->
+
+  <h2><b>Explicații detaliate produse</b></h2>
+  <!-- <h2>: Titlu pentru secțiunea cu explicații despre produse.
+       <b>: Îngroașează titlul pentru a-l evidenția. -->
+
+  <details>
+      <summary><b>Ce materiale folosim pentru produsele noastre?</b></summary>
+      <!-- <summary>: Titlul întrebării, utilizatorul poate da click pentru a vedea răspunsul. -->
+
+      <p>Folosim doar materiale de cea mai bună calitate, precum lemn natural, sticlă, ceramică și textile premium pentru a garanta un rezultat excelent pentru fiecare produs personalizat.</p>
+      <!-- <p>: Explicație detaliată despre materialele utilizate. -->
+  </details>
+  <!-- Închidere bloc <details> pentru materialele folosite. -->
+
+  <details>
+      <summary><b>Care sunt metodele de plată acceptate?</b></summary>
+      <!-- <summary>: Întrebare despre metodele de plată acceptate. -->
+
+      <p>Acceptăm plata prin card de credit, transfer bancar și plata ramburs la livrare.</p>
+      <!-- <p>: Listă de metode de plată disponibile. -->
+  </details>
+  <!-- Închidere bloc <details> pentru metodele de plată. -->
+
+</section>
+<!-- Închidere secțiune "Oferte speciale". -->
+
+
+      <!-- Promoții active -->
+      <section id="promotii-tabel">
+        <!-- <section>: Creează o secțiune dedicată promoțiilor active.
+             id="promotii-tabel": Permite identificarea secțiunii pentru stilizare CSS sau interacțiuni JavaScript. -->
+    
+        <h2>Promoții active</h2>
+        <!-- <h2>: Titlu de nivel 2 pentru a marca începutul secțiunii de promoții. -->
+    
+        <!-- Container pentru scroll pe ecrane mici -->
+        <div class="table-container">
+            <!-- <div>: Creează un container pentru tabel.
+                 class="table-container": Permite aplicarea unui stil CSS pentru a face tabelul responsiv (scroll pe ecrane mici). -->
+    
+            <table>
+                <!-- <table>: Definește un tabel HTML pentru afișarea promoțiilor. -->
+    
+                <!-- Definim exact 4 coloane în colgroup -->
+                <colgroup>
+                    <col>
+                    <col>
+                    <col>
+                    <col>
+                </colgroup>
+                <!-- <colgroup>: Specifică gruparea coloanelor pentru a le aplica stiluri CSS mai ușor.
+                     <col>: Reprezintă fiecare coloană din tabel, în acest caz sunt 4 coloane. -->
+    
+                <!-- Caption poziționat sub tabel (prin CSS) -->
+                <caption>Promoțiile sunt valabile până la epuizarea stocului.</caption>
+                <!-- <caption>: Adaugă o descriere pentru tabel.
+                     Poziționarea sa poate fi ajustată prin CSS (de exemplu, sub tabel). -->
+    
+                <thead>
+                    <!-- <thead>: Definește antetul tabelului, care conține titlurile coloanelor. -->
+    
+                    <tr>
+                        <!-- <tr>: Creează un rând în tabel. -->
+                        <th>Produs</th>
+                        <th>Reducere</th>
+                        <th>Valabilitate</th>
+                        <th>Preț redus</th>
+                        <!-- <th>: Celule de antet, care sunt afișate cu font bold implicit. -->
+                    </tr>
+                </thead>
+                <!-- Închidere secțiune <thead>. -->
+    
+                <tbody>
+                    <!-- <tbody>: Secțiunea principală a tabelului, unde sunt listate promoțiile. -->
+    
+                    <tr>
+                        <td>Globuri de Crăciun</td>
+                        <td>20%</td>
+                        <td>1-31 decembrie</td>
+                        <td>39 RON</td>
+                        <!-- <td>: Celulele individuale care conțin datele pentru fiecare produs. -->
+                    </tr>
+    
+                    <tr>
+                        <td>Tablouri personalizate</td>
+                        <td>15%</td>
+                        <td>10-30 noiembrie</td>
+                        <td>85 RON</td>
+                    </tr>
+    
+                    <!-- Celulă cu rowspan -->
+                    <tr>
+                        <td rowspan="2">Căni personalizate</td>
+                        <td>10%</td>
+                        <td>5-25 noiembrie</td>
+                        <td>25 RON</td>
+                    </tr>
+                    <!-- <td rowspan="2">: Celula "Căni personalizate" ocupă două rânduri, eliminând nevoia de a repeta produsul. -->
+    
+                    <tr>
+                        <td>15% (comenzi peste 3 buc.)</td>
+                        <td>5-25 noiembrie</td>
+                        <td>22 RON</td>
+                    </tr>
+                </tbody>
+                <!-- Închidere secțiune <tbody>. -->
+    
+                <tfoot>
+                    <!-- <tfoot>: Creează un rând de subsol al tabelului, utilizat de obicei pentru note sau totaluri. -->
+    
+                    <tr>
+                        <td colspan="4">Toate promoțiile sunt valabile în limita stocului disponibil.</td>
+                        <!-- <td colspan="4">: Face ca această celulă să se extindă pe toate cele 4 coloane ale tabelului. -->
+                    </tr>
+                </tfoot>
+                <!-- Închidere secțiune <tfoot>. -->
+            </table>
+            <!-- Închidere tabel. -->
+        </div>
+        <!-- Închidere container tabel. -->
+    </section>
+    <!-- Închidere secțiune "Promoții active". -->
+    
+      
+
+        
+         <!-- Iframe Youtube -->
+         <section id="videoclipuri">
+          <!-- <section>: Creează o secțiune separată pentru videoclipuri relevante.
+               id="videoclipuri": Identificator unic pentru secțiune, util pentru stilizare CSS sau manipulare JavaScript. -->
+      
+          <h2><b>Videoclipuri relevante</b></h2>
+          <!-- <h2>: Titlu principal de nivel 2 care descrie conținutul secțiunii.
+               <b>: Îngroașează textul pentru evidențiere. -->
+      
+          <!-- Wrapper pentru video și linkuri -->
+          <div class="video-wrapper">
+              <!-- <div>: Creează un container pentru a organiza elementele video și linkurile.
+                   class="video-wrapper": Permite aplicarea unui stil CSS personalizat pentru aranjarea conținutului. -->
+      
+              <div class="video-container">
+                  <!-- <div>: Container special pentru videoclip, care ajută la stilizare și responsivitate. -->
+      
+                  <iframe id="video-frame" 
+                      src="https://www.youtube.com/embed/cckwWh5Q1xU" 
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                      allowfullscreen>
+                  </iframe>
+                  <!-- <iframe>: Creează un cadru încorporat pentru a afișa videoclipuri de pe YouTube.
+                       id="video-frame": Atribuie un identificator unic pentru a permite schimbarea dinamică a videoclipului prin JavaScript.
+                       src="URL": Specifică linkul către videoclipul YouTube care va fi afișat inițial.
+                       allow="...": Permite funcționalități speciale, cum ar fi autoplay, clipboard-write, etc.
+                       allowfullscreen: Permite redarea videoclipului pe tot ecranul. -->
+              </div>
+              <!-- Închidere container video. -->
+      
+              <!-- Linkurile la dreapta -->
+              <div class="video-links">
+                  <!-- <div>: Container pentru linkurile care vor schimba videoclipul afișat. -->
+      
+                  <a href="#" onclick="document.getElementById('video-frame').src='https://www.youtube.com/embed/cckwWh5Q1xU'; return false;">Sistem împachetare</a>
+                  <!-- <a>: Creează un link clicabil pentru schimbarea videoclipului.
+                       href="#": Folosește un link gol, deoarece acțiunea se va executa prin JavaScript.
+                       onclick="...": Modifică atributul `src` al iframe-ului pentru a încărca un nou videoclip. 
+                       return false;: Previne comportamentul implicit al linkului (navigarea către altă pagină). -->
+      
+                  <a href="#" onclick="document.getElementById('video-frame').src='https://www.youtube.com/embed/3xoXzOdM2z4'; return false;">Top 10 cadouri</a>
+                  <!-- Link către un alt videoclip YouTube. -->
+      
+                  <a href="#" onclick="document.getElementById('video-frame').src='https://www.youtube.com/embed/e8FPz9DxXRc'; return false;">Cadouri personalizate Craciun</a>
+                  <!-- Link către un alt videoclip YouTube. -->
+              </div>
+              <!-- Închidere container linkuri video. -->
+          </div>
+          <!-- Închidere wrapper pentru video și linkuri. -->
+      
+      </section>
+      <!-- Închidere secțiune "Videoclipuri relevante". -->
+      
+
+     
+        
+        
+    </main>
+
+    <%- include("../fragmente/footer") %>
+    <!--  Aceasta este o sintaxă specifică motorului de template EJS (Embedded JavaScript Templates).
+         Scopul acestui cod este de a include un fișier extern în pagină, în acest caz, "footer.ejs", care se află în folderul "fragmente".
+         
+         Ce face exact această linie?
+         - Înlocuiește acest cod cu conținutul fișierului "footer.ejs" înainte de a fi trimis către browser.
+         - Permite reutilizarea aceleiași secțiuni de footer pe mai multe pagini, fără a copia și lipi codul în fiecare fișier.
+         - Ajută la menținerea unei structuri organizate și la ușurința actualizării conținutului.
+        
+    -->
+    
+
+<!-- Buton "Înapoi sus" cu triunghi -->
+<a href="#acasa" class="btn-top" data-tooltip="Urcă la începutul paginii">
+  <!-- <a>: Creează un link care duce la începutul paginii.
+       href="#acasa": Face ca linkul să ducă la elementul cu id="acasa", adică partea superioară a paginii.
+       class="btn-top": Atribuie o clasă pentru a permite stilizarea butonului prin CSS.
+       data-tooltip="Urcă la începutul paginii": Adaugă un tooltip (mesaj informativ) care apare la trecerea mouse-ului peste buton. -->
+
+  <span class="triunghi">&#5123;</span>
+  <!-- <span>: Folosit pentru a include simbolul triunghiului într-un container stilizabil.
+       class="triunghi": Permite aplicarea unor stiluri CSS personalizate.
+       &#5123;: Caracter special Unicode care reprezintă un triunghi orientat în sus (⬆️), indicând direcția butonului. -->
+</a>
+
+</body>
+</html>

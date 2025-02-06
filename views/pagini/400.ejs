@@ -1,0 +1,20 @@
+<!-- ================================================================= -->
+<!-- 🔹 400.ejs - Pagina pentru eroarea "Cerere invalidă" -->
+<!-- ================================================================= -->
+
+<!-- 📌 1️⃣ Ce face acest fișier? -->
+<!-- - Acest fișier este responsabil pentru afișarea erorii 400 ("Cerere invalidă"). -->
+<!-- - În loc să conțină propriul cod HTML, el include `eroare.ejs`. -->
+<!-- - `eroare.ejs` este un șablon reutilizabil care afișează mesajul și imaginea erorii. -->
+
+<% include("eroare.ejs") %>
+
+<!-- 📌 2️⃣ Cum se leagă `400.ejs` de `index.js`? -->
+<!-- - În `index.js`, avem o rută care gestionează această eroare: -->
+<!--
+app.get('/400', (req, res) => {
+    res.render('pagini/400', { title: 'Cerere invalidă' });
+});
+-->
+<!-- - Atunci când un utilizator accesează `/400`, serverul trimite acest fișier ca răspuns. -->
+<!-- - Variabila `title: 'Cerere invalidă'` este transmisă și utilizată în `eroare.ejs`. -->

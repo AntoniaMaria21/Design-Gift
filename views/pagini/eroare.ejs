@@ -1,0 +1,44 @@
+<!-- ================================================================= -->
+<!-- 🔹 eroare.ejs - Pagina pentru afișarea erorilor -->
+<!-- ================================================================= -->
+
+<!-- 📌 1️⃣ Ce este acest fișier? -->
+<!-- Acest fișier este un șablon EJS folosit pentru afișarea erorilor (ex: 404, 500). -->
+<!-- Serverul Express.js îl încarcă atunci când apare o eroare și îi trimite variabile cu detalii despre eroare. -->
+
+<!-- 📌 2️⃣ Cum este conectat cu serverul? -->
+<!-- - Când apare o eroare, serverul Express.js apelează funcția `afisareEroare()`. -->
+<!-- - Aceasta funcție redă `eroare.ejs` și îi trimite variabile precum `title`, `text` și `imagine`. -->
+<!-- - Aceste variabile sunt apoi afișate în pagină. -->
+
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <!-- 🔹 3️⃣ Titlul paginii este dinamic -->
+    <!-- `<%= title %>` este o variabilă trimisă de server care conține titlul erorii (ex: "Pagina nu a fost găsită"). -->
+    <title><%= title %></title>
+
+    <!-- 🔹 4️⃣ Legăm un fișier CSS pentru stilizare -->
+    <!-- "/resurse/stiluri/style.css" este un fișier CSS care definește stilurile pentru pagina de eroare. -->
+    <link rel="stylesheet" href="/resurse/stiluri/style.css">
+</head>
+<body>
+
+    <!-- 🔹 5️⃣ Afișăm titlul erorii -->
+    <!-- `<%= title %>` este variabila trimisă de server (ex: "Acces interzis"). -->
+    <h1><%= title %></h1>
+
+    <!-- 🔹 6️⃣ Afișăm mesajul de eroare -->
+    <!-- `<%= text %>` este textul explicativ al erorii, trimis de server (ex: "Pagina pe care o cauți nu există."). -->
+    <p><%= text %></p>
+
+    <!-- 🔹 7️⃣ Afișăm o imagine reprezentativă a erorii -->
+    <!-- `<%= imagine %>` este calea către imaginea de eroare (ex: "/imagini/eroare404.png"). -->
+    <img src="<%= imagine %>" alt="Eroare">
+
+    <!-- 🔹 8️⃣ Link pentru revenirea la pagina principală -->
+    <!-- Dacă un utilizator ajunge pe o pagină de eroare, poate reveni la pagina principală apăsând acest link. -->
+    <a href="/">Înapoi la pagina principală</a>
+
+</body>
+</html>

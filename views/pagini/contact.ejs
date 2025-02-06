@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ro">
+  <%- include("../fragmente/head") %>
+ 
+  <body>
+      <!-- Videoclip background -->
+<!-- Videoclip background cu CSS --> 
+<div class="video-background">
+  <!-- <div>: Creează un container pentru videoclipul de fundal.
+       class="video-background": Permite aplicarea unui stil CSS pentru poziționare și redimensionare corectă. -->
+
+  <video autoplay muted loop playsinline poster="imagini/posterVideo.jpg">
+      <!-- <video>: Element HTML5 care afișează un videoclip. 
+           autoplay: Face ca videoclipul să înceapă automat la încărcarea paginii.
+           muted: Dezactivează sunetul implicit, necesar pentru ca autoplay să funcționeze corect în majoritatea browserelor.
+           loop: Face ca videoclipul să fie redat în buclă (se repetă continuu).
+           playsinline: Permite redarea videoclipului direct în pagină pe dispozitive mobile, fără a intra în fullscreen automat.
+           poster="imagini/posterVideo.jpg": Afișează o imagine înainte ca videoclipul să fie redat (în cazul unei conexiuni lente sau dacă videoclipul nu se încarcă). -->
+
+      <source src="video/video.mp4" type="video/mp4">
+      <!-- <source>: Definește o sursă video în format MP4, care este cel mai utilizat format compatibil cu majoritatea browserelor. -->
+
+      <source src="video/video.webm" type="video/webm">
+      <!-- <source>: Definește o sursă video în format WebM, un format mai optimizat pentru performanță și calitate, utilizat mai ales în browsere moderne. -->
+
+      <!-- Dacă browserul nu suportă niciunul dintre formatele video, ar putea fi afișat un mesaj alternativ aici. -->
+  </video>
+
+  <div class="video-overlay"></div>
+  <!-- <div>: Suprapunere (overlay) peste videoclip pentru a regla transparența sau a adăuga un efect vizual cu CSS.
+       class="video-overlay": Poate fi folosit pentru a adăuga un gradient, o culoare semitransparentă sau alte efecte vizuale. -->
+</div>
+
+    <%- include("../fragmente/header") %>
+    
+    <main>
+      
+      <section> 
+        <!-- <section>: Creează o secțiune separată în pagină. 
+             Această secțiune conține titlul "Contact", dar nu include alte informații, ceea ce sugerează că poate fi completată ulterior cu un formular sau detalii de contact. -->
+    
+        <h1>Contact</h1>
+        <!-- <h1>: Titlul principal al paginii sau secțiunii.
+             În HTML, <h1> este cel mai important titlu și ajută la organizarea conținutului, fiind esențial pentru SEO. -->
+    </section>
+    <!-- Închidere secțiune "Contact". -->
+    
+    <section class="multi-column">
+        <!-- <section>: Creează o nouă secțiune care conține informații despre companie.
+             class="multi-column": Oferă posibilitatea de a stiliza această secțiune într-un format pe mai multe coloane folosind CSS. -->
+    
+        <h2>Despre Design & Gift</h2>
+        <!-- <h2>: Titlu de nivel 2, utilizat pentru subsecțiuni ale paginii. 
+             Indică că această parte a paginii este dedicată informațiilor despre companie. -->
+    
+        <p>Cu o experiență de peste 10 ani în domeniul cadourilor personalizate, ne mândrim cu crearea unor produse unice care să transmită emoții. Echipa noastră de designeri lucrează îndeaproape cu clienții pentru a transforma ideile lor în realitate.</p>
+        <!-- <p>: Paragraf de text care oferă detalii despre experiența și abordarea companiei. 
+             HTML folosește paragrafele pentru a structura și separa blocurile de text. -->
+    
+        <p>Oferim o gamă variată de servicii, de la ilustrații custom până la gravare laser pe diverse materiale. Fiecare produs este realizat cu atenție la detalii și respectă standardele înalte de calitate.</p>
+        <!-- <p>: Alt paragraf, care detaliază serviciile oferite de companie. 
+             Paragrafele sunt esențiale pentru lizibilitate și organizarea conținutului. -->
+    
+        <p>Colaborăm atât cu clienți individuali cât și cu companii, oferind soluții creative pentru evenimente corporative, nunți sau ocazii speciale. Explorează galeria noastră pentru inspirație sau adu-ți propria viziune!</p>
+        <!-- <p>: Un alt paragraf care evidențiază colaborările și tipurile de clienți cărora li se adresează compania. 
+             Această abordare ajută la stabilirea credibilității și oferă claritate vizitatorilor site-ului. -->
+    </section>
+    <!-- Închidere secțiune "Despre Design & Gift". -->
+    
+      
+    <section>
+      <!-- <section>: Creează o secțiune distinctă în pagină.
+           Această secțiune conține un tabel cu informații de contact și suport. -->
+  
+      <div class="table-container">
+          <!-- <div>: Creează un container pentru tabel, util pentru stilizare și pentru a permite scroll pe ecrane mici.
+               class="table-container": Permite aplicarea unui stil CSS personalizat pentru gestionarea aspectului tabelului. -->
+  
+          <table class="contact-table">
+              <!-- <table>: Creează un tabel HTML care afișează datele de contact.
+                   class="contact-table": Permite aplicarea unui stil CSS specific acestui tabel. -->
+  
+              <caption>Date de contact și suport</caption>
+              <!-- <caption>: Adaugă un titlu tabelului, explicând conținutul acestuia. 
+                   Este afișat de obicei deasupra tabelului și ajută la accesibilitate. -->
+  
+              <thead>
+                  <!-- <thead>: Definește antetul tabelului, unde sunt afișate titlurile coloanelor. -->
+  
+                  <tr>
+                      <!-- <tr>: Creează un rând în tabel. -->
+  
+                      <th>Tip contact</th>
+                      <th>Detalii</th>
+                      <th>Program</th>
+                      <th>Metode alternative</th>
+                      <!-- <th>: Celule de antet, afișate cu font îngroșat (bold) implicit. -->
+                  </tr>
+              </thead>
+              <!-- Închidere secțiune <thead>. -->
+  
+              <tbody>
+                  <!-- <tbody>: Conține rândurile cu informațiile efective despre contact. -->
+  
+                  <tr>
+                      <td>Telefon</td>
+                      <!-- <td>: Celulă standard care conține tipul de contact. -->
+  
+                      <td><a href="tel:+0722726888">0722 726 888</a></td>
+                      <!-- <a href="tel:+0722726888">: Creează un link care, pe dispozitive mobile, permite apelarea numărului de telefon direct. -->
+  
+                      <td>Luni-Vineri: 9:00-18:00<br>Sâmbătă: 10:00-14:00</td>
+                      <!-- <br>: Inserează o linie nouă pentru afișarea clară a programului. -->
+  
+                      <td>
+                          WhatsApp: <a href="https://wa.me/40722726888">0722 726 888</a><br>
+                          Viber: 0722 726 888
+                      </td>
+                      <!-- <a href="https://wa.me/40722726888">: Creează un link direct către WhatsApp, permițând trimiterea rapidă a mesajelor. -->
+                  </tr>
+  
+                  <tr>
+                      <td>Email</td>
+                      <td><a href="mailto:contact@designandgift.ro">contact@designandgift.ro</a></td>
+                      <!-- <a href="mailto:...">: Creează un link care deschide clientul de email implicit atunci când utilizatorul dă click pe el. -->
+  
+                      <td>Răspuns în maxim 24h</td>
+                      <td>Formular contact pe site</td>
+                  </tr>
+  
+                  <tr>
+                      <td>Vizită</td>
+                      <td>Bd. Regele Carol I, nr. 46<br>Târgoviște</td>
+                      <td>Luni-Vineri: 10:00-16:00</td>
+                      <td>Programare online</td>
+                  </tr>
+              </tbody>
+              <!-- Închidere secțiune <tbody>. -->
+          </table>
+          <!-- Închidere tabel. -->
+      </div>
+      <!-- Închidere container tabel. -->
+  </section>
+  <!-- Închidere secțiune. -->
+  
+    </main>
+    
+    <%- include("../fragmente/footer") %>
+    
+  </body>
+</html>
+

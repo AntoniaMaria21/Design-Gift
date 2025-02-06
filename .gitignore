@@ -1,0 +1,5 @@
+# Ignorăm dependințele
+node_modules/
+
+# Ignorăm fișiere temporare
+temp/

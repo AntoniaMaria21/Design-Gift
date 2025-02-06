@@ -1,0 +1,20 @@
+<!-- ================================================================= -->
+<!-- 🔹 404.ejs - Pagina pentru eroarea "Pagina nu a fost găsită" -->
+<!-- ================================================================= -->
+
+<!-- 📌 1️⃣ Ce face acest fișier? -->
+<!-- - Acest fișier este responsabil pentru afișarea erorii 404 ("Pagina nu a fost găsită"). -->
+<!-- - În loc să conțină propriul cod HTML, el include `eroare.ejs`. -->
+<!-- - `eroare.ejs` este un șablon reutilizabil care afișează mesajul și imaginea erorii. -->
+
+<% include("eroare.ejs") %>
+
+<!-- 📌 2️⃣ Cum se leagă `404.ejs` de `index.js`? -->
+<!-- - În `index.js`, avem o rută care gestionează această eroare: -->
+<!--
+app.get('/404', (req, res) => {
+    res.render('pagini/404', { title: 'Pagina nu a fost găsită' });
+});
+-->
+<!-- - Atunci când un utilizator accesează `/404`, serverul trimite acest fișier ca răspuns. -->
+<!-- - Variabila `title: 'Pagina nu a fost găsită'` este transmisă și utilizată în `eroare.ejs`. -->

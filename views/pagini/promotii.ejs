@@ -1,0 +1,111 @@
+<!DOCTYPE html> 
+<!-- <!DOCTYPE html>: Specifică faptul că acest document este HTML5. 
+     Este necesar pentru ca browserul să interpreteze corect codul HTML și să utilizeze cele mai recente standarde web. -->
+
+<html lang="ro">
+<!-- <html>: Deschide documentul HTML și definește conținutul paginii. 
+     lang="ro": Indică faptul că pagina este în limba română, ceea ce ajută la optimizarea SEO și accesibilitate. -->
+
+  <%- include("../fragmente/head") %>
+  <!-- Această linie folosește sintaxa EJS (Embedded JavaScript Templates) pentru a include un fișier extern "head.ejs". 
+       Fișierul "head.ejs" conține metadatele paginii, legături către fișiere CSS, fonturi și favicon. 
+       Se află în folderul "fragmente", localizat cu un nivel mai sus în structură ("../"). -->
+
+
+<body>
+  <!-- <body>: Conține tot conținutul vizibil al paginii, inclusiv text, imagini și videoclipuri. -->
+
+  <!-- Antet -->
+  <%- include("../fragmente/header") %>
+  <!-- Include fișierul "header.ejs", care conține meniul de navigare și logo-ul. 
+       Folosirea unui fișier extern ajută la reutilizarea aceluiași antet pe mai multe pagini. -->
+
+  <main id="promo-page">
+    <!-- <main>: Reprezintă secțiunea principală a conținutului paginii. 
+         id="promo-page": Atribuie un identificator unic pentru stilizare CSS sau referință în JavaScript. -->
+
+    <!-- Secțiunea cu background animat -->
+    <section class="promo-header">
+      <!-- <section>: Creează o secțiune a paginii. 
+           class="promo-header": Permite aplicarea unui fundal animat pentru această secțiune. -->
+
+      <div class="reflexie-text">
+        <!-- <div>: Container pentru textul promoțional. 
+             class="reflexie-text": Aplică un efect vizual specific prin CSS. -->
+
+        <h1>Promoții</h1>
+        <!-- <h1>: Titlul principal al paginii, evidențiind promoțiile. -->
+
+        <h1 class="reflexie">Promoții</h1>
+        <!-- <h1>: Al doilea titlu, folosit pentru efect de reflexie. 
+             class="reflexie": Aplică stilizare CSS pentru a crea iluzia de reflexie. -->
+      </div>
+    </section>
+
+    <section class="promo-details">
+      <!-- <section>: Creează o secțiune pentru detaliile promoțiilor. 
+           class="promo-details": Permite aplicarea unui stil CSS personalizat. -->
+
+      <h2>Promoții</h2>
+      <!-- <h2>: Subtitlu de nivel 2, care organizează conținutul promoțional. -->
+
+      <p>Reduceri speciale la cadouri personalizate!</p>
+      <!-- <p>: Paragraf care descrie promoțiile active. -->
+
+      <ul>
+        <!-- <ul>: Listă neordonată (fără numerotare) pentru promoții. -->
+
+        <li>20% reducere la globuri de Crăciun</li>
+        <li>15% reducere la tablouri personalizate</li>
+        <li>10% reducere la căni personalizate</li>
+        <!-- <li>: Fiecare element de listă reprezintă o promoție activă. -->
+      </ul>
+    </section>
+
+    <section class="promo-video">
+      <!-- <section>: Creează o secțiune pentru videoclipul promoțional. 
+           class="promo-video": Permite aplicarea unui stil specific prin CSS. -->
+
+      <!-- Elementul video cu identificatorul "video-vtt" -->
+      <video id="video-vtt" poster="imagini/posterVideo.jpg" controls preload="auto">
+        <!-- <video>: Etichetă HTML5 pentru redarea videoclipurilor. 
+             id="video-vtt": Identificator unic pentru acest videoclip, util pentru referință în CSS sau JavaScript. 
+             poster="imagini/posterVideo.jpg": Afișează o imagine de previzualizare înainte de începerea videoclipului. 
+             controls: Afișează butoane de control (play, pauză, volum etc.). 
+             preload="auto": Încarcă videoclipul în avans pentru redare mai rapidă. -->
+
+        <source src="video/video.mp4" type="video/mp4">
+        <!-- <source>: Specifică un fișier video în format MP4, compatibil cu majoritatea browserelor. -->
+
+        <source src="video/video.webm" type="video/webm">
+        <!-- <source>: Specifică un fișier video în format WebM, optimizat pentru browsere moderne. -->
+
+        <track kind="subtitles" srclang="ro" label="Română" src="subtitrari/romanian.vtt" default>
+        <!-- <track>: Adaugă subtitrări pentru videoclip. 
+             kind="subtitles": Indică faptul că aceasta este o pistă de subtitrări. 
+             srclang="ro": Specifică limba subtitrărilor (română). 
+             label="Română": Textul afișat în meniul de selecție a subtitrărilor. 
+             src="subtitrari/romanian.vtt": Fișierul de subtitrări în format VTT. 
+             default: Setează aceste subtitrări ca fiind implicite. -->
+
+        <track kind="subtitles" srclang="en" label="English" src="subtitrari/english.vtt">
+        <!-- Un alt set de subtitrări, dar în limba engleză. -->
+
+        Video-ul nu este suportat de browser-ul dumneavoastră.
+        <!-- Acest text va fi afișat dacă browserul nu suportă redarea videoclipurilor. -->
+      </video>
+
+      <div class="duotone-image"></div>
+      <!-- <div>: Creează un element de suprapunere stilizată peste videoclip.
+           class="duotone-image": Aplică un efect vizual folosind CSS. -->
+    </section>
+  </main>
+
+  <%- include("../fragmente/footer") %>
+  <!-- Include fișierul "footer.ejs", care conține cel mai probabil informații despre drepturi de autor, linkuri rapide și date de contact. -->
+  
+</body>
+<!-- Închidere secțiune <body>, unde se află conținutul vizibil al paginii. -->
+
+</html>
+<!-- Închidere document HTML. -->

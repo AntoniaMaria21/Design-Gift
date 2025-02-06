@@ -1,0 +1,421 @@
+
+/* 🔹 `.multi-column` este o clasă CSS aplicată unui element HTML pentru a crea un layout cu mai multe coloane. */
+.multi-column {
+  /* 📌 `column-count: 3;` -> Împarte conținutul în **3 coloane** */
+  column-count: 3;
+
+  /* 📌 `column-rule: 1px solid #ddd;` -> Adaugă o **linie subțire (1px), solidă, gri deschis (#ddd)** între coloane */
+  column-rule: 1px solid #ddd;
+
+  /* 📌 `column-gap: 40px;` -> Creează un **spațiu de 40px** între coloane */
+  column-gap: 40px;
+
+  /* 📌 `max-width: 1200px;` -> Setează **lățimea maximă** a containerului la **1200px**, astfel încât să nu fie prea lat pe ecrane mari */
+  max-width: 1200px;
+
+  /* 📌 `padding: 0 20px;` -> Adaugă un **spațiu interior de 20px** pe **stânga și dreapta**, dar **fără spațiu sus și jos** */
+  padding: 0 20px;
+}
+
+/* 🔹 `.multi-column p` -> Selectează toate paragrafele (`<p>`) dintr-un element care are clasa `.multi-column`. */
+.multi-column p {
+  /* 📌 `margin-bottom: 1rem;` -> Adaugă **un spațiu de 1rem (aproximativ 16px) sub fiecare paragraf** 
+     pentru a separa vizual paragrafele unul de celălalt. */
+  margin-bottom: 1rem;
+
+  /* 📌 `text-align: justify;` -> **Aliniază textul la ambele margini (justificat)**, 
+     astfel încât să aibă un aspect ordonat și uniform pe fiecare linie. */
+  text-align: justify;
+}
+
+  
+  /* 🔹 **Adaptare pentru dispozitive mobile** */
+/* 📌 `@media (max-width: 768px)` -> Creează o **regulă specială** care se aplică doar
+       când lățimea ecranului este **768px sau mai mică** (ex: telefoane și tablete mici). */
+@media (max-width: 768px) {
+
+  /* 🔹 **Modificări pentru `.multi-column` pe ecrane mici** */
+  .multi-column {
+      /* 📌 `column-count: 1;` -> În loc de **3 coloane**, textul va fi afișat într-o **singură coloană** 
+         pentru o mai bună lizibilitate pe ecrane mici. */
+      column-count: 1;
+
+      /* 📌 `padding: 0 15px;` -> Reduce spațiul lateral la **15px**, 
+         astfel încât conținutul să nu atingă marginile ecranului. */
+      padding: 0 15px;
+  }
+}
+
+
+/* 🔹 `.table-container` -> Stilizează un container care conține un tabel. */
+.table-container {
+  /* 📌 `overflow-x: auto;` -> Permite **derularea orizontală** dacă tabelul este mai lat decât ecranul,
+     astfel încât utilizatorii să poată naviga fără a pierde informații. */
+  overflow-x: auto;
+
+  /* 📌 `margin: 2rem 0;` -> Adaugă **2rem (aprox. 32px) de spațiu** 
+     **sus și jos** pentru a separa tabelul de alte elemente. 
+     **0** pe laterale înseamnă că nu se adaugă spațiu lateral. */
+  margin: 2rem 0;
+
+  /* 📌 `background: white;` -> Setează **fundalul alb**, astfel încât tabelul să fie mai ușor de citit. */
+  background: white;
+
+  /* 📌 `border-radius: 10px;` -> Rotunjește colțurile containerului cu **10px**, 
+     oferind un aspect mai modern și prietenos. */
+  border-radius: 10px;
+
+  /* 📌 `box-shadow: 0 2px 15px rgba(0,0,0,0.1);` -> Adaugă **o umbră subtilă** sub container, 
+     ceea ce îl face să pară ușor ridicat față de fundal. */
+  box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+}
+
+  
+/* 🔹 `.contact-table` -> Stilizează tabelul care conține datele de contact. */
+.contact-table {
+  /* 📌 `width: 100%;` -> Face tabelul să ocupe **întreaga lățime** a containerului său. */
+  width: 100%;
+
+  /* 📌 `border-collapse: collapse;` -> Elimină spațiile dintre celulele tabelului,
+     făcând liniile de separare să pară mai compacte și mai curate. */
+  border-collapse: collapse;
+
+  /* 📌 `min-width: 600px;` -> Setează o **lățime minimă de 600px**, astfel încât tabelul să nu devină prea îngust
+     pe ecranele mici, menținând lizibilitatea. */
+  min-width: 600px;
+
+  /* 📌 `font-size: 0.95em;` -> Ușor micșorează dimensiunea textului din tabel 
+     la **95% din dimensiunea implicită a fontului**, oferind un aspect mai elegant și compact. */
+  font-size: 0.95em;
+}
+
+  
+/* 🔹 `.contact-table th, .contact-table td` -> Stilizează anteturile (`th`) și celulele (`td`) tabelului de contact. */
+.contact-table th,
+.contact-table td {
+    /* 📌 `padding: 15px;` -> Adaugă **15px de spațiu interior** în fiecare celulă, 
+       pentru a face conținutul mai aerisit și ușor de citit. */
+    padding: 15px;
+
+    /* 📌 `text-align: left;` -> Aliniază textul la **stânga**, oferind un aspect mai organizat,
+       mai ales pentru coloanele cu text descriptiv. */
+    text-align: left;
+
+    /* 📌 `border-bottom: 1px solid #ececec;` -> Adaugă **o linie de separare sub fiecare celulă**, 
+       folosind o nuanță deschisă de gri (`#ececec`), pentru o separare vizuală subtilă între rânduri. */
+    border-bottom: 1px solid #ececec;
+}
+
+  
+/* 🔹 `.contact-table th` -> Stilizează anteturile (headings) tabelului de contact. */
+.contact-table th {
+  /* 📌 `background-color: #f8f9fa;` -> Setează un **fundal deschis (gri foarte deschis)** pentru antet,
+     oferind un contrast subtil față de restul tabelului și evidențiind titlurile coloanelor. */
+  background-color: #f8f9fa;
+
+  /* 📌 `font-weight: 600;` -> Face textul **semi-bold** (puțin mai gros), 
+     astfel încât titlurile coloanelor să fie mai proeminente. */
+  font-weight: 600;
+
+  /* 📌 `color: #2c3e50;` -> Schimbă culoarea textului în **albastru închis** (`#2c3e50`),
+     făcând anteturile mai vizibile și mai ușor de citit. */
+  color: #2c3e50;
+}
+
+  
+/* 🔹 `.contact-table caption` -> Stilizează titlul tabelului (caption). */
+.contact-table caption {
+  /* 📌 `font-size: 1.3em;` -> Mărește dimensiunea textului titlului tabelului 
+     la **130% din dimensiunea implicită a fontului**, făcându-l mai vizibil. */
+  font-size: 1.3em;
+
+  /* 📌 `font-weight: bold;` -> Face textul **bold (îngroșat)**, 
+     pentru a evidenția titlul tabelului. */
+  font-weight: bold;
+
+  /* 📌 `padding: 15px;` -> Adaugă **spațiu de 15px** în jurul titlului tabelului,
+     pentru a evita aglomerarea vizuală. */
+  padding: 15px;
+
+  /* 📌 `color: #2c3e50;` -> Schimbă culoarea textului în **albastru închis** (`#2c3e50`),
+     oferind un contrast bun față de fundal. */
+  color: #2c3e50;
+
+  /* 📌 `text-align: center;` -> Centrează textul titlului tabelului,
+     făcându-l mai vizibil și mai ușor de citit. */
+  text-align: center;
+}
+
+  
+/* 🔹 `.contact-table a` -> Stilizează linkurile din tabelul de contact. */
+.contact-table a {
+  /* 📌 `color: #e74c3c;` -> Setează culoarea textului la **roșu intens** (`#e74c3c`),
+     făcând linkurile vizibile și atractive. */
+  color: #e74c3c;
+
+  /* 📌 `text-decoration: none;` -> Elimină sublinierea implicită a linkurilor, 
+     oferind un aspect mai curat. */
+  text-decoration: none;
+
+  /* 📌 `transition: color 0.3s ease;` -> Creează un **efect de tranziție lină** de 0.3 secunde
+     când culoarea linkului se schimbă (ex: la hover). */
+  transition: color 0.3s ease;
+}
+
+/* 🔹 `.contact-table a:hover` -> Stilizează linkurile când utilizatorul trece cu mouse-ul peste ele. */
+.contact-table a:hover {
+  /* 📌 `color: #c0392b;` -> Schimbă culoarea textului într-un **roșu mai închis** (`#c0392b`),
+     oferind un efect vizual subtil și atractiv. */
+  color: #c0392b;
+
+  /* 📌 `text-decoration: underline;` -> Adaugă **subliniere** la hover, 
+     indicând utilizatorului că linkul este interactiv. */
+  text-decoration: underline;
+}
+
+  
+/* 🔹 `@media (max-width: 768px)` -> Reguli CSS care se aplică **numai** pe ecrane mai mici de 768px 
+   (dispozitive mobile și unele tablete). Acest lucru asigură un design **responsive**. */
+@media (max-width: 768px) {
+
+    /* 🔹 `.table-container` -> Stilizează containerul tabelului pe ecrane mici. */
+    .table-container {
+        /* 📌 `margin: 1rem -15px;` -> 
+           - **1rem** -> Adaugă un spațiu de 1 rem (unitate relativă) sus și jos.
+           - **-15px** -> Extinde containerul spre margini pentru a elimina marginile laterale neuniforme. */
+        margin: 1rem -15px;
+
+        /* 📌 `border-radius: 0;` -> Elimină colțurile rotunjite pe ecrane mici 
+           pentru a se potrivi mai bine cu marginile ecranului. */
+        border-radius: 0;
+    }
+
+    /* 🔹 `.contact-table` -> Stilizează tabelul de contact pe ecrane mici. */
+    .contact-table {
+        /* 📌 `font-size: 0.9em;` -> Reduce ușor dimensiunea textului cu 10% 
+           pentru a se încadra mai bine pe ecrane mici. */
+        font-size: 0.9em;
+    }
+
+    /* 🔹 `.contact-table td, .contact-table th` -> Stilizează celulele tabelului (coloane și anteturi). */
+    .contact-table td,
+    .contact-table th {
+        /* 📌 `padding: 12px 10px;` -> Reduce spațiul interior al celulelor pentru a economisi spațiu:
+           - **12px sus și jos**
+           - **10px stânga și dreapta** */
+        padding: 12px 10px;
+    }
+}
+
+  
+/* 🔹 `@media (max-width: 480px)` -> Aceste stiluri se aplică **numai** pentru ecrane cu lățimea de 
+   **480px sau mai mică** (telefoane mobile mai mici). */
+   @media (max-width: 480px) {
+
+    /* 🔹 `.contact-table` -> Stilizează tabelul de contact pe ecrane foarte mici. */
+    .contact-table {
+        /* 📌 `min-width: 500px;` -> 
+           - Setează **lățimea minimă** a tabelului la 500px.
+           - Dacă ecranul este mai mic, utilizatorul va trebui să **deruleze orizontal** pentru a vedea tot tabelul. */
+        min-width: 500px;
+    }
+
+    /* 🔹 `.contact-table td:nth-child(3), .contact-table td:nth-child(4)` */
+    /* Stilizează a 3-a și a 4-a coloană din tabel (Program și Metode alternative). */
+    .contact-table td:nth-child(3),
+    .contact-table td:nth-child(4) {
+        /* 📌 `min-width: 150px;` -> 
+           - Asigură că aceste coloane au **cel puțin 150px** lățime.
+           - Previne comprimarea excesivă a textului în coloanele respective. */
+        min-width: 150px;
+    }
+}
+
+  
+
+/* 🔹 `.video-background` -> Stilizează elementul care conține fundalul video. */
+.video-background {
+  /* 📌 `position: fixed;` -> 
+     - Face ca videoclipul să rămână **fix** pe ecran, indiferent de derulare.
+     - Videoclipul va acoperi întotdeauna întreaga pagină. */
+  position: fixed;
+
+  /* 📌 `top: 0;` și `left: 0;` -> 
+     - Poziționează videoclipul în **colțul din stânga sus** al paginii.
+     - Împreună cu `width: 100%` și `height: 100%`, asigură că va acoperi întreaga fereastră. */
+  top: 0;
+  left: 0;
+
+  /* 📌 `width: 100%;` și `height: 100%;` -> 
+     - Videoclipul va ocupa **întreaga lățime și înălțime** a ecranului. */
+  width: 100%;
+  height: 100%;
+
+  /* 📌 `z-index: -1;` -> 
+     - Setează videoclipul în **spatele tuturor celorlalte elemente**.
+     - Elementele de conținut (text, imagini) vor fi afișate **deasupra** videoclipului. */
+  z-index: -1;
+
+  /* 📌 `overflow: hidden;` -> 
+     - Ascunde **părțile videoclipului** care depășesc dimensiunile containerului.
+     - Asigură că nu apare derulare nedorită din cauza videoclipului. */
+  overflow: hidden;
+}
+
+  
+/* 🔹 `.video-background video` -> Stilizează videoclipul din fundal. */
+.video-background video {
+  /* 📌 `position: absolute;` ->
+     - Poziționează videoclipul **în interiorul containerului `.video-background`**.
+     - Nu afectează alte elemente ale paginii, deoarece este absolut poziționat. */
+  position: absolute;
+
+  /* 📌 `top: 50%;` și `left: 50%;` -> 
+     - Plasează **centrul** videoclipului în mijlocul containerului `.video-background`. */
+  top: 50%;
+  left: 50%;
+
+  /* 📌 `transform: translate(-50%, -50%);` ->
+     - Mută videoclipul **în exact centrul ecranului**.
+     - `-50%` din dimensiunile sale proprii pe **axele X și Y**. */
+  transform: translate(-50%, -50%);
+
+  /* 📌 `min-width: 100%;` și `min-height: 100%;` ->
+     - Se asigură că videoclipul **acoperă** întreaga zonă a containerului, indiferent de raportul de aspect. */
+  min-width: 100%;
+  min-height: 100%;
+
+  /* 📌 `width: auto;` și `height: auto;` ->
+     - Permite videoclipului să își **mențină proporțiile originale**.
+     - Dacă videoclipul este mai lat decât ecranul, se ajustează automat. */
+  width: auto;
+  height: auto;
+
+  /* 📌 `object-fit: cover;` ->
+     - Asigură că videoclipul **acoperă întreaga zonă**, chiar dacă trebuie să taie margini.
+     - Elimină „marginile negre” care pot apărea pe unele dispozitive. */
+  object-fit: cover;
+}
+
+  
+/* 🔹 `.video-overlay` -> Crează un strat semi-transparent peste videoclipul de fundal. */
+.video-overlay {
+  /* 📌 `position: absolute;` ->
+     - Face ca acest strat să fie **poziționat peste** videoclipul de fundal.
+     - Nu afectează alte elemente ale paginii. */
+  position: absolute;
+
+  /* 📌 `top: 0;` și `left: 0;` ->
+     - Plasează acest strat exact în **colțul din stânga sus** al paginii. */
+  top: 0;
+  left: 0;
+
+  /* 📌 `width: 100%;` și `height: 100%;` ->
+     - Face ca acest strat să acopere **întreaga zonă** a videoclipului. */
+  width: 100%;
+  height: 100%;
+
+  /* 📌 `background: rgba(0,0,0,0.4);` ->
+     - Aplică un **fundal negru semi-transparent** peste videoclip.
+     - `rgba(0,0,0,0.4)` înseamnă:
+       - **Roșu:** 0
+       - **Verde:** 0
+       - **Albastru:** 0 (negru)
+       - **Opacitate:** 0.4 (40% opac, 60% transparent).
+     - Rezultatul este un efect de **umbrire subtilă**, care îmbunătățește vizibilitatea textului sau altor elemente deasupra videoclipului. */
+  background: rgba(0,0,0,0.4);
+}
+
+  
+/* 🔹 `.content-over-video` -> Adaugă un conținut peste videoclipul de fundal. */
+.content-over-video {
+  /* 📌 `position: relative;` ->
+     - Permite plasarea acestui element **deasupra** videoclipului de fundal.
+     - Elementele cu `position: relative` pot fi mutate față de poziția lor inițială. */
+  position: relative;
+
+  /* 📌 `z-index: 1;` ->
+     - Asigură că acest element este afișat **deasupra** videoclipului (`z-index: -1` este pentru video).
+     - Cu cât `z-index` este mai mare, cu atât elementul este mai "în față". */
+  z-index: 1;
+
+  /* 📌 `background: rgba(255,255,255,0.9);` ->
+     - Creează un **fundal alb semi-transparent**.
+     - `rgba(255,255,255,0.9)` înseamnă:
+       - **Roșu:** 255
+       - **Verde:** 255
+       - **Albastru:** 255 (alb)
+       - **Opacitate:** 0.9 (90% opac, 10% transparent).
+     - Acest fundal face ca textul din interior să fie mai lizibil, păstrând în același timp un efect vizual elegant. */
+  background: rgba(255,255,255,0.9);
+
+  /* 📌 `margin: 20px;` ->
+     - Adaugă **spațiu exterior** în jurul acestui element (20px pe toate părțile).
+     - Împiedică lipirea directă de marginea paginii. */
+  margin: 20px;
+
+  /* 📌 `border-radius: 10px;` ->
+     - Face ca **colțurile elementului să fie rotunjite**.
+     - `10px` înseamnă că fiecare colț are o rază de curbură de 10px. */
+  border-radius: 10px;
+
+  /* 📌 `padding: 20px;` ->
+     - Adaugă **spațiu interior** între conținut și marginile acestui element.
+     - Ajută la **organizarea conținutului**, oferindu-i un aspect aerisit și ușor de citit. */
+  padding: 20px;
+}
+
+  
+/* 🔹 Adaptări pentru dispozitive mobile */
+/* 📌 `@media (max-width: 768px)` ->
+   - Acest bloc de stiluri se aplică doar dacă ecranul are o **lățime maximă de 768px**.
+   - Este util pentru a optimiza aspectul site-ului pe **tablete și telefoane mobile**. */
+   @media (max-width: 768px) {
+    
+    /* 🔹 `.video-background` -> Ascunde videoclipul de fundal pe ecrane mici. */
+    .video-background {
+        /* 📌 `display: none;` -> Elimină complet videoclipul din vizualizare. */
+        display: none;
+    }
+
+    /* 🔹 `body` -> Setează un fundal static în locul videoclipului. */
+    body {
+        /* 📌 `background: url('imagini/posterVideo.jpg') center/cover;`
+           - Înlocuiește videoclipul cu o **imagine statică de fundal** (`posterVideo.jpg`).
+           - `center` -> Imaginea este **centrată** în pagină.
+           - `cover` -> Imaginea este redimensionată astfel încât să **acopere întregul ecran**. */
+        background: url('imagini/posterVideo.jpg') center/cover;
+    }
+
+    /* 🔹 `.content-over-video` -> Ajustează dimensiunea și stilul conținutului suprapus. */
+    .content-over-video {
+        /* 📌 `margin: 10px;` ->
+           - Reduce marginea exterioară pentru a economisi spațiu pe ecranele mici. */
+        margin: 10px;
+
+        /* 📌 `background: rgba(255,255,255,0.95);`
+           - Face fundalul conținutului **mai opac** pe mobil (`0.95` în loc de `0.9`).
+           - Îmbunătățește **lizibilitatea** textului pe fundalul static. */
+        background: rgba(255,255,255,0.95);
+    }
+}
+
+  
+/* 🔹 Adaptări pentru ecranele în modul "portret" (vertical) */
+/* 📌 `@media (orientation: portrait)` ->
+   - Acest bloc de stiluri se aplică **doar** dacă dispozitivul este ținut în **mod portret** (mai înalt decât lat). */
+   @media (orientation: portrait) {
+    
+    /* 🔹 `.video-background video` -> Ajustează dimensiunea videoclipului de fundal pe ecrane verticale. */
+    .video-background video {
+        /* 📌 `width: auto;` -> 
+           - Videoclipul își păstrează **lățimea originală**.
+           - Acest lucru previne deformarea imaginii. */
+        width: auto;
+
+        /* 📌 `height: 100%;` -> 
+           - Videoclipul ocupă întreaga **înălțime a ecranului**.
+           - Asigură că fundalul rămâne **acoperit complet**. */
+        height: 100%;
+    }
+}
