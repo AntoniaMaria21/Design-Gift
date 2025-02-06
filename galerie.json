@@ -1,0 +1,55 @@
+{
+  "cale_galerie": "/imagini/galerie",
+  "imagini": [
+    {
+      "fisier_imagine": "cadou1.jpg",
+      "nume_poza": "Set Crăciun Personalizat",
+      "continut_alternativ": "Set cadouri de Crăciun cu gravuri",
+      "descriere_poza": "Cutie din lemn cu gravură laser și motive festive",
+      "intervale_zile": [
+        ["luni", "vineri"],
+        ["sâmbătă", "duminică"]
+      ],
+      "licenta": {
+        "tip": "CC-BY",
+        "autor": "Maria Ionescu",
+        "sursa": "https://example.com/cadou1"
+      }
+    },
+    {
+      "fisier_imagine": "cadou2.jpg",
+      "nume_poza": "Tablou Modern",
+      "descriere_poza": "Tablou abstract pe pânză 80x120cm",
+      "intervale_zile": [["marți", "joi"]]
+    },
+    {
+      "fisier_imagine": "cadou3.jpg",
+      "nume_poza": "Căni Personalizate",
+      "continut_alternativ": "Set de căni cu poze personalizate",
+      "descriere_poza": "Set de 2 căni ceramice cu fotografie transferată",
+      "intervale_zile": [
+        ["duminică", "duminică"],
+        ["vineri", "sâmbătă"]
+      ]
+    },
+    {
+      "fisier_imagine": "cadou4.jpg",
+      "nume_poza": "Bijuterii Artizanale",
+      "descriere_poza": "Colier cu pandantiv gravat",
+      "intervale_zile": [["luni", "sâmbătă"]]
+    },
+    {
+      "fisier_imagine": "cadou5.jpg",
+      "nume_poza": "Jucării Educative",
+      "continut_alternativ": "Set puzzle din lemn personalizat",
+      "descriere_poza": "Puzzle 3D cu numele copilului",
+      "intervale_zile": [["joi", "joi"]]
+    },
+    {
+      "fisier_imagine": "cadou6.jpg",
+      "nume_poza": "Set Scrisori",
+      "descriere_poza": "Set papetărie premium cu monogramă",
+      "intervale_zile": [["miercuri", "vineri"]]
+    }
+  ]
+}

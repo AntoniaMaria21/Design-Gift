@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ro">
+  <%- include("../fragmente/head") %>
+
+  <body>
+    <div class="video-background">
+      <!-- container pentru videoclipul de fundal.
+       -->
+
+      <video autoplay muted loop playsinline poster="imagini/posterVideo.jpg">
+        <!-- <video>: Element HTML5 care afișează un videoclip. 
+           -->
+
+        <source src="video/video.mp4" type="video/mp4" />
+
+        <source src="video/video.webm" type="video/webm" />
+      </video>
+
+      <div class="video-overlay"></div>
+      <!-- <div>: Suprapunere (overlay) peste videoclip pentru a regla transparența  -->
+    </div>
+
+    <%- include("../fragmente/header") %>
+
+    <main>
+      <section>
+        <h1>Contact</h1>
+      </section>
+
+      <section class="multi-column">
+        <h2>Despre Design & Gift</h2>
+
+        <p>
+          Cu o experiență de peste 10 ani în domeniul cadourilor personalizate,
+          ne mândrim cu crearea unor produse unice care să transmită emoții.
+          Echipa noastră de designeri lucrează îndeaproape cu clienții pentru a
+          transforma ideile lor în realitate.
+        </p>
+
+        <p>
+          Oferim o gamă variată de servicii, de la ilustrații custom până la
+          gravare laser pe diverse materiale. Fiecare produs este realizat cu
+          atenție la detalii și respectă standardele înalte de calitate.
+        </p>
+
+        <p>
+          Colaborăm atât cu clienți individuali cât și cu companii, oferind
+          soluții creative pentru evenimente corporative, nunți sau ocazii
+          speciale. Explorează galeria noastră pentru inspirație sau adu-ți
+          propria viziune!
+        </p>
+      </section>
+
+      <section>
+        <div class="table-container">
+          <!-- <div>: Creează un container pentru tabel -->
+
+          <table class="contact-table">
+            <caption>
+              Date de contact și suport
+            </caption>
+            <!-- <caption>:  titlul tabelului -->
+
+            <thead>
+              <!-- <thead>:  antetul tabelului -->
+
+              <tr>
+                <!-- <tr>: Creează un rând în tabel. -->
+
+                <th>Tip contact</th>
+                <th>Detalii</th>
+                <th>Program</th>
+                <th>Metode alternative</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <td>Telefon</td>
+
+                <td><a href="tel:+0722726888">0722 726 888</a></td>
+
+                <td>Luni-Vineri: 9:00-18:00<br />Sâmbătă: 10:00-14:00</td>
+                <!-- <br>:  linie nouă pentru afișarea clară a programului. -->
+
+                <td>
+                  WhatsApp: <a href="https://wa.me/40722726888">0722 726 888</a
+                  ><br />
+                  Viber: 0722 726 888
+                </td>
+              </tr>
+
+              <tr>
+                <td>Email</td>
+                <td>
+                  <a href="mailto:contact@designandgift.ro"
+                    >contact@designandgift.ro</a
+                  >
+                </td>
+                <td>Răspuns în maxim 24h</td>
+                <td>Formular contact pe site</td>
+              </tr>
+
+              <tr>
+                <td>Vizită</td>
+                <td>Bd. Regele Carol I, nr. 46<br />Târgoviște</td>
+                <td>Luni-Vineri: 10:00-16:00</td>
+                <td>Programare online</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- Închidere container tabel. -->
+      </section>
+    </main>
+
+    <%- include("../fragmente/footer") %>
+  </body>
+</html>

@@ -1,0 +1,199 @@
+.multi-column {
+  column-count: 3;
+
+  column-rule: 1px solid #ddd;
+
+  column-gap: 40px;
+
+  max-width: 1200px;
+
+  padding: 0 20px;
+}
+
+.multi-column p {
+  margin-bottom: 1rem;
+
+  text-align: justify;
+}
+
+@media (max-width: 768px) {
+  .multi-column {
+    column-count: 1;
+
+    padding: 0 15px;
+  }
+}
+
+.table-container {
+  overflow-x: auto;
+
+  margin: 2rem 0;
+
+  background: white;
+
+  border-radius: 10px;
+
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+.contact-table {
+  width: 100%;
+
+  border-collapse: collapse;
+
+  min-width: 600px;
+
+  font-size: 0.95em;
+}
+
+.contact-table th,
+.contact-table td {
+  padding: 15px;
+
+  text-align: left;
+
+  border-bottom: 1px solid #ececec;
+}
+
+.contact-table th {
+  background-color: #f8f9fa;
+
+  font-weight: 600;
+
+  color: #2c3e50;
+}
+
+.contact-table caption {
+  font-size: 1.3em;
+
+  font-weight: bold;
+
+  padding: 15px;
+
+  color: #2c3e50;
+
+  text-align: center;
+}
+
+.contact-table a {
+  color: #e74c3c;
+
+  text-decoration: none;
+
+  transition: color 0.3s ease;
+}
+
+.contact-table a:hover {
+  color: #c0392b;
+
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .table-container {
+    margin: 1rem -15px;
+
+    border-radius: 0;
+  }
+
+  .contact-table {
+    font-size: 0.9em;
+  }
+
+  .contact-table td,
+  .contact-table th {
+    padding: 12px 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-table {
+    min-width: 500px;
+  }
+
+  .contact-table td:nth-child(3),
+  .contact-table td:nth-child(4) {
+    min-width: 150px;
+  }
+}
+
+.video-background {
+  position: fixed;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  z-index: -1;
+
+  overflow: hidden;
+}
+
+.video-background video {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+
+  min-width: 100%;
+  min-height: 100%;
+
+  width: auto;
+  height: auto;
+
+  object-fit: cover;
+}
+
+.video-overlay {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.content-over-video {
+  position: relative;
+
+  z-index: 1;
+
+  background: rgba(255, 255, 255, 0.9);
+
+  margin: 20px;
+
+  border-radius: 10px;
+
+  padding: 20px;
+}
+
+@media (max-width: 768px) {
+  .video-background {
+    display: none;
+  }
+
+  body {
+    background: url("imagini/posterVideo.jpg") center/cover;
+  }
+
+  .content-over-video {
+    margin: 10px;
+
+    background: rgba(255, 255, 255, 0.95);
+  }
+}
+
+@media (orientation: portrait) {
+  .video-background video {
+    width: auto;
+
+    height: 100%;
+  }
+}
