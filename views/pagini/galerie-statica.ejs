@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+
+<html lang="ro">
+  <%- include("../fragmente/head") %>
+
+  <body>
+    <%- include("../fragmente/header") %>
+
+    <main id="galerie-page">
+      <!-- Secțiunea cu background animat -->
+
+      <section class="galerie-details">
+        <h2>Galerie Produse</h2>
+        <%- include("../fragmente/galerie", { cale_galerie:
+        obGalerie.cale_galerie, imagini: obGalerie.imagini }) %>
+      </section>
+    </main>
+
+    <%- include("../fragmente/footer") %>
+  </body>
+</html>

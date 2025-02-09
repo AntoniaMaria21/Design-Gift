@@ -1,0 +1,530 @@
+<!-- Etapa 1.1 care a fost index.html acum este index.ejs -->
+<!-- Etapa 1.3 am redenumit resurse in public pentru ca express folosește „public” ca folder implicit pentru fișiere statice, fiind o convenție standard pentru claritate și organizare -->
+
+<!DOCTYPE html>
+
+<html lang="ro">
+  <%- include("../fragmente/head") %>
+  <!-- Include un fișier extern „head.ejs”  (Acest lucru ajută la reutilizarea aceleași secțiuni) folosind motorul de template EJS.
+   
+  -->
+
+  <body>
+    <!-- secțiunea principală a paginii  -->
+
+    <%- include("../fragmente/header") %>
+
+    <!-- Watermark fix, apare la print pe fiecare pagină -->
+    <div id="watermark">Petcu Maria</div>
+
+    <!-- Continut Pagina -->
+    <main id="acasa">
+      <!-- elementul <main>, care conține conținutul principal al paginii.  -->
+
+      <!-- Etapa 1.5 am folosit section -->
+
+      <section id="despre-noi-imagine">
+        <!-- Task primit -->
+        <!-- <h2>Ador să învăț la <abbr title="Facultatea de Matematică și Informatică">FMI</abbr></h2> -->
+
+        <!-- Etapa 1.8 -->
+        <!-- Imagine pentru ecran mare, tabletă și mobile -->
+        <figure>
+         
+          <picture>
+            <source
+              srcset="imagini/despre-noi-large.jpeg"
+              media="(min-width: 1024px)"
+            />
+            <!-- Dacă ecranul are o lățime de cel puțin 1024px, se afișează această imagine. -->
+
+            <source
+              srcset="imagini/despre-noi-medium.jpeg"
+              media="(min-width: 768px)"
+            />
+            <!-- Dacă ecranul are o lățime de cel puțin 768px, dar mai mică de 1024px, se afișează această imagine. -->
+            <source
+              srcset="imagini/despre-noi-medium.jpeg"
+              media="(min-width: 768px)"
+            />
+            <!-- Dacă ecranul are o lățime de cel puțin 768px, dar mai mică de 1024px, se afișează această imagine. -->
+ <!-- Task adaugare sursa nou care se afiseaza daca dimnesiunea ecranului este intre 500px si 800px-->
+            <source
+    srcset="imagini/despre-noi-medium.jpeg"
+    media="(min-width: 500px) and (max-width: 800px)"
+/>
+<!-- Dacă ecranul are o lățime între 500px și 800px, se afișează această imagine. -->
+
+
+            <img
+              id="imagine-despre-noi"
+              src="/imagini/despre-noi-small.jpeg"
+              alt="<b>Cadouri personalizate pentru Crăciun</b>"
+            />
+            <!-- Imagine implicită pentru ecranele mai mici (sub 768px). 
+           -->
+          </picture>
+
+          <figcaption>
+            <b>Cadouri personalizate</b> pentru Crăciun, aniversări și alte
+            ocazii speciale.
+          </figcaption>
+          <!-- Descrierea imaginii, afișată sub aceasta. -->
+        </figure>
+      </section>
+
+      <section id="produse">
+        <!--  secțiune semantică produse -->
+
+        <h2><b>Produsele noastre</b></h2>
+
+        <!-- Etapa 1.7 -->
+        <p>
+          Descoperă gama noastră de <b>produse personalizate</b>, create special
+          pentru tine:
+        </p>
+
+        <!-- Etapa 1.7 -->
+        <ul>
+          <!--  Listă neordonată,  afișarea produselor -->
+
+          <!-- Etapa 1.9 cuvinte cheie -->
+          <!-- Etapa 1.10 tag <b>, <i> -->
+          <li>
+            <b>Globuri de Crăciun:</b> <i>Cadouri perfecte pentru sărbători</i>.
+          </li>
+
+          <li>
+            <b>Tablouri personalizate:</b>
+            <i
+              >Cadouri ideale pentru <b>aniversări</b> sau evenimente
+              corporate</i
+            >.
+          </li>
+
+          <li>
+            <b>Căni personalizate:</b> Oferă un strop de bucurie în fiecare zi.
+          </li>
+
+          <li>
+            <b>Tricouri personalizate:</b> Mesaje unice și cadouri creative.
+          </li>
+          <li>
+            <b>Ursuleți de pluș:</b> Un <b>cadou special</b> pentru cei dragi.
+          </li>
+        </ul>
+
+        <section>
+          <h3><b>Promoții la produse</b></h3>
+
+          <p>
+            <b>Beneficiază</b> de reduceri la <b>globuri de Crăciun</b>,
+            <b>tablouri personalizate</b> și alte <b>cadouri creative</b>. Nu
+            rata ofertele noastre exclusive!
+          </p>
+
+          <ol>
+            <!-- <ol>: Listă ordonată Promotii produse -->
+
+            <li><b>Globuri de Crăciun la preț redus</b></li>
+
+            <li>
+              <b
+                >Tablouri personalizate cu <s>10% reducere</s>
+                <ins>20% reducere</ins></b
+              >
+            </li>
+
+            <li><b>Ursuleți de pluș în oferta specială</b></li>
+          </ol>
+        </section>
+      </section>
+
+      <section id="despre-noi">
+        <h2><b>Despre noi</b></h2>
+
+        <p>
+          La <b>Design & Gift</b>, creăm <b>cadouri personalizate</b> care aduc
+          bucurie și emoție. De la <b>cadouri speciale</b> pentru Crăciun la
+          <b>produse personalizate pentru aniversări</b>, ne asigurăm că fiecare
+          detaliu contează.
+        </p>
+
+        <section>
+          <h3><b>Valorile noastre</b></h3>
+
+          <ul>
+            <!-- listă neordonată  -->
+
+            <li>
+              <b>Creativitate:</b> Creăm <b>cadouri unice</b> și inovatoare.
+            </li>
+
+            <li>
+              <b>Calitate:</b> Folosim cele mai bune materiale pentru fiecare
+              <b>produs personalizat</b>.
+            </li>
+
+            <li>
+              <b>Profesionalism:</b> Livrăm <b>cadouri personalizate</b> la
+              timp, de fiecare dată.
+            </li>
+          </ul>
+
+          <blockquote>
+            <i
+              >„Cadourile personalizate spun povești unice și creează amintiri
+              speciale.”</i
+            >
+          </blockquote>
+        </section>
+      </section>
+
+      <section id="promotii">
+        <h2><b>Promoții</b></h2>
+
+        <!-- Etapa 1.10 tag strong -->
+        <p>
+          <strong>Nu rata promoțiile pentru sărbători!</strong> Reduceri
+          speciale la <b>globuri de Crăciun</b>,
+          <b>tablouri personalizate</b> și alte <b>cadouri creative</b>. Găsește
+          <b>idei de cadouri unice</b> la prețuri speciale!
+        </p>
+
+        <dl>
+          <!-- listă de definiții -->
+
+          <dt><b>Globuri de Crăciun</b></dt>
+          <!-- <dt>: Termen definit -->
+
+          <dd><i>Decoruri perfecte pentru sărbători</i></dd>
+          <!-- <dd>: Descrierea termenului de mai sus.-->
+
+          <dt><b>Tablouri personalizate</b></dt>
+          <dd><i>Cadouri ideale pentru evenimente speciale</i></dd>
+        </dl>
+
+        <!-- Etapa 1.11 link extern -->
+        <p>
+          Vizitați și partenerul nostru pentru mai multe
+          <a
+            href="https://autenticgift.ro/cadouri/tablou-personalizat/digital/"
+            target="_blank"
+            ><b>idei de cadouri creative</b></a
+          >.
+        </p>
+        <!--
+           target="_blank": Deschide linkul într-o fereastră nouă. 
+        -->
+
+        <h2><b>Calculul costurilor produselor personalizate</b></h2>
+
+        <p>
+          Pentru a calcula prețul unui produs personalizat, folosim următoarea
+          formulă:
+        </p>
+
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <!-- <math>: Etichetă specifică MathML pentru a afișa formule matematice -->
+
+          <mrow>
+            <!-- <mrow>: Grupați mai mulți termeni matematici într-un singur rând. -->
+
+           <mi style="color: blue; font-weight: bold;">Cost</mi>
+            <!-- <mi>:  afișează un simbol matematic -->
+
+           <mo style="color: black;">=</mo>
+            <!-- <mo>: afișează operatorul matematic . -->
+
+            <mfrac>
+              <!-- <mfrac>: Creează o fracție matematică. -->
+
+              <mrow>
+                <!-- termenii din fracție. -->
+                <mi style="color: green; font-style: italic;">Preț&nbsp;bază</mi>
+                <mo style="color: red;">+</mo>
+                <mi style="color: purple; font-weight: bold;">Cost&nbsp;personalizare</mi>
+                <mo style="color: orange;">×</mo>
+                <mi style="color: brown; font-style: italic;">Număr&nbsp;produse</mi>
+              </mrow>
+            </mfrac>
+          </mrow>
+        </math>
+
+        <p>
+          Acest calcul ne ajută să oferim un preț corect pentru fiecare comandă.
+          Dacă ai nevoie de detalii suplimentare, nu ezita să ne contactezi!
+        </p>
+      </section>
+
+      <section id="intrebari-frecvente">
+        <h2><b>Întrebări frecvente</b></h2>
+
+        <!-- Etapa 1.12 -->
+        <details>
+          <summary>
+            <b>Care sunt opțiunile de personalizare disponibile?</b>
+          </summary>
+
+          <p>
+            Oferim o gamă variată de opțiuni de personalizare, inclusiv gravură,
+            imprimare de imagini și text, precum și culori la alegere.
+          </p>
+        </details>
+
+        <details>
+          <summary>
+            <b>Care este termenul de livrare pentru cadourile personalizate?</b>
+          </summary>
+
+          <p>
+            Termenul de livrare variază între 3 și 7 zile lucrătoare, în funcție
+            de complexitatea personalizării și volumul comenzilor.
+          </p>
+        </details>
+
+        <details>
+          <summary><b>Pot returna un produs personalizat?</b></summary>
+
+          <p>
+            Din păcate, produsele personalizate nu pot fi returnate decât în
+            cazul unor defecte de fabricație. Ne asigurăm că fiecare cadou este
+            de cea mai bună calitate înainte de livrare.
+          </p>
+        </details>
+      </section>
+
+      <section id="oferte-speciale">
+        <h2><b>Oferte speciale</b></h2>
+
+        <details>
+          <summary><b>Reducere 20% la globuri de Crăciun</b></summary>
+
+          <p>
+            Profită acum de o reducere de 20% la toate globurile de Crăciun
+            personalizate! Oferta este valabilă până la sfârșitul lunii
+            decembrie.
+          </p>
+        </details>
+
+        <details>
+          <summary><b>Promoție la tablouri personalizate</b></summary>
+
+          <p>
+            Cumpără acum un tablou personalizat și beneficiezi de un cadou
+            surpriză! Oferta este valabilă în limita stocului disponibil.
+          </p>
+        </details>
+<!-- task pentru descare sub forma de examen cu extensia pdf si in proprietatea download am adaugat numele examen -->
+        <p>
+          Descărcați catalogul nostru de produse
+          <a href="catalog.pdf" download="examen.pdf"><b>aici</b></a>.
+      </p>
+      
+
+        <hr class="gradient-hr" />
+        <!--  linie orizontală pentru separarea conținutului. -->
+
+        <h2><b>Explicații detaliate produse</b></h2>
+
+        <details>
+          <summary>
+            <b>Ce materiale folosim pentru produsele noastre?</b>
+          </summary>
+
+          <p>
+            Folosim doar materiale de cea mai bună calitate, precum lemn
+            natural, sticlă, ceramică și textile premium pentru a garanta un
+            rezultat excelent pentru fiecare produs personalizat.
+          </p>
+        </details>
+
+        <details>
+          <summary><b>Care sunt metodele de plată acceptate?</b></summary>
+
+          <p>
+            Acceptăm plata prin card de credit, transfer bancar și plata ramburs
+            la livrare.
+          </p>
+        </details>
+      </section>
+
+      <!-- Promoții active -->
+      <!-- Etapa 2.5 task tabel-->
+      <section id="promotii-tabel">
+        <h2>Promoții active</h2>
+
+        <div class="table-container">
+          <!-- container pentru tabel.
+                 -->
+
+          <table>
+            <!-- tabel HTML pentru afișarea promoțiilor. -->
+
+            <!-- Definim exact 4 coloane în colgroup -->
+            <colgroup>
+              <col />
+              <col />
+              <col />
+              <col />
+            </colgroup>
+            <!-- <colgroup>: Specifică gruparea coloanelor pentru a le aplica stiluri CSS mai ușor.
+                     <col>: Reprezintă fiecare coloană din tabel, în acest caz sunt 4 coloane. -->
+
+            <!-- Caption poziționat sub tabel (prin CSS) -->
+            <caption>
+              Promoțiile sunt valabile până la epuizarea stocului.
+            </caption>
+
+            <thead>
+              <!-- <thead>: Definește antetul tabelului, care conține titlurile coloanelor. -->
+
+              <tr>
+                <!-- <tr>:  rând în tabel. -->
+                <th>Produs</th>
+                <th>Reducere</th>
+                <th>Valabilitate</th>
+                <th>Preț redus</th>
+                <!-- <th>: Celule de antet -->
+              </tr>
+            </thead>
+
+            <tbody>
+              <!-- <tbody>: Secțiunea principală a tabelului-->
+
+              <tr>
+                <td>Globuri de Crăciun</td>
+                <td>20%</td>
+                <td>1-31 decembrie</td>
+                <td>39 RON</td>
+                <!-- <td>: Celulele individuale care conțin datele pentru fiecare produs. -->
+              </tr>
+
+              <tr>
+                <td>Tablouri personalizate</td>
+                <td>15%</td>
+                <td>10-30 noiembrie</td>
+                <td>85 RON</td>
+              </tr>
+
+              <!-- Celulă cu rowspan -->
+              <tr>
+                <td rowspan="2">Căni personalizate</td>
+                <td>10%</td>
+                <td>5-25 noiembrie</td>
+                <td>25 RON</td>
+              </tr>
+
+              <tr>
+                <td>15% (comenzi peste 3 buc.)</td>
+                <td>5-25 noiembrie</td>
+                <td>22 RON</td>
+              </tr>
+            </tbody>
+
+            <tfoot>
+              <!-- <tfoot>:  subsol al tabelului -->
+
+              <tr>
+                <td colspan="4">
+                  Toate promoțiile sunt valabile în limita stocului disponibil.
+                </td>
+                <!-- <td colspan="4">: Face ca această celulă să se extindă pe toate cele 4 coloane ale tabelului. -->
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </section>
+
+      <!-- Etapa 2.6 iframe-->
+      <!-- Iframe Youtube -->
+    <section id="videoclipuri">
+        <h2><b>Videoclipuri relevante</b></h2>
+
+        <!-- Container pentru video și linkuri -->
+        <div class="video-wrapper">
+
+           <!-- Pentru a muta link-urile pe partea opusa 
+           a iframului, adica pe partea stanga, 
+           am mutat  tagul div video-links
+            deasupra tagului div
+           video-container din sectiunea videoclipuri -->
+
+          <div class="video-links">
+            <a
+              href="#"
+              onclick="document.getElementById('video-frame').src='https://www.youtube.com/embed/cckwWh5Q1xU'; return false;"
+              >Sistem împachetare</a
+            >
+            <!-- <a>: Creează un link clicabil pentru schimbarea videoclipului. -->
+
+            <a
+              href="#"
+              onclick="document.getElementById('video-frame').src='https://www.youtube.com/embed/3xoXzOdM2z4'; return false;"
+              >Top 10 cadouri</a
+            >
+            <!-- Link către un alt videoclip YouTube. -->
+
+            <a
+              href="#"
+              onclick="document.getElementById('video-frame').src='https://www.youtube.com/embed/e8FPz9DxXRc'; return false;"
+              >Cadouri personalizate Craciun</a
+            >
+            <!-- Link către un alt videoclip YouTube. -->
+          </div>
+          <div class="video-container">
+            <iframe
+              id="video-frame"
+              src="https://www.youtube.com/embed/cckwWh5Q1xU"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            >
+            </iframe>
+            <!-- <iframe>: cadru încorporat pentru a afișa videoclipuri de pe YouTube.
+                        -->
+          </div>
+
+          <!-- CONTAINERUL DIV PENTRU AFISAREA PE PARTEA DREAPTA -->
+     <!-- <div class="video-links">
+            <a
+              href="#"
+              onclick="document.getElementById('video-frame').src='https://www.youtube.com/embed/cckwWh5Q1xU'; return false;"
+              >Sistem împachetare</a
+            >
+
+            <a
+              href="#"
+              onclick="document.getElementById('video-frame').src='https://www.youtube.com/embed/3xoXzOdM2z4'; return false;"
+              >Top 10 cadouri</a
+            >
+           
+
+            <a
+              href="#"
+              onclick="document.getElementById('video-frame').src='https://www.youtube.com/embed/e8FPz9DxXRc'; return false;"
+              >Cadouri personalizate Craciun</a
+            >
+           
+          </div> -->
+       
+        </div>
+      </section>
+      <section id="galerie-imagini">
+      <%- include("../fragmente/galerie", {
+        cale_galerie: obGalerie.cale_galerie,
+        imagini: obGalerie.imagini
+    }) %>
+    </section>
+    
+    </main>
+
+    <%- include("../fragmente/footer") %>
+
+    <!-- Buton "Înapoi sus" cu triunghi -->
+    <!-- Etapa 2.7 -->
+    <a href="#acasa" class="btn-top" data-tooltip="Urcă la începutul paginii">
+      <span class="triunghi">&#5123;</span>
+      <!-- <span>: Folosit pentru a include simbolul triunghiului  -->
+    </a>
+  </body>
+</html>

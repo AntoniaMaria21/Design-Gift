@@ -1,0 +1,147 @@
+{
+  "cale_galerie": "/imagini/galerie",
+  "imagini": [
+    {
+      "fisier_imagine": "1.png",
+      "nume_poza": "Jurnale personalizate",
+      "continut_alternativ": "Jurnale personalizate",
+      "descriere_poza": "Jurnale personalizate pentru ocazii speciale",
+      "intervale_zile": [
+        ["luni", "luni"],
+        ["duminica", "duminica"]
+      ]
+    },
+    {
+      "fisier_imagine": "2.png",
+      "nume_poza": "Felicitari personalizate",
+      "continut_alternativ": "Felicitari personalizate",
+      "descriere_poza": "Felicitari personalizate pentru ocazii speciale",
+      "intervale_zile": [
+        ["luni", "miercuri"],
+
+        ["duminica", "duminica"]
+      ]
+    },
+    {
+      "fisier_imagine": "3.png",
+      "nume_poza": "Cutii împachetare",
+      "continut_alternativ": "Cutii împachetare",
+      "descriere_poza": "Cutii împachetare cadouri speciale",
+      "atributie": "Foto: Jane Doe (CC-BY)",
+      "intervale_zile": [
+        ["marti", "miercuri"],
+        ["sambata", "sambata"],
+        ["duminica", "duminica"]
+      ]
+    },
+    {
+      "fisier_imagine": "4.png",
+      "nume_poza": "Cană personalizata de Crăciun",
+      "continut_alternativ": "Cană personalizata de Crăciun",
+      "descriere_poza": "Cană personalizata de Crăciun",
+      "intervale_zile": [
+        ["joi", "vineri"],
+        ["duminica", "duminica"]
+      ]
+    },
+    {
+      "fisier_imagine": "5.png",
+      "nume_poza": "Cană personalizata de Valentine's Day",
+      "continut_alternativ": "Cană personalizata de Valentine's Day",
+      "descriere_poza": "Cană personalizata de Valentine's Day",
+      "intervale_zile": [
+        ["luni", "miercuri"],
+        ["duminica", "duminica"]
+      ]
+    },
+    {
+      "fisier_imagine": "6.png",
+      "nume_poza": "Tricouri din bumbac organic",
+      "continut_alternativ": "Tricouri din bumbac organic",
+      "descriere_poza": "Tricouri din bumbac organic",
+      "intervale_zile": [
+        ["miercuri", "vineri"],
+        ["duminica", "duminica"]
+      ]
+    },
+    {
+      "fisier_imagine": "7.png",
+      "nume_poza": "Tricou personalizat Coffee lover",
+      "continut_alternativ": "Tricou personalizat Coffee lover",
+      "descriere_poza": "Tricou personalizat Coffee lover",
+      "intervale_zile": [
+        ["vineri", "sambata"],
+        ["duminica", "duminica"]
+      ]
+    },
+    {
+      "fisier_imagine": "8.png",
+      "nume_poza": "Tablou Never Give Up",
+      "continut_alternativ": "Tablou Never Give Up",
+      "descriere_poza": "Tablou Never Give Up",
+      "intervale_zile": [
+        ["miercuri", "miercuri"],
+        ["sambata", "sambata"],
+        ["duminica", "duminica"]
+      ]
+    },
+    {
+      "fisier_imagine": "9.png",
+      "nume_poza": "Tablouri diverse",
+      "continut_alternativ": "Tablouri diverse",
+      "descriere_poza": "Tablouri diverse",
+      "intervale_zile": [["duminica", "duminica"]]
+    },
+    {
+      "fisier_imagine": "10.png",
+      "nume_poza": "Produse Give Away",
+      "continut_alternativ": "Produse Give Away",
+      "descriere_poza": "Produse Give Away",
+      "intervale_zile": [
+        ["joi", "sambata"],
+        ["duminica", "duminica"]
+      ]
+    },
+    {
+      "fisier_imagine": "11.png",
+      "nume_poza": "Cani absolvire",
+      "continut_alternativ": "Cani absolvire",
+      "descriere_poza": "Cani absolvire",
+      "intervale_zile": [
+        ["marti", "sambata"],
+        ["duminica", "duminica"]
+      ]
+    },
+    {
+      "fisier_imagine": "12.png",
+      "nume_poza": "Cană personalizată I love you",
+      "continut_alternativ": "Cană personalizată I love you",
+      "descriere_poza": "Cană personalizată I love you",
+      "intervale_zile": [
+        ["vineri", "vineri"],
+        ["duminica", "duminica"]
+      ]
+    },
+    {
+      "fisier_imagine": "13.png",
+      "nume_poza": "Cană personalizată My favorite people call me DAD",
+      "continut_alternativ": "Cană personalizată My favorite people call me DAD",
+      "descriere_poza": "Cană personalizată My favorite people call me DAD",
+      "intervale_zile": [
+        ["marți", "miercuri"],
+        ["sambata", "sambata"],
+        ["duminica", "duminica"]
+      ]
+    },
+    {
+      "fisier_imagine": "14.png",
+      "nume_poza": "Cană personalizată Baby, it's cold outside!",
+      "continut_alternativ": "Cană personalizată Baby, it's cold outside!",
+      "descriere_poza": "Cană personalizată Baby, it's cold outside!",
+      "intervale_zile": [
+        ["joi", "vineri"],
+        ["duminica", "duminica"]
+      ]
+    }
+  ]
+}

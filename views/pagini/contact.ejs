@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ro">
+  <%- include("../fragmente/head") %>
+
+  <body>
+    <div class="video-background">
+      <!-- container pentru videoclipul de fundal.
+       -->
+
+      <video autoplay muted loop playsinline poster="imagini/posterVideo.jpg">
+        <!-- <video>: Element HTML5 care afișează un videoclip. 
+           -->
+
+        <source src="video/video.mp4" type="video/mp4" />
+
+        <source src="video/video.webm" type="video/webm" />
+      </video>
+
+      <div class="video-overlay"></div>
+      <!-- <div>: Suprapunere (overlay) peste videoclip pentru a regla transparența  -->
+    </div>
+
+    <%- include("../fragmente/header") %>
+
+    <main>
+      <section>
+        <h1>Contact</h1>
+      </section>
+
+      <section class="multi-column">
+        <h2>Despre Design & Gift</h2>
+
+        <p>
+          Cu o experiență de peste 10 ani în domeniul cadourilor personalizate,
+          ne mândrim cu crearea unor produse unice care să transmită emoții.
+          Echipa noastră de designeri lucrează îndeaproape cu clienții pentru a
+          transforma ideile lor în realitate.
+        </p>
+
+        <p>
+          Oferim o gamă variată de servicii, de la ilustrații custom până la
+          gravare laser pe diverse materiale. Fiecare produs este realizat cu
+          atenție la detalii și respectă standardele înalte de calitate.
+        </p>
+
+        <p>
+          Colaborăm atât cu clienți individuali cât și cu companii, oferind
+          soluții creative pentru evenimente corporative, nunți sau ocazii
+          speciale. Explorează galeria noastră pentru inspirație sau adu-ți
+          propria viziune!
+        </p>
+      </section>
+
+      <section>
+        <h2 class="table-title">Tabelescu</h2>
+        <div class="table-wrapper">
+          <table id="tabelescu">
+            <thead>
+              <tr>
+                <th>Nume</th>
+                <th>Specie</th>
+                <th>Voce obișnuită</th>
+                <th>Voce supărată</th>
+                <th>Voce veselă</th>
+                <th>Voce aristocrată</th>
+                <th>Observație</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-label="Nume">Miauinette</td>
+                <td data-label="Specie">pisică</td>
+                <td data-label="Voce obișnuită">Miau.</td>
+                <td data-label="Voce supărată">Hisssss!</td>
+                <td data-label="Voce veselă">Mia-miau! Miau!</td>
+                <td data-label="Voce aristocrată">*Le miau</td>
+                <td data-label="Observație">-</td>
+              </tr>
+              <tr>
+                <td data-label="Nume">Chitzcoveanu</td>
+                <td data-label="Specie">șoarece</td>
+                <td data-label="Voce obișnuită">Chit.</td>
+                <td data-label="Voce supărată">CHIT! CHIT!!!</td>
+                <td data-label="Voce veselă">Tzi! Tzi! Tzi!</td>
+                <td data-label="Voce aristocrată">kitsch</td>
+                <td data-label="Observație">-</td>
+              </tr>
+              <tr>
+                <td data-label="Nume">Sir Dogus</td>
+                <td data-label="Specie">câine</td>
+                <td data-label="Voce obișnuită">Ham.</td>
+                <td data-label="Voce supărată">Grrrr!</td>
+                <td data-label="Voce veselă">Yip! Yip! Yip!</td>
+                <td data-label="Voce aristocrată">Woofoulous!</td>
+                <td data-label="Observație">-</td>
+              </tr>
+              <tr>
+                <td data-label="Nume">Zumzbzz</td>
+                <td data-label="Specie">albină</td>
+                <td data-label="Voce obișnuită">Bzz.</td>
+                <td data-label="Voce supărată">Bzz.</td>
+                <td data-label="Voce veselă">Bzz.</td>
+                <td data-label="Voce aristocrată">Tot bzz.</td>
+                <td data-label="Observație">-</td>
+              </tr>
+              <tr>
+                <td data-label="Nume">Număr animăluțe</td>
+                <td data-label="Specie">4</td>
+                <td data-label="Voce obișnuită">-</td>
+                <td data-label="Voce supărată">-</td>
+                <td data-label="Voce veselă">-</td>
+                <td data-label="Voce aristocrată">-</td>
+                <td data-label="Observație">-</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+      
+    </main>
+
+    <%- include("../fragmente/footer") %>
+  </body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<html lang="ro">
+  <%- include("../fragmente/head") %>
+
+  <body>
+    <%- include("../fragmente/header") %>
+
+    <main id="promo-page">
+      <!-- Secțiunea cu background animat -->
+      <section class="promo-header">
+        <div class="reflexie-text">
+          <h1>Promoții</h1>
+
+          <h1 class="reflexie">Promoții</h1>
+        </div>
+      </section>
+
+      <section class="promo-details">
+        <h2>Promoții</h2>
+
+        <p>Reduceri speciale la cadouri personalizate!</p>
+
+        <ul>
+          <li>20% reducere la globuri de Crăciun</li>
+          <li>15% reducere la tablouri personalizate</li>
+          <li>10% reducere la căni personalizate</li>
+        </ul>
+      </section>
+
+      <section class="promo-video">
+        <!-- Elementul video cu identificatorul "video-vtt" -->
+        <video
+          id="video-vtt"
+          poster="imagini/posterVideo.jpg"
+          controls
+          preload="auto"
+        >
+          <source src="video/video.mp4" type="video/mp4" />
+
+          <source src="video/video.webm" type="video/webm" />
+
+          <track
+            kind="subtitles"
+            srclang="ro"
+            label="Română"
+            src="subtitrari/romanian.vtt"
+            default
+          />
+          <!-- <track>: Adaugă subtitrări pentru videoclip. 
+            -->
+
+          <track
+            kind="subtitles"
+            srclang="en"
+            label="English"
+            src="subtitrari/english.vtt"
+          />
+          <!-- în limba engleză. -->
+
+          Video-ul nu este suportat de browser-ul dumneavoastră.
+          <!-- afișat dacă browserul nu suportă redarea videoclipurilor. -->
+        </video>
+
+        <div class="duotone-image"></div>
+        <!-- element de suprapunere stilizată peste videoclip
+           class="duotone-image": Aplică un efect vizual folosind CSS -->
+      </section>
+    </main>
+
+    <%- include("../fragmente/footer") %>
+  </body>
+</html>

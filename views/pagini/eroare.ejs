@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ro">
+  <head>
+    <title><%= title %></title>
+
+    <link rel="stylesheet" href="/resurse/stiluri/style.css" />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+
+    <p><%= text %></p>
+
+    am adaugat aceasta linie pentru afisarea erori cu url-ul cerut
+    <p>Ai încercat să accesezi: <strong><%= title.split(" - ")[1] %></strong></p>
+
+
+    <img src="<%= imagine %>" alt="Eroare" />
+
+    <a href="/">Înapoi la pagina principală</a>
+  </body>
+</html>

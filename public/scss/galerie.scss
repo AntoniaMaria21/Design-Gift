@@ -1,0 +1,86 @@
+#galerie-unica {
+    .galerie-container {
+      width: 100%;
+      margin: 0 auto;
+      padding: 1rem;
+  
+      .galerie-zigzag {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+  
+        figure.col-1 {
+          grid-column: 1;
+        }
+        figure.col-2 {
+          grid-column: 2;
+        }
+        figure.col-3 {
+          grid-column: 3;
+        }
+  
+        @media (max-width: 992px) {
+          grid-template-columns: 1fr 1fr;
+          figure {
+            grid-column: auto !important;
+          }
+        }
+        @media (max-width: 576px) {
+          grid-template-columns: 1fr;
+          figure {
+            grid-column: auto !important;
+          }
+        }
+      }
+    }
+  
+    // Asigură-te că elementele figure, picture și figcaption se întind pe 100% din celula grilei
+    figure,
+    figure picture,
+    figure figcaption {
+      display: block;
+      width: 100%;
+      box-sizing: border-box;
+    }
+  
+    figure {
+      margin: 0;
+      position: relative;
+      // efect inițial de sepia + hover
+      img {
+        width: 100%;
+        display: block; 
+        filter: sepia(100%);
+        transition: filter 0.8s;
+      }
+  
+      &:hover img {
+        filter: sepia(0%);
+      }
+  
+      figcaption {
+        // Stil de text inițial (fără umbră, culoare normală)
+        color: #333;
+        text-shadow: none;
+        transition: color 0.8s, text-shadow 0.8s;
+        margin-top: 0.25rem;
+        font-size: 0.95rem;
+      }
+  
+      &:hover figcaption {
+        color: #b00; 
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+      }
+  
+      .atributie {
+        font-size: 0.8rem;
+        color: #777;
+      }
+    }
+    .galerie-zigzag { counter-reset: roman-counter; }
+  figcaption strong::before {
+    counter-increment: roman-counter;
+    content: counter(roman-counter, lower-roman);
+  }
+  }
+  

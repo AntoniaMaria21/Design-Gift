@@ -1,0 +1,31 @@
+{
+  "name": "designandgift",
+  "version": "1.0.0",
+  "main": "generarePagini.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AntoniaMaria21/Design-Gift.git"
+  },
+  "keywords": [
+    "produse personalizate, cadouri de Crăciun, globuri personalizate, tablouri inspiraționale, tricouri personalizate, căni personalizate, design&gift"
+  ],
+  "author": "Petcu Maria Antonia",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AntoniaMaria21/Design-Gift/issues"
+  },
+  "homepage": "https://github.com/AntoniaMaria21/Design-Gift#readme",
+  "description": "",
+  "dependencies": {
+    "bootstrap": "^5.3.3",
+    "chokidar": "^4.0.3",
+    "ejs": "^3.1.10",
+    "express": "^4.21.2",
+    "sass": "^1.83.4",
+    "sharp": "^0.33.5"
+  }
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<html lang="ro">
+  <head>
+    <!--  Secțiunea care conține metadatele și resursele necesare pentru pagină -->
+
+    <%- include("../fragmente/head") %>
+
+    <link rel="stylesheet" href="styles.css" />
+
+    <script src="script.js"></script>
+  </head>
+
+  <body>
+    <%- include("../fragmente/header") %>
+
+    <main>
+      <section id="titlu">
+        <h2>Produsele noastre</h2>
+      </section>
+
+      <section id="descriere">
+        <p>Descoperă gama noastră de produse personalizate:</p>
+      </section>
+
+      <section id="lista-produse">
+        <ul>
+          <li>Globuri de Crăciun</li>
+          <li>Tablouri personalizate</li>
+          <li>Căni personalizate</li>
+          <li>Tricouri personalizate</li>
+          <li>Ursuleți de pluș</li>
+        </ul>
+      </section>
+    </main>
+
+    <%- include("../fragmente/footer") %>
+  </body>
+</html>

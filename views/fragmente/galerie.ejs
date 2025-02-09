@@ -1,0 +1,108 @@
+<% 
+  // Zilele săptămânii
+  const zile = ["duminica", "luni", "marti", "miercuri", "joi", "vineri", "sambata"];
+
+ // Pentru testare: folosim o dată fixă care cade într-o zi de marți, de exemplu 4 iulie 2023, ora 12:00
+//  const dataCurenta = new Date("2023-07-04T12:00:00");
+
+  const dataCurenta = new Date();
+  const ziuaIndex = dataCurenta.getDay(); 
+  const ziuaCurenta = zile[ziuaIndex];
+
+  function ziInInterval(interval){
+    const startIndex = zile.indexOf(interval[0]);
+    const endIndex   = zile.indexOf(interval[1]);
+    if(startIndex !== -1 && endIndex !== -1 && startIndex <= endIndex){
+      return (ziuaIndex >= startIndex && ziuaIndex <= endIndex);
+    }
+    return false;
+  }
+
+  // Filtrăm
+  let imaginiFiltrate = imagini.filter(img => {
+    if(!img.intervale_zile) return false;
+    return img.intervale_zile.some(interval => ziInInterval(interval));
+  });
+
+  // Trunchiem la număr par
+  if(imaginiFiltrate.length % 2 !== 0){
+    imaginiFiltrate.pop();
+  }
+
+
+  /*
+    Vrem un pattern (rând 1 => col1,col2, rând 2 => col1,col3, 
+    rând 3 => col2,col3, rând 4 => col1,col3, 
+    rând 5 => col1,col2, rând 6 => col2,col3), 
+    apoi repetăm la infinit.
+
+    Fiecare rând are 2 imagini: 
+    - index = 0,1 => rând 1
+    - index = 2,3 => rând 2
+    - index = 4,5 => rând 3
+    - index = 6,7 => rând 4
+    etc.
+
+    rowIndex = floor(index/2) + 1
+    mod6 = rowIndex % 6
+    + col "A" (pentru imaginea pară) și col "B" (pentru imaginea impară).
+  */
+%>
+
+<div id="galerie-unica">
+    <div class="galerie-container">
+      <div class="galerie-zigzag">
+        <% imaginiFiltrate.forEach((img, index) => {
+           // Calculăm rowIndex (1-based)
+           const rowIndex = Math.floor(index / 2) + 1; 
+           // Folosim un ciclu de 4 rânduri:
+           // Rând 1: empty col3, Rând 2: empty col2, Rând 3: empty col1, Rând 4: empty col2
+           const modRow = rowIndex % 4;
+           let colClass = "";
+           switch(modRow){
+             case 1: // Rând 1: coloana 3 este goală, deci imaginile vor fi în col1 și col2
+               colClass = (index % 2 === 0) ? "col-1" : "col-2";
+               break;
+             case 2: // Rând 2: coloana 2 este goală, deci imaginile vor fi în col1 și col3
+               colClass = (index % 2 === 0) ? "col-1" : "col-3";
+               break;
+             case 3: // Rând 3: coloana 1 este goală, deci imaginile vor fi în col2 și col3
+               colClass = (index % 2 === 0) ? "col-2" : "col-3";
+               break;
+             case 0: // Rând 4 (deoarece rowIndex % 4 == 0): din nou se omite coloana 2
+               colClass = (index % 2 === 0) ? "col-1" : "col-3";
+               break;
+           }
+  
+           // Setăm căile imaginilor
+           const caleSmall    = `${cale_galerie}/small/${img.fisier_imagine}`;
+           const caleMedium   = `${cale_galerie}/medium/${img.fisier_imagine}`;
+           const caleOriginal = `${cale_galerie}/${img.fisier_imagine}`;
+  
+           const altImg = img.continut_alternativ || img.nume_poza || "";
+           const titleImg = img.descriere_poza || "";
+        %>
+          <!-- Atribuim clasa dinamică (col-1, col-2, col-3) -->
+          <figure class="<%= colClass %>">
+            <picture>
+              <source media="(max-width: 576px)" srcset="<%= caleSmall %>" />
+              <source media="(max-width: 992px)" srcset="<%= caleMedium %>" />
+              <img 
+                src="<%= caleOriginal %>"
+                alt="<%= altImg %>"
+                title="<%= titleImg %>"
+              />
+            </picture>
+            <figcaption>
+              <strong></strong> – <%= img.nume_poza %>
+              <% if(img.atributie) { %>
+                <div class="atributie">
+                  (<%= img.atributie %>)
+                </div>
+              <% } %>
+            </figcaption>
+          </figure>
+        <% }) %>
+      </div>
+    </div>
+  </div>
