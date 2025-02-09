@@ -1,24 +1,44 @@
-// Import Bootstrap SCSS
-@import "../node_modules/bootstrap/scss/bootstrap";
+// ********** Declarare variabile personalizate **********
 
-// Definire variabile personalizate
+// Variabile de culoare și font
 $primary-color: #3498db;
 $secondary-color: #2ecc71;
 $text-color-light: #ffffff;
 $text-color-dark: #333333;
-$border-radius-custom: 10px;
-// $heading-font-size: (h1: 2.5rem, h2: 2rem, h3: 1.75rem, h4: 1.5rem, h5: 1.25rem, h6: 1rem);
-$heading-font-size: (h1: 2.5rem, h2: 20px, h3: 1.75rem, h4: 1.5rem, h5: 1.25rem, h6: 1rem);
-
 $font-family-custom: 'Poppins', sans-serif;
 
-// Customizare Bootstrap
+// Variabile pentru bordură și butoane
+$border-radius-custom: 10px;
+$btn-border-width: 2px;
+$btn-border-radius: $border-radius-custom;
+
+// Variabile pentru heading-uri
+$heading-font-size: (
+  h1: 2.5rem,
+  h2: 20px,
+  h3: 1.75rem,
+  h4: 1.5rem,
+  h5: 1.25rem,
+  h6: 1rem
+);
+
+// Variabile pentru input range (slider)
+// Să presupunem că font-size-ul de bază este 1rem; thumb-ul va fi cu 50% mai mare
+$custom-range-thumb-width: 1.5rem;
+$custom-range-thumb-height: 1.5rem;
+$custom-range-thumb-bg: $primary-color;
+$custom-range-track-bg: $secondary-color;
+
+// Suprascriere variabile Bootstrap (acestea vor fi folosite la importul Bootstrap)
 $body-bg: #f8f9fa;
 $body-color: $text-color-dark;
 $font-family-base: $font-family-custom;
 $border-radius: $border-radius-custom;
 
-// Tematici personalizate
+// ********** Import Bootstrap SCSS **********
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+// ********** Tematici personalizate **********
 .theme-light {
   background-color: #ffffff;
   color: $text-color-dark;
@@ -41,25 +61,77 @@ $border-radius: $border-radius-custom;
   }
 }
 
-// Media Queries pentru dimensiuni diferite
-@media (min-width: 768px) {
-  body {
-    font-size: 1rem;
-  }
+// ********** Stilizare butoane personalizate **********
+.btn-custom {
+  border-width: $btn-border-width;
+  border-radius: $btn-border-radius;
 }
 
-@media (min-width: 992px) {
-  body {
-    font-size: 1.1rem;
-  }
+// Pentru toggle buttons (checkbox/radio) nu trebuie să scrii stiluri suplimentare; folosește clasele Bootstrap (ex.: btn-check, btn-outline-primary)
+
+// ********** Customizare input range **********
+// Aplicați clasa "custom-range" la inputurile de tip range în HTML
+.custom-range::-webkit-slider-thumb {
+  width: $custom-range-thumb-width;
+  height: $custom-range-thumb-height;
+  background-color: $custom-range-thumb-bg;
+  border: none;
+  border-radius: 50%;
 }
 
-// Aplicare dimensiuni headinguri
+.custom-range::-moz-range-thumb {
+  width: $custom-range-thumb-width;
+  height: $custom-range-thumb-height;
+  background-color: $custom-range-thumb-bg;
+  border: none;
+  border-radius: 50%;
+}
+
+.custom-range::-webkit-slider-runnable-track {
+  background-color: $custom-range-track-bg;
+}
+
+.custom-range::-moz-range-track {
+  background-color: $custom-range-track-bg;
+}
+
+// ********** Customizare pentru floating labels (textarea) **********
+// Asigură-te că folosești clasa .form-floating în HTML pentru textarea
+.form-floating > label {
+  font-size: 0.9rem;
+  color: $text-color-dark;
+}
+
+// ********** Dimensiuni heading-uri **********
 @each $heading, $size in $heading-font-size {
   #{$heading} {
     font-size: $size;
   }
 }
 
-// Import Bootstrap final pentru a suprascrie setările
-@import "../node_modules/bootstrap/scss/bootstrap";
+// (Opțional) Alte reguli de customizare pot fi adăugate aici
+
+// Notă: De regulă, nu este nevoie să importi Bootstrap a doua oară la final; 
+// importul de la început, cu variabilele setate, este suficient pentru a suprascrie stilurile implicite.
+
+
+// ********** Reguli pentru forțarea lățimii complete în componentele cu clasa .bootstrap-override **********
+// Aceste reguli vor suprascrie (cu !important) eventualele setări de grid din styles.css doar pentru elementele care au clasa .bootstrap-override
+
+.bootstrap-override {
+  display: block !important;
+  width: 100% !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+
+// Reguli pentru pagina de produse – suprascrierea grid-ului din styles.css
+
+/* Suprascrierea setărilor grid din styles.css pentru pagina de produse */
+main.prod-page {
+  display: block !important;       // Forțează elementul <main> să se afișeze ca block (nu grid)
+  grid: none !important;            // Resetează orice proprietate grid
+  grid-template-columns: none !important;
+  grid-template-rows: none !important;
+}

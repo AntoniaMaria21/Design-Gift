@@ -1,3 +1,6 @@
+// ETAPA 4.1 initalizare prin npm init
+// ETAPA 4.2 fisier index server
+
 const express = require("express");
 const path = require("path");
 const fs = require("fs");
@@ -11,6 +14,12 @@ app.set("view engine", "ejs");
 
 app.set("views", path.join(__dirname, "views"));
 
+// Adăugăm conexiunea la PostgreSQL
+const { Pool } = require('pg');
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL || 'postgres://postgres:Timewatch132021!@localhost:5432/postgres'
+});
+
 app.use(express.static(path.join(__dirname, "public")));
 
 global.folderScss = path.join(__dirname, "public", "scss");
@@ -20,9 +29,6 @@ global.folderBackup = path.join(__dirname, "backup");
 app.use("/css", express.static(path.join(__dirname, "public", "css")));
 
 const sharp = require("sharp");
-
-
-
 
 const vect_foldere = [
   "temp", // Folder temporar (nu este utilizat în mod direct în cod, dar poate fi util).
@@ -177,18 +183,36 @@ initErori();
 //   });
 // };
 
-
 const afisareEroare = (res, identificator, titlu, text, imagine, url) => {
+  // Căutăm eroarea corespunzătoare în obGlobal.obErori
   let eroare = obGlobal.obErori.info_erori.find(
     (e) => e.identificator === identificator
   );
-
   if (!eroare) eroare = obGlobal.obErori.eroare_default;
 
+  // Apelăm res.render cu un callback
   res.status(identificator || 500).render("pagini/eroare", {
-    title: `${titlu || eroare.titlu} - ${url || "URL necunoscut"}`, // Adăugăm URL-ul în titlu
-    text: text || eroare.text, 
-    imagine: imagine || eroare.imagine, 
+    title: `${titlu || eroare.titlu} - ${url || "URL necunoscut"}`,
+    text: text || eroare.text,
+    imagine: imagine || eroare.imagine,
+  }, function(err, html) {
+    if (err) {
+      // Dacă eroarea începe cu "Failed to lookup view", afișăm pagina 404
+      console.log("eroare...", err)
+      if (err.message && err.message.startsWith("Failed to lookup view")) {
+        res.status(404).render("pagini/404", { title: "Pagina nu a fost găsită Failed to lookup view" });
+      } else {
+        // Pentru alte erori, afișăm pagina de eroare generică
+        res.status(500).render("pagini/eroare", {
+          title: "Eroare server - Eroare generică",
+          text: "A apărut o eroare neprevăzută. Vă rugăm încercați din nou mai târziu.",
+          imagine: null
+        });
+      }
+    } else {
+      // Dacă nu există erori, trimitem rezultatul randării către client
+      res.send(html);
+    }
   });
 };
 
@@ -198,6 +222,11 @@ app.use((req, res, next) => {
   if (req.path.endsWith(".txt")) {
     return afisareEroare(res, 403, "Acces interzis", "Fișierele .txt nu sunt accesibile.");
   }
+  next();
+});
+
+app.use((req, res, next) => {
+  res.locals.ip = req.ip;  // req.ip va returna, în mod local, "::1" pentru localhost
   next();
 });
 
@@ -216,17 +245,16 @@ async function genereazaImaginedacaNuExista(caleOriginala, caleDestinatie, latim
   }
 }
 
-
 //------------------------------------------
 // Modificăm ruta de start pentru a încărca galeria
 //------------------------------------------
-app.get(["/", "/index", "/home",], async (req, res) => {
+app.get(["/", "/index", "/home"], async (req, res) => {
   try {
     // 1. Citim fișierul JSON pentru galerie
     let obGalerie = JSON.parse(fs.readFileSync("galerie.json", "utf8"));
 
     // 2. Parcurgem imaginile și creăm subfoldere small/medium dacă nu există
-    for(const img of obGalerie.imagini){
+    for (const img of obGalerie.imagini) {
       const caleOriginalAbs = path.join(__dirname, "public", obGalerie.cale_galerie, img.fisier_imagine);
       // Adăugăm "public" fix, la fel și pentru small, medium:
       const caleSmallAbs = path.join(__dirname, "public", obGalerie.cale_galerie, "small", img.fisier_imagine);
@@ -248,13 +276,29 @@ app.get(["/", "/index", "/home",], async (req, res) => {
   }
 });
 
-app.get(["/galerie-statica",], async (req, res) => {
+app.get("/resurse/*", (req, res, next) => {
+  const lastSegment = req.path.split("/").pop();
+  if (lastSegment.indexOf('.') === -1) {
+    return afisareEroare(
+      res,
+      403,
+      "Acces interzis",
+      "Accesul la acest director nu este permis.",
+      null,
+      req.originalUrl
+    );
+  }
+  next();
+});
+
+
+app.get(["/galerie-statica"], async (req, res) => {
   try {
     // 1. Citim fișierul JSON pentru galerie
     let obGalerie = JSON.parse(fs.readFileSync("galerie.json", "utf8"));
 
     // 2. Parcurgem imaginile și creăm subfoldere small/medium dacă nu există
-    for(const img of obGalerie.imagini){
+    for (const img of obGalerie.imagini) {
       const caleOriginalAbs = path.join(__dirname, "public", obGalerie.cale_galerie, img.fisier_imagine);
       // Adăugăm "public" fix, la fel și pentru small, medium:
       const caleSmallAbs = path.join(__dirname, "public", obGalerie.cale_galerie, "small", img.fisier_imagine);
@@ -284,9 +328,46 @@ app.get("/istoric", (req, res) => {
   res.render("pagini/istoric", { title: "Istoric" });
 });
 
-app.get("/produse", (req, res) => {
-  res.render("pagini/produse", { title: "Produse" });
+
+// ********* Ruta /produse actualizată *********
+app.get("/produse", async (req, res) => {
+  try {
+    // Verificăm dacă s-a dat filtrul pe categoria mare din query string (ex: ?categorie=...)
+    let categorieSelectata = req.query.categorie || 'toate';
+
+    // Construim interogarea SQL – dacă se dorește filtrarea pe categorie, adăugăm clauza WHERE
+    let queryText = "SELECT * FROM produse";
+    let queryParams = [];
+    if (categorieSelectata !== 'toate') {
+      queryText += " WHERE categorie_mare = $1";
+      queryParams.push(categorieSelectata);
+    }
+    const result = await pool.query(queryText, queryParams);
+    const produse = result.rows;
+
+    // Preluăm valorile posibile ale categoriei din enumerație (presupunând că enum-ul se numește "categorie_mare_enum")
+    let categorii = [];
+    try {
+      const enumResult = await pool.query("SELECT unnest(enum_range(NULL::categorie_mare_enum)) AS categorie");
+      categorii = enumResult.rows.map(r => r.categorie);
+    } catch (err) {
+      // Dacă interogarea enum nu funcționează, folosim valorile distincte din tabel
+      const catResult = await pool.query("SELECT DISTINCT categorie_mare FROM produse");
+      categorii = catResult.rows.map(r => r.categorie_mare);
+    }
+
+    res.render("pagini/produse", { 
+      title: "Produse", 
+      produse: produse, 
+      categorii: categorii,
+      categorieSelectata: categorieSelectata
+    });
+  } catch (err) {
+    console.error("Eroare la preluarea produselor:", err);
+    afisareEroare(res, 500, "Eroare server", "Nu s-a putut prelua produsele.");
+  }
 });
+// ********* Sfârșit ruta /produse actualizată *********
 
 app.get("/promotii", (req, res) => {
   res.render("pagini/promotii", { title: "Promoții" });
@@ -320,16 +401,13 @@ app.get("/public/*", (req, res, next) => {
   if (req.path.split("/").pop().indexOf(".") === -1) {
     return afisareEroare(res, 403); // Returnăm eroarea `403 - Acces interzis`
   }
-
   next(); // Dacă este un fișier valid, continuăm procesarea cererii.
 });
 
 // COD INITIAL
 // app.get("/*", (req, res) => {
 //   const pagina = req.params[0]; // Ex: "/despre" → "despre"
-
 //   const filePath = path.join(__dirname, "views", "pagini", `${pagina}.ejs`);
-
 //   fs.access(filePath, fs.constants.F_OK, (err) => {
 //     if (err) {
 //       afisareEroare(res, 404);
@@ -341,11 +419,9 @@ app.get("/public/*", (req, res, next) => {
 //   });
 // });
 
-
 app.get("/*", (req, res) => {
   const pagina = req.params[0]; 
   const filePath = path.join(__dirname, "views", "pagini", `${pagina}.ejs`);
-
   fs.access(filePath, fs.constants.F_OK, (err) => {
     if (err) {
       afisareEroare(res, 404, "Pagina nu a fost găsită", `Pagina ${req.originalUrl} nu există.`, null, req.originalUrl);

@@ -1,39 +1,184 @@
 <!DOCTYPE html>
-
 <html lang="ro">
   <head>
-    <!--  Secțiunea care conține metadatele și resursele necesare pentru pagină -->
-
     <%- include("../fragmente/head") %>
-
-    <link rel="stylesheet" href="styles.css" />
-
-    <script src="script.js"></script>
+    <link rel="stylesheet" href="/styles.css">
+    <script src="/script.js" defer></script>
   </head>
-
   <body>
     <%- include("../fragmente/header") %>
-
-    <main>
-      <section id="titlu">
+    
+    <main class="prod-page">
+      <!-- Titlul paginii – folosind container-fluid pentru lățime completă -->
+      <section id="titlu" class="container-fluid my-4 ">
         <h2>Produsele noastre</h2>
       </section>
 
-      <section id="descriere">
-        <p>Descoperă gama noastră de produse personalizate:</p>
+      <!-- Secțiunea de filtre – folosind container-fluid și grid Bootstrap -->
+      <section id="filtre" class="container-fluid mb-4">
+        <h3 class="mb-3">Filtrează Produsele</h3>
+        <div class="row g-3">
+          <!-- Nume (textarea cu floating label) -->
+          <div class="col-12 col-md-4">
+            <div class="form-floating">
+              <textarea class="form-control" placeholder="Introduceți numele produsului" id="filtruNume" style="height: 80px;"></textarea>
+              <label for="filtruNume">Nume (începe cu):</label>
+            </div>
+          </div>
+          <!-- Descriere -->
+          <div class="col-12 col-md-4">
+            <input type="text" class="form-control" id="filtruDescriere" placeholder="Cuvânt cheie">
+          </div>
+          <!-- Preț (input range) -->
+          <div class="col-12 col-md-4">
+            <label for="filtruPret" class="form-label">Preț:</label>
+            <input type="range" class="form-range custom-range" id="filtruPret" min="0" max="1000" value="1000" oninput="document.getElementById('pretVal').textContent = this.value">
+            <div>
+              <span id="pretMin">0</span>
+              <span id="pretVal">(1000)</span>
+              <span id="pretMax">1000</span>
+            </div>
+          </div>
+          <!-- Culoare (input cu datalist) -->
+          <div class="col-12 col-md-4">
+            <input list="listaCulori" class="form-control" id="filtruCuloare" placeholder="Alege culoare">
+            <datalist id="listaCulori">
+              <option value="roșu"></option>
+              <option value="albastru"></option>
+              <option value="verde"></option>
+              <option value="roz"></option>
+              <option value="alb"></option>
+              <option value="maro"></option>
+              <option value="multicolor"></option>
+              <option value="negru"></option>
+            </datalist>
+          </div>
+          <!-- Disponibilitate (radio toggle buttons Bootstrap) -->
+          <div class="col-12 col-md-4">
+            <div class="btn-group" role="group" aria-label="Disponibilitate">
+              <input type="radio" class="btn-check" name="filtruDisp" id="dispOricare" value="oricare" autocomplete="off" checked>
+              <label class="btn btn-outline-primary" for="dispOricare">Oricare</label>
+
+              <input type="radio" class="btn-check" name="filtruDisp" id="dispDa" value="da" autocomplete="off">
+              <label class="btn btn-outline-primary" for="dispDa">Da</label>
+
+              <input type="radio" class="btn-check" name="filtruDisp" id="dispNu" value="nu" autocomplete="off">
+              <label class="btn btn-outline-primary" for="dispNu">Nu</label>
+            </div>
+          </div>
+          <!-- Noutăți (checkbox toggle button) -->
+          <div class="col-12 col-md-4">
+            <div class="form-check form-switch">
+              <input class="form-check-input" type="checkbox" id="filtruNoutati">
+              <label class="form-check-label" for="filtruNoutati">Noutăți</label>
+            </div>
+          </div>
+          <!-- Subcategorie -->
+          <div class="col-12 col-md-4">
+            <select class="form-select" id="filtruSubcategorie">
+              <option value="oricare" selected>Oricare</option>
+              <option value="jurnale">Jurnale</option>
+              <option value="felicitari">Felicitări</option>
+              <option value="cutii">Cutii</option>
+              <option value="cantele">Căni</option>
+              <option value="tricouri">Tricouri</option>
+              <option value="tablouri">Tablouri</option>
+              <option value="giveaway">Give Away</option>
+            </select>
+          </div>
+          <!-- Elemente fabricație (select multiplu) -->
+          <div class="col-12 col-md-4">
+            <select class="form-select" id="filtruIngrediente" multiple>
+              <option value="hartie">Hartie</option>
+              <option value="copertă cartonată">Copertă cartonată</option>
+              <option value="cerneală">Cerneală</option>
+              <option value="cardboard">Cardboard</option>
+              <option value="bandă adezivă">Bandă adezivă</option>
+              <option value="bumbac">Bumbac</option>
+              <option value="ceramică">Ceramică</option>
+              <option value="plastic">Plastic</option>
+            </select>
+          </div>
+          <!-- Butoane de acțiune -->
+          <div class="col-12">
+            <div class="d-grid d-md-flex gap-2">
+              <button type="button" id="btnFiltreaza" class="btn btn-primary btn-custom">
+                <i class="bi bi-filter"></i>
+                <span class="d-none d-md-inline">Filtrează</span>
+              </button>
+              <button type="button" id="btnSortAsc" class="btn btn-secondary btn-custom">
+                <i class="bi bi-sort-alpha-down"></i>
+                <span class="d-none d-md-inline">Sortează Ascendent</span>
+              </button>
+              <button type="button" id="btnSortDesc" class="btn btn-secondary btn-custom">
+                <i class="bi bi-sort-alpha-up-alt"></i>
+                <span class="d-none d-md-inline">Sortează Descendent</span>
+              </button>
+              <button type="button" id="btnCalculeaza" class="btn btn-info btn-custom">
+                <i class="bi bi-calculator"></i>
+                <span class="d-none d-md-inline">Calculează</span>
+              </button>
+              <button type="button" id="btnReset" class="btn btn-danger btn-custom">
+                <i class="bi bi-x-circle"></i>
+                <span class="d-none d-md-inline">Resetare</span>
+              </button>
+            </div>
+          </div>
+        </div>
       </section>
 
-      <section id="lista-produse">
-        <ul>
-          <li>Globuri de Crăciun</li>
-          <li>Tablouri personalizate</li>
-          <li>Căni personalizate</li>
-          <li>Tricouri personalizate</li>
-          <li>Ursuleți de pluș</li>
-        </ul>
+      <!-- Secțiunea de listare a produselor – folosește container-fluid pentru lățime completă -->
+      <section id="produseList" class="container-fluid">
+        <% if (typeof produse !== 'undefined' && produse.length > 0) { %>
+          <% function formatDataRomana(dateStr) { 
+               const date = new Date(dateStr);
+               const days = ["Duminică", "Luni", "Marți", "Miercuri", "Joi", "Vineri", "Sâmbătă"];
+               const months = ["Ianuarie", "Februarie", "Martie", "Aprilie", "Mai", "Iunie", "Iulie", "August", "Septembrie", "Octombrie", "Noiembrie", "Decembrie"];
+               const dayName = days[date.getDay()];
+               const day = date.getDate();
+               const month = months[date.getMonth()];
+               const year = date.getFullYear();
+               return `${dayName}, ${day} ${month} ${year}`;
+          } %>
+          <% produse.forEach(function(produs) { %>
+            <article id="artc-<%= produs.id %>" 
+                     class="produs mb-3 <%= produs.categorie_mare.replace(/\s/g, '').toLowerCase() %>"
+                     data-pret="<%= produs.pret %>" 
+                     data-date="<%= produs.data_adaugare %>" 
+                     data-ratio="<%= (produs.pret > 0 ? (produs.caracteristica_secundara / produs.pret) : 0) %>" 
+                     data-subcategorie="<%= produs.subcategorie.toLowerCase() %>" 
+                     data-ingrediente="<%= produs.ingrediente.toLowerCase() %>"
+                     data-culoare="<%= produs.culoare.toLowerCase() %>"
+                     data-disponibil="<%= produs.disponibil ? 'da' : 'nu' %>">
+              <h3><%= produs.nume %></h3>
+              <div class="produs-container row">
+                <!-- Prima coloană: imagine și detalii -->
+                <div class="col-12 col-md-4 produs-col1">
+                  <img src="<%= produs.cale_imagine.replace('public','') %>" alt="<%= produs.nume %>" class="img-fluid">
+                  <ul class="list-unstyled">
+                    <li><strong class="bg-light p-1">Preț:</strong> <%= produs.pret %></li>
+                    <li><strong class="bg-light p-1">Culoare:</strong> <%= produs.culoare %></li>
+                    <li><strong class="bg-light p-1">Elemente fabricație:</strong> <%= produs.ingrediente %></li>
+                    <li>
+                      <strong class="bg-light p-1">Data adăugare:</strong> 
+                      <time datetime="<%= produs.data_adaugare %>"><%= formatDataRomana(produs.data_adaugare) %></time>
+                    </li>
+                    <li><strong class="bg-light p-1">Disponibil:</strong> <%= produs.disponibil ? "Da" : "Nu" %></li>
+                  </ul>
+                </div>
+                <!-- A doua coloană: categorie și descriere -->
+                <div class="col-12 col-md-8 produs-col2">
+                  <div class="categorie mb-2"><%= produs.categorie_mare %></div>
+                  <div class="descriere"><%= produs.descriere %></div>
+                </div>
+              </div>
+            </article>
+          <% }); %>
+        <% } else { %>
+          <p>Nu s-au găsit produse.</p>
+        <% } %>
       </section>
     </main>
-
     <%- include("../fragmente/footer") %>
   </body>
 </html>

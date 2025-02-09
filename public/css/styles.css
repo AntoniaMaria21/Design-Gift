@@ -857,3 +857,102 @@ video::cue {
     margin-right: 10px;
   }
 }
+
+
+/* ETAPA 6 COD CSS PENTRU TEMA SITE-ULUI */
+
+/* --- Theme Toggle --- */
+/* Tema Dark – când <body> are clasa theme-dark */
+body.theme-dark {
+  --color-primary: #2c3e50;      /* de exemplu, un albastru închis */
+  --color-secondary: #ffdd00;    /* o nuanță contrastantă */
+  --color-text: #f0f0f0;         /* text deschis (alb) */
+  --color-background: #333333;   /* fundal închis */
+  --color-border: #444444;
+  --color-card: #555555;
+  
+  /* Aplică noile variabile pentru întreaga pagină */
+  color: var(--color-text);
+  background-color: var(--color-background);
+}
+
+/* Suprascrie stilurile header-ului pentru tema dark */
+body.theme-dark header {
+  /* Observație: în styles.css header are setat color: var(--color-background), 
+     deci pentru a face textul alb, forțăm să fie var(--color-text) */
+  color: var(--color-text) !important;
+}
+
+/* Suprascrie și alte elemente din header sau nav, dacă este necesar */
+body.theme-dark nav a,
+body.theme-dark .title-container h1 {
+  color: var(--color-text) !important;
+}
+
+/* Păstrează textul din tabele în culori întunecate (de exemplu, #333333) */
+body.theme-dark table,
+body.theme-dark table th,
+body.theme-dark table td {
+  color: #333333 !important;
+}
+
+
+.theme-toggle-btn {
+  position: fixed;
+  top: 4%;
+  right:7%;
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  color: var(--color-text);
+  cursor: pointer;
+  z-index: 9999;
+  transition: color 0.3s ease;
+}
+
+.theme-toggle-btn:hover {
+  color: var(--color-secondary);
+}
+
+/* Suprascrieri pentru meniul din tema dark */
+body.theme-dark nav {
+  background-color: #333333 !important;  /* Fundal închis pentru meniu */
+  color: #f0f0f0 !important;             /* Text deschis */
+}
+
+body.theme-dark nav ul li a {
+  color: #f0f0f0 !important;             /* Linkuri în meniu, text deschis */
+}
+
+body.theme-dark nav ul li a:hover {
+  background-color: #444444 !important; /* Schimbă background la hover */
+  color: #ffd700 !important;            /* Schimbă culoarea textului la hover */
+}
+
+/* Dacă există elemente specifice în submeniuri, le poți suprascrie similar */
+body.theme-dark nav ul ul {
+  background-color: #333333 !important;
+}
+
+/* Suprascrierea culorii pentru tabele, astfel încât textul din tabele să nu devină alb */
+body.theme-dark table,
+body.theme-dark table th,
+body.theme-dark table td {
+  /* Poți seta o culoare specifică, de exemplu, un gri închis sau negru */
+  color: #333333 !important;
+}
+
+
+/* Suprascrierea culorii textului pentru footer în tema dark */
+body.theme-dark footer,
+body.theme-dark footer * {
+  color: var(--color-text) !important;
+}
+
+/* Dacă dorești să excludi anumite elemente (de exemplu, tabelele) din footer,
+   poți specifica excepții. De exemplu, dacă tabelele din footer trebuie să rămână cu text închis, adaugă: */
+body.theme-dark footer table,
+body.theme-dark footer table th,
+body.theme-dark footer table td {
+  color: #333333 !important; /* sau altă culoare dorită pentru textul din tabele */
+}

@@ -1,17 +1,23 @@
-<!-- istoric.ejs
- ETAPA 4 NETERMINATA -->
+
 <!DOCTYPE html>
 <html lang="ro">
   <head>
-    <title>Istoric</title>
-    <link rel="stylesheet" href="/resurse/stiluri/style.css" />
+    <%- include("../fragmente/head") %>
   </head>
   <body>
+    <%- include("../fragmente/header") %>
     <h1>Istoric</h1>
+    <img
+    id="imagine-despre-noi"
+    src="/imagini/despre-noi-small.jpeg"
+    alt="<b>Cadouri personalizate pentru Crăciun</b>"
+  />
     <p>
       Aceasta este pagina de istoric a site-ului nostru. Aici poți afla mai
       multe despre evoluția noastră și momentele importante.
     </p>
     <a href="/">Înapoi la pagina principală</a>
+
+    <%- include("../fragmente/footer") %>
   </body>
 </html>
