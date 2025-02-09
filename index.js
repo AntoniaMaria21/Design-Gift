@@ -20,8 +20,9 @@ const pool = new Pool({
   connectionString: process.env.DATABASE_URL || 'postgres://postgres:Timewatch132021!@localhost:5432/postgres'
 });
 
+// ETAPA 4.6 DEFINIRE PUBLIC CA STATIC
 app.use(express.static(path.join(__dirname, "public")));
-
+ // ETAPA 5.1
 global.folderScss = path.join(__dirname, "public", "scss");
 global.folderCss = path.join(__dirname, "public", "css");
 global.folderBackup = path.join(__dirname, "backup");
@@ -45,6 +46,7 @@ vect_foldere.forEach((folder) => {
   }
 });
 
+ // ETAPA 5.3
 function compileazaScss(caleScss, caleCss) {
   try {
     const inputPath = path.isAbsolute(caleScss)
@@ -96,6 +98,7 @@ function compileazaScss(caleScss, caleCss) {
   }
 }
 
+ // ETAPA 5.2
 function compilareInitiala() {
   const customScssPath = path.join(global.folderScss, "custom.scss");
 
@@ -151,7 +154,7 @@ function setupWatcher() {
 compilareInitiala();
 
 setupWatcher();
-
+// ETAPA 4.13
 const obGlobal = { obErori: null };
 
 const initErori = () => {
@@ -182,7 +185,7 @@ initErori();
 //     imagine: imagine || eroare.imagine, // Imaginea asociată erorii (ex: un simbol de avertizare)
 //   });
 // };
-
+// ETAPA 4.14
 const afisareEroare = (res, identificator, titlu, text, imagine, url) => {
   // Căutăm eroarea corespunzătoare în obGlobal.obErori
   let eroare = obGlobal.obErori.info_erori.find(
@@ -224,7 +227,7 @@ app.use((req, res, next) => {
   }
   next();
 });
-
+// ETAPA 4.16
 app.use((req, res, next) => {
   res.locals.ip = req.ip;  // req.ip va returna, în mod local, "::1" pentru localhost
   next();
@@ -248,6 +251,8 @@ async function genereazaImaginedacaNuExista(caleOriginala, caleDestinatie, latim
 //------------------------------------------
 // Modificăm ruta de start pentru a încărca galeria
 //------------------------------------------
+
+//ETAPA 4.8 
 app.get(["/", "/index", "/home"], async (req, res) => {
   try {
     // 1. Citim fișierul JSON pentru galerie
@@ -275,7 +280,7 @@ app.get(["/", "/index", "/home"], async (req, res) => {
     afisareEroare(res, 500, "Eroare server", "Nu s-a putut încărca galeria.");
   }
 });
-
+// ETAPA 4.17
 app.get("/resurse/*", (req, res, next) => {
   const lastSegment = req.path.split("/").pop();
   if (lastSegment.indexOf('.') === -1) {
@@ -291,7 +296,7 @@ app.get("/resurse/*", (req, res, next) => {
   next();
 });
 
-
+ // ETAPA 5.1
 app.get(["/galerie-statica"], async (req, res) => {
   try {
     // 1. Citim fișierul JSON pentru galerie
@@ -418,6 +423,9 @@ app.get("/public/*", (req, res, next) => {
 //     }
 //   });
 // });
+
+
+// ETAPA 4.9
 
 app.get("/*", (req, res) => {
   const pagina = req.params[0]; 
